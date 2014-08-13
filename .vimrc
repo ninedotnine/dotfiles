@@ -1,6 +1,12 @@
 set number
 set t_Co=256
 set background=dark
+
+" these three lines are for the solarized colour scheme
+let g:solarized_termcolors = 1
+let g:solarized_termtrans = 1
+colorscheme solarized
+
 highlight LineNr ctermfg=brown
 " set hlsearch
 if has("syntax")
@@ -16,23 +22,38 @@ set wrap linebreak
 "set autoindent
 set smartindent
 
+" prevents vim from garbling pasted text with indentation
+" also seems to cause freezes though...
+" set paste
+
 " this doesn't seem to work...
 "map <MiddleMouse> <Nop>
-nnoremap Q q
+
+" i think i meant "command Q q" because i wanted to quit with :Q
+" it probably had nothing to do with macros
+" nnoremap Q q
 nnoremap Y y$
 "imap <c-t> the 
 
+command Q q
+command W w
+
 " these are all set in /etc/vimrc anyway...
-"set expandtab
-"set tabstop=4
-"set sw=4
+" no they aren't
+set expandtab
+set tabstop=4
+set sw=4
 
 "allow backspacing over everything in insert mode
+"this stuff is set in /usr/share/vim/vimfiles/archlinux.vim
 "set backspace=indent,eol,start
+
+set ruler
+"set history=50
 
 " by default, vim keeps backup files in the same dir as the working file.
 " much better to keep them somewhere else, yes?
-"set backupdir=~/backups/vim
+set directory=~/.vim/backups
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -44,6 +65,9 @@ nnoremap Y y$
 "set autowrite          " Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 "set mouse=a            " Enable mouse usage (all modes)
+
+" compile and display a latex file
+" noremap <c-b> :! pdflatexandevince % <CR> <CR>
 
 " these two functions are to integrate dmenu
 " thanks dude: http://leafo.net/posts/using_dmenu_to_open_quickly.html
@@ -63,4 +87,24 @@ function! DmenuOpen(cmd)
 endfunction
 
 noremap <c-t> :call DmenuOpen("tabe")<cr>
-noremap <c-e> :call DmenuOpen("e")<cr>
+" noremap <c-e> :call DmenuOpen("e")<cr>
+
+" automatically comment out lines 
+au FileType haskell,vhdl,ada let b:comment_leader = '-- '
+au FileType c,cpp,java,javascript let b:comment_leader = '// '
+au FileType bash,sh,python,perl,make,conf let b:comment_leader = '# '
+au FileType vim let b:comment_leader = '" '
+au FileType tex let b:comment_leader = '% '
+noremap <silent> g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
+noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
+
+" these lines are to make the current line number highlighted
+hi clear CursorLine
+augroup CLClear
+    autocmd! ColorScheme * hi clear CursorLine
+augroup END
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+set cursorline
