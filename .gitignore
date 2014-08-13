@@ -1,3 +1,10 @@
 *
 !.gitignore
 !.vimrc
+!.xinitrc
+!.bashrc
+!.zshrc
+!.screenrc
+!.bash_profile
+!.config/transmission-daemon/settings.json
+!.config/hexchat/hexchat.conf
