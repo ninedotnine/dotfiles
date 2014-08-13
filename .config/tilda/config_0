@@ -1,5 +1,4 @@
 tilda_config_version = "0.9.6"
-image = "/home/dan/fedora/pictures/wallpapers/fantasy-ocean.jpg"
 # command = ""
 font = "Monospace 11"
 key = "F1"
