@@ -1,5 +1,8 @@
 # for weechat
 term screen-256color
 
+# i want the bell to be audible so dwm highlights its tag
+# note that i don't actually want to hear the bell, ever...
+vbell off
 
 startup_message off
