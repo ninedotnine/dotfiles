@@ -2,9 +2,15 @@
 !.gitignore
 !.vimrc
 !.xinitrc
+!.Xresources
 !.bashrc
-!.zshrc
-!.screenrc
 !.bash_profile
+!.zshrc
+!.zprofile
+!.screenrc
 !.config/transmission-daemon/settings.json
 !.config/hexchat/hexchat.conf
+!.config/tilda/config_*
+!.weechat/weechat.conf
+!.ghc/ghci.conf
+!dwm/config.h
