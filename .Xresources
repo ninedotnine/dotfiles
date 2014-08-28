@@ -44,6 +44,10 @@ URxvt.foreground: Cyan
 ! background color (prior to tinting) (default is white)
 ! URxvt*background: Black
 
+! inconsolata fonts are nice... previously, dejavu was uncommented
+URxvt.font:               xft:Inconsolata:style=Semibold:pixelsize=15:antialias=true:hinting=slight
+URxvt.boldFont:           xft:Inconsolata:style=bold:pixelsize=15:antialias=true:hinting=slight
+
 ! Xft (X FreeType) with Bitstream, DejaVu, Liberation, or Terminus fonts:
 !  Fedora/debian packages: libXft/libxft2 
 !  An anti-aliased font setup with Xft looks fantastic; it can be a bit choppy 
@@ -57,8 +61,9 @@ URxvt.foreground: Cyan
 
 ! Xft: DejaVu fonts
 !  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+! URxvt.font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+! URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
 !
 ! Xft: Liberation fonts
 !  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
@@ -67,8 +72,8 @@ URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=tr
 !
 ! Xft: Terminus fonts
 !  Fedora/debian packages: terminus-fonts/xfonts-terminus
-!URxvt*font: xft:terminus:pixelsize=15
-!URxvt*boldFont: xft:terminus:bold:pixelsize=15
+! URxvt*font: xft:terminus:pixelsize=15
+! URxvt*boldFont: xft:terminus:bold:pixelsize=15
 
 ! Traditional fonts - a more traditional font setup in lieu of xft
 !URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
