@@ -1,3 +1,5 @@
+# check out /etc/skel/.screenrc for examples
+
 # for weechat
 term screen-256color
 
