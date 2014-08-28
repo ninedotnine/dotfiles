@@ -1,6 +1,25 @@
+" more configs in /etc/vimrc and /usr/share/vim/vimfils
+
+set nocompatible
 set number
 set t_Co=256
 set background=dark
+
+" new stuff, aug 21 2014
+set ttyfast   " this might improve performance, iono
+set showmatch   " matching brackets and stuff
+set scrolloff=10 " keep 10 lines of context above and below cursor
+set smartcase
+
+" Allows writing to files with root priviledges
+" eeehhhhh...
+cmap w!! w !sudo tee % > /dev/null
+
+" colours after 80 chars
+" set colorcolumn=81
+" set columns=81
+" whatever
+" end of new stuff, aug 21 2014
 
 " these three lines are for the solarized colour scheme
 let g:solarized_termcolors = 1
@@ -33,7 +52,6 @@ set smartindent
 " it probably had nothing to do with macros
 " nnoremap Q q
 nnoremap Y y$
-"imap <c-t> the 
 
 command Q q
 command W w
@@ -44,30 +62,41 @@ set expandtab
 set tabstop=4
 set sw=4
 
+"this stuff is also set in /usr/share/vim/vimfiles/archlinux.vim
 "allow backspacing over everything in insert mode
-"this stuff is set in /usr/share/vim/vimfiles/archlinux.vim
-"set backspace=indent,eol,start
+" set backspace=indent,eol,start
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+" set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
 
-set ruler
-"set history=50
+
+" set ruler
+" set history=20
 
 " by default, vim keeps backup files in the same dir as the working file.
 " much better to keep them somewhere else, yes?
+set backupdir=~/.vim/backups
 set directory=~/.vim/backups
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-"set showcmd            " Show (partial) command in status line.
-"set showmatch          " Show matching brackets.
-"set ignorecase         " Do case insensitive matching
-"set smartcase          " Do smart case matching
-"set incsearch          " Incremental search
-"set autowrite          " Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-"set mouse=a            " Enable mouse usage (all modes)
+set showcmd            " Show (partial) command in status line.
+" set showmatch          " Show matching brackets.
+" set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching
+set incsearch          " Incremental search
+" set autowrite          " Automatically save before commands like :next and :make
+" set hidden             " Hide buffers when they are abandoned
+set mouse=nv            " Enable mouse usage, but not in insert mode
 
 " compile and display a latex file
 " noremap <c-b> :! pdflatexandevince % <CR> <CR>
+
+" abbreviations, these are pretty cool
+abbreviate #d #define
+abbreviate #i #include
+abbreviate Wall {-# OPTIONS_GHC -Wall #-}
+abbreviate LANGUAGE {-# LANGUAGE #-}
 
 " these two functions are to integrate dmenu
 " thanks dude: http://leafo.net/posts/using_dmenu_to_open_quickly.html
