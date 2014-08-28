@@ -49,6 +49,14 @@ RPROMPT="%(?.%{$fg[magenta]%}♥0♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color
 # face instead of 0 exit status
 # RPROMPT="%(?.%{$fg[magenta]%}♥(° ͜ʖ°)♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color%}"
 
+# disable software flow control, prevents ^S from blocking until ^Q is sent
+if [ "$TERM" != "linux" ]; then
+    stty -ixon
+fi
+
+# allow ctrl+n to work like tab, similar to vim
+bindkey "^N" expand-or-complete
+
 # aliases
 
 alias ls="ls -h --color=auto"
@@ -56,7 +64,11 @@ alias mv="mv -i"
 alias rm="rm -I"
 alias view="vi -R"
 
+alias irc="exec screen -raAd"
+
 alias gcc99="gcc -std=c99 -Wall -pedantic"
+# once more, with optimizations
+alias ogcc99="gcc -std=c99 -Wall -pedantic -O2 -s"
 
 # show ls on every dir change
 function chpwd() {
