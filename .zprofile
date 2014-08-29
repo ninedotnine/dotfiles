@@ -1,8 +1,7 @@
 # ~/.zprofile
 
-echo "in progress:" 
-echo "git dmenu-launcher" 
-echo "maybe hacking on sort from coreutils" 
+echo "[1;31m >[1;33m(.)__ [1;31m >[1;33m(.)__ [1;31m >[1;33m(.)__ [1;39m quack!"
+echo "[1;33m  (___/   (___/   (___/  [1;35m"
 
 
 # start x server on tty1, also other things
