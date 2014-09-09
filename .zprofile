@@ -1,7 +1,10 @@
 # ~/.zprofile
 
-echo "[1;31m >[1;33m(.)__ [1;31m >[1;33m(.)__ [1;31m >[1;33m(.)__ [1;39m quack!"
-echo "[1;33m  (___/   (___/   (___/  [1;35m"
+# echo "[1;31m >[1;33m(.)__ [1;31m >[1;33m(.)__ [1;31m >[1;33m(.)__ [1;39m quack!"
+# echo "[1;33m  (___/   (___/   (___/  [1;35m"
+# echo "in progress:" 
+# echo "git dmenu-launcher" 
+echo -n "[1;36m"
 
 
 # start x server on tty1, also other things
