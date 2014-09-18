@@ -59,7 +59,7 @@ bindkey "^N" expand-or-complete
 
 # aliases
 
-alias ls="ls -hA --color=auto"
+alias ls="ls -hFA --color=auto"
 alias mv="mv -i"
 alias rm="rm -I"
 alias view="vi -R"
