@@ -9,11 +9,10 @@ set background=dark
 set ttyfast   " this might improve performance, iono
 set showmatch   " matching brackets and stuff
 set scrolloff=7 " keep 7 lines of context above and below cursor
-set smartcase
 
 " Allows writing to files with root priviledges
 " eeehhhhh...
-cmap w!! w !sudo tee % > /dev/null
+" cmap w!! w !sudo tee % > /dev/null
 
 " colours after 80 chars
 " set colorcolumn=81
