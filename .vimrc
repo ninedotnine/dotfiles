@@ -1,4 +1,4 @@
-" more configs in /etc/vimrc and /usr/share/vim/vimfils
+" more configs in /etc/vimrc and /usr/share/vim/vimfiles
 
 set nocompatible
 set number
@@ -8,7 +8,7 @@ set background=dark
 " new stuff, aug 21 2014
 set ttyfast   " this might improve performance, iono
 set showmatch   " matching brackets and stuff
-set scrolloff=10 " keep 10 lines of context above and below cursor
+set scrolloff=7 " keep 7 lines of context above and below cursor
 set smartcase
 
 " Allows writing to files with root priviledges
@@ -108,7 +108,7 @@ endfunction
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
     let fname = Chomp(system("find . | dmenu -i -l 20 -p " . a:cmd))
-    "let fname = Chomp(system("ls -1 | dmenu -i -l 20 -p " . a:cmd))
+"     let fname = Chomp(system("ls -1 | dmenu -i -l 20 -p " . a:cmd))
     if empty(fname)
         return
     endif
