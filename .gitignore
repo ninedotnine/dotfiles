@@ -1,6 +1,7 @@
 *
 !.gitignore
 !.vimrc
+!.inputrc
 !.xinitrc
 !.Xresources
 !.bashrc
