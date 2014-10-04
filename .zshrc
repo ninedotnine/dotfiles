@@ -56,6 +56,9 @@ fi
 
 # allow ctrl+n to work like tab, similar to vim
 bindkey "^N" expand-or-complete
+# allow backspace to work even after command mode
+bindkey '^?' backward-delete-char
+
 
 # aliases
 
@@ -86,3 +89,34 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# this is supposed to change the prompt when the vi input mode changes
+# function zle-line-init zle-keymap-select {
+    # VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    # RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+    # zle reset-prompt
+# }
+# zle -N zle-line-init
+# zle -N zle-keymap-select
+
+# set window title to show currently running command
+# show screen differently
+# if [ "$TERM" = "rxvt-unicode-256color" ]; then
+precmd () {
+    # vcs_info # what does this even do?
+    # print -Pn "\e]0;[%n@%M][%~]%#\a"
+    print -Pn "\e]0;%~ »\a"
+}
+preexec () {
+    # print -Pn "\e]0;[%n@%M][%~]%# ($1)\a"
+    print -Pn "\e]0;%~: $1\a"
+}
+if [ "$STY" ]; then 
+# elif [ "$TERM" = "screen-256color" ]; then 
+    precmd () {
+        print -Pn "\e]0;[screen] %~\a"
+    }
+    preexec () {
+        print -Pn "\e]0;[screen] %~: $1\a"
+    }
+fi
