@@ -44,6 +44,9 @@ xset fp rehash
 
 #/home/dan/bin/dwm/pkg/usr/bin/dwm
 
+# i always start this anyway...
+thunderbird &
+
 while true; do
     dwm >> /tmp/dwm.log 2>&1 
 done 
