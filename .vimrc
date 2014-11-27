@@ -123,6 +123,9 @@ au FileType c,cpp,java,javascript let b:comment_leader = '// '
 au FileType bash,sh,python,perl,make,conf let b:comment_leader = '# '
 au FileType vim let b:comment_leader = '" '
 au FileType tex let b:comment_leader = '% '
+if !exists("b:comment_leader") 
+    let b:comment_leader = '# ' " a sane default 
+endif
 noremap <silent> g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
