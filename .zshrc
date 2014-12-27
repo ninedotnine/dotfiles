@@ -30,14 +30,7 @@ setopt prompt_subst
 #PROMPT='%{$fg[blue]%}[%D{%d/%m/%y} %T]%{$reset_color%} %(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m%{$reset_color%} %{$fg[magenta]%}[%(!.%1~.%~)]%{$reset_color%} 
 #PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 #%{$fg[blue]%}>>%{$reset_color%} '
-# $STY will be set if zsh is running in an instance of screen
-if [ "$STY" ]; then
-    PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m-screen [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
-%{$fg[blue]%}»%{$reset_color%} '
-else
-    PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
-%{$fg[blue]%}»%{$reset_color%} '
-fi
+
 RPROMPT="%(?.%{$fg[magenta]%}♥0♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color%}"
 # this one is red whether exit is zero or nonzero
 #RPROMPT="%{$fg[red]%} %(?.♥0♥.%Sψ☭%?☭ψ%s)%{$reset_color%}"
@@ -93,14 +86,26 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# this is supposed to change the prompt when the vi input mode changes
-# function zle-line-init zle-keymap-select {
-    # VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    # RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
-    # zle reset-prompt
-# }
-# zle -N zle-line-init
-# zle -N zle-keymap-select
+# $STY will be set if zsh is running in an instance of screen
+if [ "$STY" ]; then
+    SCREEN="-screen"
+else
+    SCREEN=""
+fi
+
+PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+%{$fg[blue]%}»%{$reset_color%} '
+PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+%{$fg[blue]%}$%{$reset_color%} '
+
+# this is changes the prompt when the vi input mode changes
+function zle-line-init zle-keymap-select {
+    PS1="${${KEYMAP/vicmd/$PROMPTCMD}/(main|viins)/$PROMPTINS}"
+#     PS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # set window title to show currently running command
 # show screen differently
