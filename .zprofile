@@ -4,7 +4,7 @@
 # echo "[1;33m  (___/   (___/   (___/  [1;35m"
 # echo "in progress:" 
 # echo "git dmenu-launcher" 
-echo -n "[1;36m"
+# echo -n "[1;36m"
 
 # coloured man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
