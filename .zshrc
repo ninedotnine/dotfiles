@@ -135,3 +135,7 @@ if [ "$STY" ]; then
         print -Pn "\e]0;[screen] %~: $1\a"
     }
 fi
+
+# append lines to history as they are entered
+setopt INC_APPEND_HISTORY
+setopt HIST_REDUCE_BLANKS
