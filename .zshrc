@@ -93,10 +93,17 @@ else
     SCREEN=""
 fi
 
-PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+interface=$(tty | cut -c 6-)
+
+PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}$%{$reset_color%} '
+
+# PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+# %{$fg[blue]%}»%{$reset_color%} '
+# PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+# %{$fg[blue]%}$%{$reset_color%} '
 
 # this is changes the prompt when the vi input mode changes
 function zle-line-init zle-keymap-select {
