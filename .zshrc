@@ -95,9 +95,11 @@ fi
 
 interface=$(tty | cut -c 6-)
 
-PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+. ~/.zsh_git_prompt
+
+PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface $(git_prompt_string) [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface $(git_prompt_string) [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}$%{$reset_color%} '
 
 # PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
@@ -139,3 +141,9 @@ fi
 # append lines to history as they are entered
 setopt INC_APPEND_HISTORY
 setopt HIST_REDUCE_BLANKS
+
+# . ~/.zsh_git_prompt
+# RPS1='$(git_prompt_string)'
+# PROMPTINS="$PROMPTINS $(git_prompt_string)"
+# PROMPTCMD="$PROMPTCMD $(git_prompt_string)"
+
