@@ -103,7 +103,7 @@ static const char *mpcstop[] = { "mpc", "stop", "--quiet", NULL};
 static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
-static const char *statuscmd[] = { "dwm-status", NULL};
+static const char *statuscmd[] = { "dwm-status", "--update", NULL};
 /* other */
 // static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
@@ -169,6 +169,10 @@ static Key keys[] = {
 //     { MODKEY,         XK_w,                    spawn,          {.v = wallpaper} },
     { MODKEY,         XK_w,                    spawn,          SHCMD("$HOME/bin/wallpaper-updater") },
     { MODKEY|ShiftMask,XK_w,                   spawn,          {.v = statuscmd} },
+    // my tab key is getting worn out! :(
+	{ MODKEY,         XK_apostrophe,            view,           {0} },
+// 	{ MODKEY,         XK_F1,                   view,           {0} },
+// 	{ MODKEY,         XK_semicolon,            view,           {0} },
 };
 
 /* button definitions */

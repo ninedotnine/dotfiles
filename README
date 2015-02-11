@@ -1,0 +1,7 @@
+this is a repository containing all my dotfiles, most notably including 
+.vimrc and .zshrc.
+
+i've moved the repository out of my home directory. git would commit 
+symlinks if i used them, so i used hard links instead. take that, git.
+
+this is hosted on both bitbucket and github
