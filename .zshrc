@@ -21,6 +21,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# source ~/.zprofile
+
 autoload -U colors && colors
 #autoload -U promptinit
 ##promptinit
@@ -58,7 +60,8 @@ bindkey '^?' backward-delete-char
 alias ls="ls -hFA --color=auto"
 alias mv="mv -i"
 alias rm="rm -I"
-alias view="vi -R"
+alias view="vim -R"
+alias vi="vim"
 
 alias strings="strings --all"
 
@@ -93,9 +96,13 @@ else
     SCREEN=""
 fi
 
-PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+interface=$(tty | cut -c 6-)
+
+. ~/.zsh_git_prompt
+
+PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface $(git_prompt_string) [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREEN $interface $(git_prompt_string) [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}$%{$reset_color%} '
 
 # this is changes the prompt when the vi input mode changes
