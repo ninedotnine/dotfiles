@@ -21,6 +21,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# source ~/.zprofile
+
 autoload -U colors && colors
 #autoload -U promptinit
 ##promptinit
@@ -58,8 +60,9 @@ bindkey '^?' backward-delete-char
 alias ls="ls -hFA --color=auto"
 alias mv="mv -i"
 alias rm="rm -I"
-alias view="vi -R"
 alias less="less --quit-at-eof --LONG-PROMPT --RAW-CONTROL-CHARS"
+alias view="vim -R"
+alias vi="vim"
 
 alias strings="strings --all"
 
