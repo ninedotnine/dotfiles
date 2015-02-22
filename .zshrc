@@ -59,6 +59,7 @@ alias ls="ls -hFA --color=auto"
 alias mv="mv -i"
 alias rm="rm -I"
 alias view="vi -R"
+alias less="less --quit-at-eof --LONG-PROMPT --RAW-CONTROL-CHARS"
 
 alias strings="strings --all"
 
