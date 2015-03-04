@@ -2,10 +2,13 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# PS1='[\u@\h \W]\$ '
 
 # If not running interactively, don't do anything
 # [[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+# PS1='[\u@\h \W]\$ '
+
 case $- in
     *i*) ;;
       *) return;;
@@ -104,5 +107,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-source ~/dotfiles/.bashrc
