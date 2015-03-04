@@ -52,7 +52,7 @@ set smartindent
 " nnoremap Q q
 nnoremap Y y$
 
-command Q q
+command Q qall
 command W w
 
 " these are all set in /etc/vimrc anyway...
