@@ -6,7 +6,6 @@
 urxvtd -q -o -f
 
 # dwm-status >> /tmp/dwm-status.log 2>&1 &
-# ~/bin/dwmstatus --daemon
 # ~/bin/c/dwm-status.d/testing-dwmstatus --daemon
 # dwm-status --daemon
 dwmstatus --daemon
@@ -28,7 +27,9 @@ xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 #xset s 1500
 
 # i always start this anyway...
-# thunderbird &
+if [[ "$HOSTNAME" = "arch" ]]; then
+    thunderbird &
+fi
 
 # while true; do
 #     dwm >> /tmp/dwm.log 2>&1 
