@@ -103,13 +103,18 @@ static const char *mpcstop[] = { "mpc", "stop", "--quiet", NULL};
 static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
-static const char *statuscmd[] = { "dwm-status", "--update", NULL};
+static const char *statuscmd[] = { "dwmstatus", "--update", NULL};
 /* other */
 // static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
 static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
 static const char *wallpaper[] = { "wallpaper-updater", NULL};
+
+static const char *touchpadoff[] = { "xinput", "set-int-prop", "13", "Device Enabled", "8", "0", NULL}; 
+// xinput set-int-prop 13 "Device Enabled" 8 0
+static const char *touchpadon[] = { "xinput", "set-int-prop", "13", "Device Enabled", "8", "1", NULL};
+// xinput set-int-prop 13 "Device Enabled" 8 1
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -169,6 +174,9 @@ static Key keys[] = {
 //     { MODKEY,         XK_w,                    spawn,          {.v = wallpaper} },
     { MODKEY,         XK_w,                    spawn,          SHCMD("$HOME/bin/wallpaper-updater") },
     { MODKEY|ShiftMask,XK_w,                   spawn,          {.v = statuscmd} },
+    // touchpad
+    { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
+    { MODKEY|ShiftMask,XK_z,                   spawn,          {.v = touchpadon}  },
     // my tab key is getting worn out! :(
 	{ MODKEY,         XK_apostrophe,            view,           {0} },
 // 	{ MODKEY,         XK_F1,                   view,           {0} },
