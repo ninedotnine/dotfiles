@@ -56,7 +56,6 @@ bindkey "^N" expand-or-complete
 # allow backspace to work even after command mode
 bindkey '^?' backward-delete-char
 
-
 # aliases
 
 alias ls="ls -hFA --color=auto"
