@@ -103,7 +103,7 @@ static const char *mpcstop[] = { "mpc", "stop", "--quiet", NULL};
 static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
-static const char *statuscmd[] = { "dwm-status", "--update", NULL};
+static const char *statuscmd[] = { "dwmstatus", "--update", NULL};
 /* other */
 // static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
