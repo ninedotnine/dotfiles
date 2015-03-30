@@ -137,3 +137,5 @@ if [ "$STY" ]; then
         print -Pn "\e]0;[screen] %~: $1\a"
     }
 fi
+
+source ~/dotfiles/.gradlestuff
