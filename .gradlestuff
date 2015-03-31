@@ -1,0 +1,9 @@
+export CLASSPATH="$HOME/teams/build/classes/main$CLASSPATH"
+
+function gb() {
+    pushd . > /dev/null
+    # you might have to adjust this line below
+    cd "$HOME/405/teams/" > /dev/null
+    ./gradlew build "$@"
+    popd > /dev/null
+}
