@@ -38,6 +38,7 @@ bindkey "^N" expand-or-complete
 bindkey '^?' backward-delete-char
 
 # aliases
+
 alias ls="ls -hFA --color=auto"
 alias mv="mv -i"
 alias rm="rm -I"
@@ -45,8 +46,11 @@ alias vi="vim -p"
 alias vim="vim -p"
 alias view="vim -R"
 alias less="less --quit-at-eof --LONG-PROMPT --RAW-CONTROL-CHARS"
+
 alias strings="strings --all"
+
 alias irc="exec screen -raAd"
+
 alias gcc99="gcc -std=c99 -Wall -pedantic"
 # once more, with optimizations
 alias ogcc99="gcc -std=c99 -Wall -pedantic -O2 -s"
