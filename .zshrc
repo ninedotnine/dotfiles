@@ -87,9 +87,9 @@ interface=$(tty | cut -c 6-)
 
 . ~/.zsh_git_prompt
 
-PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREENPROMPT $interface $(git_prompt_string) [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+PROMPTINS='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREENPROMPT $interface $(git_prompt_string) %{$fg_bold[green]%}[%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREENPROMPT $interface $(git_prompt_string) [%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
+PROMPTCMD='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m$SCREENPROMPT $interface $(git_prompt_string) %{$fg_bold[green]%}[%{$reset_color%}%{$fg[magenta]%}%(!.%1~.%~)%{$reset_color%}%{$fg_bold[red]%}%{$fg_bold[green]%}]
 %{$fg[blue]%}$%{$reset_color%} '
 
 # this is changes the prompt when the vi input mode changes
