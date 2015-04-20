@@ -22,5 +22,9 @@ if [ $(tty) = '/dev/tty1' ]; then
     # sudo connect
     # run gpg daemon for pass
     eval $(gpg-agent --daemon)
-    exec startx
+    if [ "$HOST" = "multivac" ]; then
+        startx
+    else
+        exec startx
+    fi
 fi
