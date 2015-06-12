@@ -21,7 +21,8 @@ if [ $(tty) = '/dev/tty1' ]; then
     # sudo wifi-menu
     # sudo connect
     # run gpg daemon for pass
-    eval $(gpg-agent --daemon)
+    # i think pass will start this if necessary
+#     eval $(gpg-agent --daemon) 
     if [ "$HOST" = "multivac" ]; then
         startx
     else
