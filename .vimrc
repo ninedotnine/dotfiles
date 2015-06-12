@@ -49,6 +49,7 @@ set smartindent
 
 " i think i meant "command Q q" because i wanted to quit with :Q
 " it probably had nothing to do with macros
+" it was probably to stop accidentally entering ex mode
 " nnoremap Q q
 nnoremap Y y$
 nnoremap <space> :
