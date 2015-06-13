@@ -97,6 +97,7 @@ static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *upvol[] = { "amixer", "set", "Master", "3+", "-q", NULL};
 static const char *downvol[] = { "amixer", "set", "Master", "3-", "-q", NULL};
 static const char *mutevol[] = { "amixer", "set", "Master", "toggle", "-q", NULL};
+
 /* mpc controls */
 static const char *mpctoggle[] = { "mpc", "toggle", "--quiet", NULL};
 static const char *mpcstop[] = { "mpc", "stop", "--quiet", NULL};
@@ -104,6 +105,7 @@ static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
 static const char *statuscmd[] = { "dwmstatus", "--update", NULL};
+
 /* other */
 // static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
@@ -111,6 +113,10 @@ static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
 static const char *wallpaper[] = { "wallpaper-updater", NULL};
 
+/* middle click */
+static const char *middleclick[] = { "xdotool", "click", "2", NULL}; 
+
+/* enable or disable the touchpad */
 static const char *touchpadoff[] = { "xinput", "--disable", "DLL064D:00 06CB:2985", NULL}; 
 // static const char *touchpadoff[] = { "xinput", "set-int-prop", "13", "Device Enabled", "8", "0", NULL}; 
 // xinput set-int-prop 13 "Device Enabled" 8 0
