@@ -49,10 +49,13 @@ set smartindent
 
 " i think i meant "command Q q" because i wanted to quit with :Q
 " it probably had nothing to do with macros
+" it was probably to stop accidentally entering ex mode
 " nnoremap Q q
 nnoremap Y y$
+nnoremap <space> :
+nnoremap Q :
 
-command Q q
+command Q qall
 command W w
 
 " these are all set in /etc/vimrc anyway...
@@ -120,7 +123,7 @@ noremap <c-t> :call DmenuOpen("tabe")<cr>
 " automatically comment out lines 
 au FileType haskell,vhdl,ada let b:comment_leader = '-- '
 au FileType c,cpp,java,javascript let b:comment_leader = '// '
-au FileType bash,sh,python,perl,make,conf let b:comment_leader = '# '
+au FileType bash,zsh,sh,python,perl,make,conf,gitcommit let b:comment_leader = '# '
 au FileType vim let b:comment_leader = '" '
 au FileType tex let b:comment_leader = '% '
 if !exists("b:comment_leader") 
@@ -139,3 +142,6 @@ augroup CLNRSet
     autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
 set cursorline
+
+nnoremap <F4> :diffu<CR>
+nnoremap <F12> :so $MYVIMRC<CR>
