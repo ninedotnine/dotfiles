@@ -2,6 +2,7 @@
 
 set nocompatible
 set number
+" set relativenumber
 set t_Co=256
 set background=dark
 
@@ -55,6 +56,8 @@ nnoremap Y y$
 nnoremap <space> :
 nnoremap Q :
 
+" command causes vim to explode when i reload $MYVIMRC
+" find another way!
 command Q qall
 command W w
 
@@ -131,6 +134,8 @@ if !exists("b:comment_leader")
 endif
 noremap <silent> g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
+" nnoremap g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
+" nnoremap g- :<C-B>sil <C-E>s/^/V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
 " these lines are to make the current line number highlighted
 hi clear CursorLine
@@ -145,3 +150,6 @@ set cursorline
 
 nnoremap <F4> :diffu<CR>
 nnoremap <F12> :so $MYVIMRC<CR>
+
+" save whenever focus is lost
+:au FocusLost * silent! wa
