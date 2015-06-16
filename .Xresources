@@ -97,22 +97,19 @@ URxvt.scrollBar: false
 !URxvt*scrollstyle: rxvt
 
 ! disable perl extensions completely
-URxvt.perl-ext:
-URxvt.perl-ext-common:
+! URxvt.perl-ext:
+! URxvt.perl-ext-common:
 
 ! shit past this line is experimental ---------------------------------------
 
 ! this makes a bell highlight the tag, maybe? 
 URxvt.urgentOnBell: true
 
-! open links, experimental
-! doesnt work at all :(
-! URxvt*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine
-! URxvt*perl-ext-common: default,matcher,option-popup,selection-popup,realine
-! URxvt*perl-ext-common: default,matcher
-! URxvt*matcher.button: 1
-! URxvt*urlLauncher: /usr/bin/firefox
-! URxvt.urlLauncher: /usr/bin/xdg-open
+! open links with one mouse click
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
 
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
