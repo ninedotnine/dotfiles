@@ -153,3 +153,5 @@ nnoremap <F12> :so $MYVIMRC<CR>
 
 " save whenever focus is lost
 :au FocusLost * silent! wa
+
+nnoremap <F2> :r! earlget 
