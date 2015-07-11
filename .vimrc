@@ -30,7 +30,7 @@ highlight LineNr ctermfg=brown
 " set hlsearch
 if has("syntax")
     syntax on
-    "set textwidth=80
+    set textwidth=80
 else
     set spell
     "set wrapmargin=14
