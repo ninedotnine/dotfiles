@@ -1,0 +1,71 @@
+# store message headers locally to speed things up
+set header_cache = ~/.mutt/hcache
+
+# specify where to save and/or look for postponed messages
+set postponed =+Drafts
+
+# allow mutt to open new imap connection automatically
+unset imap_passive
+
+set sort=threads
+set pager_index_lines=5#You might want to increase this
+set pager_context=1
+set index_format='%4C %Z %{%b %d} %-15.15F (%4l) %s'
+
+#Different colors for different levels of quoting
+color quoted    magenta         black
+color quoted1   blue            black
+color quoted2   red             black
+color quoted3   yellow          black
+color quoted4   cyan            black
+color quoted5   blue            black
+color quoted6   magenta         black
+color quoted7   red             black
+color quoted8   yellow          black
+color quoted9   cyan            black
+color signature blue            default
+
+# Palette for use with the Linux console.  Black background.
+color hdrdefault blue black
+color quoted blue black
+color signature blue black
+color attachment red black
+color prompt brightmagenta black
+color message brightred black
+color error brightred black
+color indicator black red
+color status magenta default
+color tree white default
+color normal white default
+color markers red black
+color search white black
+color tilde brightmagenta black
+color index blue default ~F
+# color index red default "~O"
+# color index brightred default "~O"
+color index magenta default "~O"
+color index brightyellow default "~N"
+color index brightgreen default ~Q
+color index brightred default ~D
+
+# color body brightwhite black '\*+[^*]+\*+'
+# color body brightwhite black '_+[^_]+_+'
+
+# remap keys to behave more like vim
+bind index \cd half-down
+bind index \cu half-up
+bind index G last-entry
+bind index H current-top
+bind index M current-middle
+bind index L current-bottom
+
+# automatically include message in reply
+set include=yes
+
+# contacts are managed by aliases
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+source "~/.mutt/credentials"
