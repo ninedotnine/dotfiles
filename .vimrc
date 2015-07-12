@@ -75,7 +75,7 @@ set sw=4
 " set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
 
 
-" set ruler
+set ruler
 " set history=20
 
 " by default, vim keeps backup files in the same dir as the working file.
