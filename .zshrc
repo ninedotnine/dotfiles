@@ -54,7 +54,7 @@ alias irc="exec screen -raAd"
 alias gcc99="gcc -std=c99 -Wall -pedantic"
 # once more, with optimizations
 alias ogcc99="gcc -std=c99 -Wall -pedantic -O2 -s"
-alias oghc="ghc -Wall -O2" # this should also strip but that's harder
+alias oghc="ghc -dynamic -Wall -O2" # this should also strip but that's harder
 
 # show ls on every dir change
 function chpwd() {
