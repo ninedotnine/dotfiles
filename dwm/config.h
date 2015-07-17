@@ -211,7 +211,7 @@ static Button buttons[] = {
 	{ ClkRootWin,           0,              Button1,        spawn,          {.v = termcmd } },
 	{ ClkRootWin,           0,              Button3,        spawn,          {.v = wallpaper } },
 // 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button1,        middleclick,    {0} },
+    { ClkClientWin,         MODKEY,         Button1,        spawn,          {.v = middleclick } },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
