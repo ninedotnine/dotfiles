@@ -111,7 +111,7 @@ static const char *upbright[] = { "brighten", NULL};
 static const char *downbright[] = { "brighten", "-d", NULL};
 
 /* other */
-// static const char *whine[] = { "zenity", "--warning", NULL};
+static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
 static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
@@ -210,8 +210,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button1,        spawn,          {.v = statuscmd } },
 	{ ClkRootWin,           0,              Button1,        spawn,          {.v = termcmd } },
 	{ ClkRootWin,           0,              Button3,        spawn,          {.v = wallpaper } },
-// 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-    { ClkClientWin,         MODKEY,         Button1,        spawn,          {.v = middleclick } },
+	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
