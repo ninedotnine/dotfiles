@@ -106,6 +106,10 @@ static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
 static const char *statuscmd[] = { "dwmstatus", "--update", NULL};
 
+/* screen brightness */
+static const char *upbright[] = { "brighten", NULL};
+static const char *downbright[] = { "brighten", "-d", NULL};
+
 /* other */
 // static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
@@ -182,6 +186,10 @@ static Key keys[] = {
 //     { MODKEY,         XK_w,                    spawn,          {.v = wallpaper} },
     { MODKEY,         XK_w,                    spawn,          SHCMD("$HOME/bin/wallpaper-updater") },
     { MODKEY|ShiftMask,XK_w,                   spawn,          {.v = statuscmd} },
+    // brightness
+
+    { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
+    { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
     // touchpad
     { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
     { MODKEY|ShiftMask,XK_z,                   spawn,          {.v = touchpadon}  },
