@@ -8,12 +8,7 @@ set background=dark
 
 " new stuff, aug 21 2014
 set ttyfast   " this might improve performance, iono
-set showmatch   " matching brackets and stuff
 set scrolloff=7 " keep 7 lines of context above and below cursor
-
-" Allows writing to files with root priviledges
-" eeehhhhh...
-" cmap w!! w !sudo tee % > /dev/null
 
 " colours after 80 chars
 " set colorcolumn=81
@@ -38,15 +33,8 @@ endif
 
 filetype indent on
 set wrap linebreak
-"set autoindent
+set autoindent
 set smartindent
-
-" prevents vim from garbling pasted text with indentation
-" also seems to cause freezes though...
-" set paste
-
-" this doesn't seem to work...
-"map <MiddleMouse> <Nop>
 
 " i think i meant "command Q q" because i wanted to quit with :Q
 " it probably had nothing to do with macros
@@ -88,7 +76,7 @@ set directory=~/.vim/backups
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set showcmd            " Show (partial) command in status line.
-" set showmatch          " Show matching brackets.
+set showmatch          " Show matching brackets.
 set ignorecase         " Do case insensitive matching
 set smartcase          " Do smart case matching
 set incsearch          " Incremental search
@@ -145,13 +133,6 @@ hi clear CursorLine
 hi clear CursorLineNR
 hi LineNr ctermfg=magenta
 hi CursorLineNR cterm=bolditalic ctermfg=93
-" hi CursorLine cterm=italic
-" augroup CLClear
-"     autocmd! ColorScheme * hi clear CursorLine
-" augroup END
-" augroup CLNRSet
-"     autocmd! ColorScheme * hi CursorLineNR cterm=bold
-" augroup END
 set cursorline
 set nocursorcolumn
 
