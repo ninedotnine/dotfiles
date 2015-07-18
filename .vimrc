@@ -139,14 +139,19 @@ noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>/
 
 " these lines are to make the current line number highlighted
 hi clear CursorLine
+hi clear CursorLineNR
+hi clear LineNr
+hi LineNr ctermfg=magenta
 augroup CLClear
     autocmd! ColorScheme * hi clear CursorLine
 augroup END
-hi CursorLineNR cterm=bold
+hi CursorLineNR cterm=bolditalic ctermfg=93
+" hi CursorLine ctermbg=red
 augroup CLNRSet
     autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
 set cursorline
+set nocursorcolumn
 
 nnoremap <F4> :diffu<CR>
 nnoremap <F12> :so $MYVIMRC<CR>
