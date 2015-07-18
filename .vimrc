@@ -57,9 +57,9 @@ nnoremap <space> :
 nnoremap Q :
 
 " command causes vim to explode when i reload $MYVIMRC
-" find another way!
-command Q qall
-command W w
+" ! forces overwrite of whatever the command was before
+command! Q qall
+command! W w
 
 " these are all set in /etc/vimrc anyway...
 " no they aren't
