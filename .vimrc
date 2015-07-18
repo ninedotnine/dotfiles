@@ -74,6 +74,8 @@ set sw=4
 " These are files we are not likely to want to edit or read.
 " set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
 
+" these files are always ignored by vim because i won't ever want to edit them.
+set wildignore=*.o,*.obj,*.hi,*.png,*.jpg
 
 set ruler
 " set history=20
