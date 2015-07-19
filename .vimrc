@@ -73,6 +73,14 @@ set ruler
 set backupdir=~/.vim/backups
 set directory=~/.vim/backups
 
+" persistent undo, allows undoing after exiting vim
+set undodir=~/.vim/undo
+set undofile
+
+" disable persistent undo for files stored in /tmp or ~/tmp
+au BufWritePre /tmp/* setlocal noundofile
+au BufWritePre ~/tmp/* setlocal noundofile
+
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set showcmd            " Show (partial) command in status line.
