@@ -81,7 +81,8 @@ fi
 
 setopt prompt_subst
 
-RPROMPT="%(?.%{$fg[magenta]%}♥0♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color%}"
+# %F{xxx} generates any of 256 colours
+RPROMPT="%(?.%F{125}♥0♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color%}"
 
 interface=$(tty | cut -c 6-)
 
