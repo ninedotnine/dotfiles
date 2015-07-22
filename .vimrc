@@ -150,6 +150,7 @@ if $TERM == "xterm-256color"
     set background=light
     hi clear LineNr
     hi clear CursorLine
+    set hlsearch
 endif
 
 
