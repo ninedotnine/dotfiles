@@ -144,6 +144,15 @@ hi CursorLineNR cterm=bolditalic ctermfg=93
 set cursorline
 set nocursorcolumn
 
+
+" different higlhights for st
+if $TERM == "xterm-256color"
+    set background=light
+    hi clear LineNr
+    hi clear CursorLine
+endif
+
+
 nnoremap <F4> :diffu<CR>
 nnoremap <F12> :so $MYVIMRC<CR>
 
