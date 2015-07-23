@@ -33,7 +33,7 @@ color attachment red black
 color prompt brightmagenta black
 color message brightred black
 color error brightred black
-color indicator black red
+color indicator default black
 color status magenta default
 color tree white default
 color normal white default
@@ -44,7 +44,8 @@ color index blue default ~F
 # color index red default "~O"
 # color index brightred default "~O"
 color index magenta default "~O"
-color index brightyellow default "~N"
+# color index brightyellow default "~N"
+color index brightmagenta default "~N"
 color index brightgreen default ~Q
 color index brightred default ~D
 
