@@ -2,7 +2,12 @@
 set header_cache = ~/.mutt/hcache
 
 # specify where to save and/or look for postponed messages
-set postponed =+Drafts
+# set postponed =+Drafts
+
+set folder="$HOME/mail"
+set record="+sent"
+set mbox="+mbox"
+set postponed="+drafts"
 
 # allow mutt to open new imap connection automatically
 unset imap_passive
