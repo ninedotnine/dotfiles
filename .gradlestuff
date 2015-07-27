@@ -1,4 +1,4 @@
-export CLASSPATH="$HOME/teams/build/classes/main$CLASSPATH"
+export CLASSPATH="$HOME/405/teams/build/classes/main$CLASSPATH"
 
 function gb() {
     pushd . > /dev/null
