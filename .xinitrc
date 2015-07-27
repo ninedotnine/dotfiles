@@ -6,7 +6,7 @@
 urxvtd -q -o -f
 
 # dwm-status >> /tmp/dwm-status.log 2>&1 &
-dwmstatus --daemon
+dwmstatus --daemon 2>> /tmp/dwmstatus.log
 
 tilda > /dev/null 2>&1 &
 
