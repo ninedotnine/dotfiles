@@ -35,11 +35,6 @@ URxvt.shading: 185
 ! scrollback buffer lines - 65535 is max on most machines (64 is default)
 URxvt.saveLines: 900
 
-! font color (default is black)
-URxvt.foreground: Cyan
-! URxvt.foreground: White
-! URxvt.foreground: Green
-! URxvt.fadeColor: Black
 ! URxvt.fading: 50
 
 ! background color (prior to tinting) (default is white)
@@ -158,6 +153,9 @@ URxvt.matcher.button: 1
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
+
+! font color (default is black)
+URxvt.foreground: S_orange
 
 !! black dark/light
 *color0:                S_base02
