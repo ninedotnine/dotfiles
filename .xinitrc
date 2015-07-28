@@ -5,8 +5,7 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 urxvtd -q -o -f
 
-# dwm-status >> /tmp/dwm-status.log 2>&1 &
-dwmstatus --daemon 2>> /tmp/dwmstatus.log
+dwmstatus --daemon
 
 tilda > /dev/null 2>&1 &
 
