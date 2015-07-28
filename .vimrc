@@ -127,6 +127,7 @@ au FileType c,cpp,java,javascript let b:comment_leader = '// '
 au FileType bash,zsh,sh,python,perl,make,conf,gitcommit let b:comment_leader = '# '
 au FileType vim let b:comment_leader = '" '
 au FileType tex let b:comment_leader = '% '
+au FileType fortran,xdefaults let b:comment_leader = '! '
 if !exists("b:comment_leader") 
     let b:comment_leader = '# ' " a sane default 
 endif
