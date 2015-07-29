@@ -145,6 +145,12 @@ hi CursorLineNR cterm=bolditalic ctermfg=93
 set cursorline
 set nocursorcolumn
 
+" highlights for the tab bar
+:hi clear TabLine
+:hi clear TabLineFill
+:hi clear TabLineSel
+:hi TabLineSel cterm=bolditalic ctermfg=124
+:hi TabLine ctermfg=brown
 
 " different higlhights for st
 if $TERM == "xterm-256color"
