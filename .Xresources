@@ -29,8 +29,8 @@ URxvt.depth: 32
 ! native transparency (used if no compositor)
 ! shading - 0 to 99 darkens, 101 to 200 lightens.
 !   Dont use with tintColor; just use a darker or lighter color instead.
-! URxvt.shading: 20
-URxvt.shading: 185
+URxvt.shading: 20
+! URxvt.shading: 185
 
 ! scrollback buffer lines - 65535 is max on most machines (64 is default)
 URxvt.saveLines: 900
