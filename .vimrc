@@ -108,6 +108,9 @@ function! Chomp(str)
     return substitute(a:str, '\n$', '', '')
 endfunction
 
+" open file under cursor in new tab
+noremap gf gf
+
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
     let fname = Chomp(system("find . | dmenu -i -l 20 -p " . a:cmd))
