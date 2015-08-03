@@ -123,11 +123,7 @@ static const char *middleclick[] = { "xdotool", "click", "2", NULL};
 
 /* enable or disable the touchpad */
 static const char *touchpadoff[] = { "xinput", "--disable", "DLL064D:00 06CB:2985", NULL}; 
-// static const char *touchpadoff[] = { "xinput", "set-int-prop", "13", "Device Enabled", "8", "0", NULL}; 
-// xinput set-int-prop 13 "Device Enabled" 8 0
 static const char *touchpadon[] = { "xinput", "--enable", "DLL064D:00 06CB:2985", NULL}; 
-// static const char *touchpadon[] = { "xinput", "set-int-prop", "13", "Device Enabled", "8", "1", NULL};
-// xinput set-int-prop 13 "Device Enabled" 8 1
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
