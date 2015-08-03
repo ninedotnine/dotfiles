@@ -8,7 +8,7 @@ set background=dark
 
 " new stuff, aug 21 2014
 set ttyfast   " this might improve performance, iono
-set scrolloff=7 " keep 7 lines of context above and below cursor
+set scrolloff=5 " keep 5 lines of context above and below cursor
 
 " colours after 80 chars
 " set colorcolumn=81
