@@ -74,7 +74,7 @@ interface=$(tty | cut -c 6-)
 PROMPTINS='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} '
 PROMPTCMD='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
-%{$fg[blue]%}$%{$reset_color%} '
+%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} '
 
 # this is changes the prompt when the vi input mode changes
 function zle-line-init zle-keymap-select {
