@@ -52,6 +52,7 @@ alias strings="strings --all"
 alias irc="exec screen -raAd"
 
 alias gcc99="gcc -std=c99 -Wall -pedantic"
+alias ghc="ghc -dynamic" # this improves the performance of the linker
 # once more, with optimizations
 alias ogcc99="gcc -std=c99 -Wall -pedantic -O2 -s"
 alias oghc="ghc -dynamic -Wall -O2" # this should also strip but that's harder
