@@ -58,7 +58,7 @@ export GPG_TTY
 
 # $STY will be set if zsh is running in an instance of screen
 if [ "$STY" ]; then
-    SCREENPROMPT="-screen"
+    SCREENPROMPT="-$reset_color$fg[yellow]screen$fg_bold[magenta]"
     SCREENTITLE="[screen] "
 fi
 
