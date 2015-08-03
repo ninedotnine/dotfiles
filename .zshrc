@@ -37,25 +37,7 @@ bindkey "^N" expand-or-complete
 # allow backspace to work even after command mode
 bindkey '^?' backward-delete-char
 
-# aliases
-
-alias ls="ls -hFA --color=auto"
-alias mv="mv -i"
-alias rm="rm -I"
-alias vi="vim -p"
-alias vim="vim -p"
-alias view="vim -R"
-alias less="less --quit-at-eof --LONG-PROMPT --RAW-CONTROL-CHARS"
-
-alias strings="strings --all"
-
-alias irc="exec screen -raAd"
-
-alias gcc99="gcc -std=c99 -Wall -pedantic"
-alias ghc="ghc -dynamic" # this improves the performance of the linker
-# once more, with optimizations
-alias ogcc99="gcc -std=c99 -Wall -pedantic -O2 -s"
-alias oghc="ghc -dynamic -Wall -O2" # this should also strip but that's harder
+source "$HOME/dotfiles/.aliases"
 
 # show ls on every dir change
 function chpwd() {
