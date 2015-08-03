@@ -10,10 +10,10 @@ dwmstatus --daemon
 tilda > /dev/null 2>&1 &
 
 # compositing manager, makes shit transparent
-# xcompmgr & 
+xcompmgr & 
 
 # hides the mouse when not in use
-unclutter -noevents -idle 5 &
+unclutter -noevents -idle 5 -not "tilda" &
 
 # remap caps lock to be an escape key
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
