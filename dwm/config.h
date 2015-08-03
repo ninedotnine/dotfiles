@@ -64,7 +64,7 @@ static const Rule rules[] = {
 // static const float mfact      = 0.5513; /* 79 chars wide for urxvt with inconsolata */
 static const float mfact      = 0.4913; /* 79 chars wide for urxvt with inconsolata */
 static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
+static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
