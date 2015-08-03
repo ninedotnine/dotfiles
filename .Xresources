@@ -75,22 +75,12 @@ URxvt.boldFont:           xft:Inconsolata:style=bold:pixelsize=15:antialias=true
 !URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
 !URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
 
-! Replace blue folder colors with a lighter shade for clarity. To
-!  set colored folders and files within urxvt, xterm, and aterm, add
-!  the following line to your ~/.bashrc ($HOME/.bashrc) file under
-!  the heading "# User specific aliases and functions":
-!   alias ls="ls -h --color=auto"
+! Replace blue folder colors with a lighter shade for clarity.
 URxvt.color4: RoyalBlue
 URxvt.color12: RoyalBlue
 
 ! scrollbar - true (default) or false
 URxvt.scrollBar: false
-
-! scrollbar position - left=false (default) or right=true
-!URxvt*scrollBar_right: false
-
-! scrollbar style - rxvt (default), plain, next, or xterm
-!URxvt*scrollstyle: rxvt
 
 ! disable perl extensions completely
 ! URxvt.perl-ext:
