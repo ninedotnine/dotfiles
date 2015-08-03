@@ -49,7 +49,7 @@ static const Rule rules[] = {
 // 	{ "Firefox",  NULL,       "Firefox Preferences",1 << 8,True,     -1 },
 	{ NULL,       NULL,  "Firefox Preferences",1 << 8,  True,        -1 },
 	{ "opera",    NULL,       NULL,       1 << 7,       False,       -1 },
-	{ "Tilda",    NULL,       NULL,       0,            True,        -1 },
+	{ "Tilda",    NULL,       NULL,       ~0,           True,        -1 },
 	{ "Thunderbird", NULL,    NULL,       1 << 8,       False,       -1 },
 	{ "Hexchat",  NULL,       NULL,       1 << 7,       False,       -1 },
 	{ NULL,       NULL,       "WeeChat",  1 << 7,       False,       -1 },
