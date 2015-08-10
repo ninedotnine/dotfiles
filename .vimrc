@@ -92,6 +92,9 @@ set incsearch          " Incremental search
 " set hidden             " Hide buffers when they are abandoned
 set mouse=nv            " Enable mouse usage, but not in insert mode
 
+" this might fix the slow O problem
+set ttimeoutlen=100
+
 " compile and display a latex file
 " noremap <c-b> :! pdflatexandevince % <CR> <CR>
 
