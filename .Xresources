@@ -65,10 +65,6 @@ URxvt.boldFont:           xft:Inconsolata:style=bold:pixelsize=15:antialias=true
 !URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
 !URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
 
-! Replace blue folder colors with a lighter shade for clarity.
-URxvt.color4: RoyalBlue
-URxvt.color12: RoyalBlue
-
 ! scrollbar - true (default) or false
 URxvt.scrollBar: false
 
@@ -156,6 +152,8 @@ URxvt.foreground: S_orange
 !! blue dark/light
 *color4:                S_blue
 *color12:               S_base0
+URxvt.color4:           S_blue
+URxvt.color12:          RoyalBlue
 
 !! magenta dark/light
 *color5:                S_magenta
