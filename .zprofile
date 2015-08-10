@@ -17,12 +17,9 @@ export BROWSER="firefox"
 # basically i use this for stuff i only want to run once,
 # even if i log in multiple times
 if [ $(tty) = '/dev/tty1' ]; then
-    # connect to wireless network
-    # sudo wifi-menu
-    # sudo connect
-    # run gpg daemon for pass
-    # i think pass will start this if necessary
-#     eval $(gpg-agent --daemon) 
+    if [[ "$HOSTNAME" = "arch" ]]; then
+        setdate
+    fi
     if [ "$HOST" = "multivac" ]; then
         startx
     else
