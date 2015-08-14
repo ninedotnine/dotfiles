@@ -76,12 +76,14 @@ set backupdir=~/.vim/backups
 set directory=~/.vim/backups
 
 " persistent undo, allows undoing after exiting vim
-set undodir=~/.vim/undo
-set undofile
+if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
 
-" disable persistent undo for files stored in /tmp or ~/tmp
-au BufWritePre /tmp/* setlocal noundofile
-au BufWritePre ~/tmp/* setlocal noundofile
+    " disable persistent undo for files stored in /tmp or ~/tmp
+    au BufWritePre /tmp/* setlocal noundofile
+    au BufWritePre ~/tmp/* setlocal noundofile
+endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
