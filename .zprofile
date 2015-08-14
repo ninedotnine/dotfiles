@@ -11,6 +11,7 @@ export LESS_TERMCAP_us=$'\E[01;35m'
 
 export PATH="/home/dan/bin/:$PATH"
 export EDITOR="vim"
+export PAGER="less"
 export BROWSER="firefox"
 
 # start x server on tty1, also other things
