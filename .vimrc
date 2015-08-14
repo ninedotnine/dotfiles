@@ -131,6 +131,9 @@ endfunction
 noremap <c-t> :call DmenuOpen("tabe")<cr>
 " noremap <c-e> :call DmenuOpen("e")<cr>
 
+" open help in a vertical split on the left
+autocmd FileType help wincmd L
+
 " automatically comment out lines 
 au FileType haskell,vhdl,ada let b:comment_leader = '-- '
 au FileType c,cpp,java,javascript let b:comment_leader = '// '
