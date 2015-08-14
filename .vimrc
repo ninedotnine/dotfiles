@@ -25,7 +25,6 @@ let g:solarized_termcolors = 1
 let g:solarized_termtrans = 1
 colorscheme solarized
 
-highlight LineNr ctermfg=brown
 if has("syntax")
     syntax on
 "     set textwidth=79
