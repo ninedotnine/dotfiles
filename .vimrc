@@ -179,4 +179,4 @@ au FocusLost * silent! wa
 nnoremap <F2> :r! earlget 
 
 " if writing mail, set the spellchecker to F7 (-e for email syntax)
-autocmd FileType mail :nmap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR> 
+autocmd FileType mail :nnoremap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR> 
