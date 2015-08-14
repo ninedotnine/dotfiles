@@ -10,6 +10,10 @@ set background=dark
 set ttyfast   " this might improve performance, iono
 set scrolloff=5 " keep 5 lines of context above and below cursor
 
+" Clear highlighting from screen
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+set hlsearch
+
 " colours after 80 chars
 " set colorcolumn=81
 " set columns=81
@@ -22,7 +26,6 @@ let g:solarized_termtrans = 1
 colorscheme solarized
 
 highlight LineNr ctermfg=brown
-" set hlsearch
 if has("syntax")
     syntax on
 "     set textwidth=79
