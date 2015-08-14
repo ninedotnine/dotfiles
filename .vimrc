@@ -121,7 +121,7 @@ noremap gf gf
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
     let fname = Chomp(system("find . | dmenu -i -l 20 -p " . a:cmd))
-"     let fname = Chomp(system("ls -1 | dmenu -i -l 20 -p " . a:cmd))
+"     let fname = Chomp(system("ls -A1 | dmenu -i -l 20 -p " . a:cmd))
     if empty(fname)
         return
     endif
