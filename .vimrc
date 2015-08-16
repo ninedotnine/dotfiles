@@ -29,6 +29,8 @@ set incsearch          " Incremental search
 " set hidden             " Hide buffers when they are abandoned
 set mouse=nv            " Enable mouse usage, but not in insert mode
 
+set nomodeline          " don't try to read vim settings from a file
+
 set history=20
 
 set ttyfast   " this might improve performance, iono
