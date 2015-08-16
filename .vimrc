@@ -1,14 +1,38 @@
 " more configs in /etc/vimrc and /usr/share/vim/vimfiles
 
 set nocompatible
-set number
 " set relativenumber
+set number
+set ruler
+set scrolloff=5 " keep 5 lines of context above and below cursor
+
 set t_Co=256
 set background=dark
 
-" new stuff, aug 21 2014
+filetype indent on
+set wrap linebreak
+set autoindent
+set smartindent
+
+set expandtab
+set tabstop=4 
+set sw=4
+ 
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching
+set incsearch          " Incremental search
+" set autowrite          " Automatically save before commands like :next and :make
+" set hidden             " Hide buffers when they are abandoned
+set mouse=nv            " Enable mouse usage, but not in insert mode
+
+set history=20
+
 set ttyfast   " this might improve performance, iono
-set scrolloff=5 " keep 5 lines of context above and below cursor
+
+" this might fix the slow O problem
+set ttimeoutlen=100
 
 " Clear highlighting from screen
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
@@ -33,15 +57,6 @@ else
     "set wrapmargin=14
 endif
 
-filetype indent on
-set wrap linebreak
-set autoindent
-set smartindent
-
-" i think i meant "command Q q" because i wanted to quit with :Q
-" it probably had nothing to do with macros
-" it was probably to stop accidentally entering ex mode
-" nnoremap Q q
 nnoremap Y y$
 nnoremap <space> :
 nnoremap Q :
@@ -51,15 +66,10 @@ nnoremap Q :
 command! Q qall
 command! W w
 
-" these are all set in /etc/vimrc anyway...
-" no they aren't
-set expandtab
-set tabstop=4
-set sw=4
 
 "this stuff is also set in /usr/share/vim/vimfiles/archlinux.vim
 "allow backspacing over everything in insert mode
-" set backspace=indent,eol,start
+set backspace=indent,eol,start
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 " set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
@@ -67,8 +77,6 @@ set sw=4
 " these files are always ignored by vim because i won't ever want to edit them.
 set wildignore=*.o,*.obj,*.hi,*.png,*.jpg
 
-set ruler
-" set history=20
 
 " by default, vim keeps backup files in the same dir as the working file.
 " much better to keep them somewhere else, yes?
@@ -84,20 +92,6 @@ if has('persistent_undo')
     au BufWritePre /tmp/* setlocal noundofile
     au BufWritePre ~/tmp/* setlocal noundofile
 endif
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd            " Show (partial) command in status line.
-set showmatch          " Show matching brackets.
-set ignorecase         " Do case insensitive matching
-set smartcase          " Do smart case matching
-set incsearch          " Incremental search
-" set autowrite          " Automatically save before commands like :next and :make
-" set hidden             " Hide buffers when they are abandoned
-set mouse=nv            " Enable mouse usage, but not in insert mode
-
-" this might fix the slow O problem
-set ttimeoutlen=100
 
 " compile and display a latex file
 " noremap <c-b> :! pdflatexandevince % <CR> <CR>
@@ -149,7 +143,7 @@ noremap <silent> g- :sil s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh
 " nnoremap g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 " nnoremap g- :<C-B>sil <C-E>s/^/V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
-" these lines are to make the current line number highlighted
+" highlight current line number 
 hi clear LineNr
 hi clear CursorLine
 hi clear CursorLineNR
@@ -159,11 +153,11 @@ set cursorline
 set nocursorcolumn
 
 " highlights for the tab bar
-:hi clear TabLine
-:hi clear TabLineFill
-:hi clear TabLineSel
-:hi TabLineSel cterm=bolditalic ctermfg=124
-:hi TabLine ctermfg=brown
+hi clear TabLine
+hi clear TabLineFill
+hi clear TabLineSel
+hi TabLineSel cterm=bolditalic ctermfg=124
+hi TabLine ctermfg=brown
 
 " different higlhights for st
 if $TERM == "xterm-256color"
@@ -172,7 +166,6 @@ if $TERM == "xterm-256color"
     hi clear CursorLine
     set hlsearch
 endif
-
 
 nnoremap <F4> :diffu<CR>
 nnoremap <F12> :so $MYVIMRC<CR>
