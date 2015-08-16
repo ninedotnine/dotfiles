@@ -69,7 +69,7 @@ RPROMPT="%(?.%F{125}♥0♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color%}"
 
 interface=$(tty | cut -c 6-)
 
-. ~/.zsh_git_prompt
+. ~/dotfiles/.zsh_git_prompt
 
 PROMPTINS='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} '
