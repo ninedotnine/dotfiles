@@ -1,6 +1,10 @@
 # store message headers locally to speed things up
 set header_cache = ~/.mutt/hcache
 
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+bind attach <return> view-mailcap
+
 # specify where to save and/or look for postponed messages
 # set postponed =+Drafts
 
@@ -11,6 +15,8 @@ set postponed="+drafts"
 
 # allow mutt to open new imap connection automatically
 unset imap_passive
+
+set beep_new
 
 set sort=threads
 set pager_index_lines=5#You might want to increase this
