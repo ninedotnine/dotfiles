@@ -70,6 +70,8 @@ bind index G last-entry
 bind index H current-top
 bind index M current-middle
 bind index L current-bottom
+bind index N search-opposite
+bind index  toggle-new
 
 # automatically include message in reply
 set include=yes
