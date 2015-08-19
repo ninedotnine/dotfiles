@@ -17,7 +17,7 @@ set smartindent
 set expandtab
 set tabstop=4 
 set sw=4
- 
+
 set wildmenu           " better command-line completion
 set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
@@ -176,6 +176,9 @@ nnoremap <F12> :so $MYVIMRC<CR>
 
 " save whenever focus is lost
 au FocusLost * silent! wa
+
+" before saving, delete spaces on otherwise empty lines
+autocmd BufWritePre * silent! :%s/^\s\+$//
 
 nnoremap <F2> :r! earlget 
 
