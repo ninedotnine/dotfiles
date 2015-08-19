@@ -7,8 +7,6 @@ autoload -U colors && colors # Enable colors in prompt
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±%{$reset_color%}"
 GIT_PROMPT_PREFIX="%{$fg_bold[green]%}[%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg_bold[green]%}]%{$reset_color%}"
-GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
-GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
 GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}u%{$reset_color%}"
 GIT_PROMPT_MODIFIED="%{$fg_bold[red]%}m%{$reset_color%}"
