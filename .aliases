@@ -30,3 +30,4 @@ alias oghc="ghc -dynamic -Wall -O2" # this should also strip but that's harder
 #   sleep 10; alert
 alias alert="echo -ne '\a'"
 
+alias lab="ssh soucydi194@137.143.158.1"
