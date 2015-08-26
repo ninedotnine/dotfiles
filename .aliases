@@ -30,4 +30,8 @@ alias oghc="ghc -dynamic -Wall -O2" # this should also strip but that's harder
 #   sleep 10; alert
 alias alert="echo -ne '\a'"
 
+if [ "$HOST" = "multivac" ]; then
+    alias mplayer="mplayer -vo sdl"
+else
+
 alias lab="ssh soucydi194@137.143.158.1"
