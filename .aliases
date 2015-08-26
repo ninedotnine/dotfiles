@@ -32,6 +32,6 @@ alias alert="echo -ne '\a'"
 
 if [ "$HOST" = "multivac" ]; then
     alias mplayer="mplayer -vo sdl"
-else
+fi
 
 alias lab="ssh soucydi194@137.143.158.1"
