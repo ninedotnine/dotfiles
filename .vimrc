@@ -22,7 +22,6 @@ set wildmenu           " better command-line completion
 set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
 set ignorecase         " Do case insensitive matching
-set infercase         " make keyword completion smartly handle case sensitivity
 set smartcase          " Do smart case matching
 set incsearch          " Incremental search
 " set autowrite       " Automatically save before commands like :next and :make
