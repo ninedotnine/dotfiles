@@ -112,14 +112,14 @@ static const char *upbright[] = { "brighten", NULL};
 static const char *downbright[] = { "brighten", "-d", NULL};
 
 /* other */
-static const char *whine[] = { "zenity", "--warning", NULL};
+// static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
 static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
 static const char *wallpaper[] = { "wallpaper-updater", NULL};
 
 /* middle click */
-static const char *middleclick[] = { "xdotool", "click", "2", NULL}; 
+// static const char *middleclick[] = { "xdotool", "click", "2", NULL}; 
 
 /* enable or disable the touchpad */
 static const char *touchpadoff[] = { "xinput", "--disable", "DLL064D:00 06CB:2985", NULL}; 
