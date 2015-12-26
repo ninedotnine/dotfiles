@@ -21,16 +21,17 @@ static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 // static const char font[]            = "-*-urw gothic l-*-r-*-*-*-*-*-*-*-*-*-*"; // really big though
 */ // end of kinda cute
 
-// static const char normbordercolor[] = "#444444";
-static const char normbordercolor[] = "#000000";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-// static const char selbordercolor[]  = "#005577";
+static const char normbordercolor[] = "#444444"; // grey
+// static const char normbordercolor[] = "#000000"; // black (no border)
 static const char selbordercolor[]  = "#E80572"; // magenta
+// static const char selbordercolor[]  = "#005577";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#a7a9ac"; // grey
 // static const char selbgcolor[]      = "#005577"; // default blue
-// static const char selbgcolor[]      = "#570000"; // maroon
+static const char selbgcolor[]      = "#570000"; // maroon
 // static const char selbgcolor[]      = "#4A003F"; // deep purple
-static const char selbgcolor[]      = "#004675"; // blue
+// static const char selbgcolor[]      = "#6f0054"; // deep purple
+// static const char selbgcolor[]      = "#004675"; // blue
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
