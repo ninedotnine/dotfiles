@@ -38,6 +38,8 @@ urxvtc &
 
 firefox &
 
+eval "$(gpg-agent --daemon)"
+
 while true; do
     dwm >> /tmp/dwm.log 2>&1 
 done 

@@ -92,4 +92,4 @@ preexec () {
     print -Pn "\e]0;$SCREENTITLE%~: $1\a"
 }
 
-source ~/dotfiles/.gradlestuff
+# source ~/dotfiles/.gradlestuff
