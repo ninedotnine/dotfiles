@@ -18,12 +18,14 @@ export BROWSER="firefox"
 # basically i use this for stuff i only want to run once,
 # even if i log in multiple times
 if [ $(tty) = '/dev/tty1' ]; then
-    if [[ "$HOSTNAME" = "arch" ]]; then
-        setdate
-    fi
     if [ "$HOST" = "multivac" ]; then
+        eval "$(gpg-agent --daemon)"
         startx
     else
         exec startx
     fi
+    if [[ "$HOSTNAME" = "arch" ]]; then
+        setdate
+    fi
 fi
+

@@ -34,13 +34,10 @@ if [[ "$HOSTNAME" = "arch" ]]; then
     thunderbird &
 fi
 
-urxvtc &
+urxvtc
 
 firefox &
-
-eval "$(gpg-agent --daemon)"
 
 while true; do
     dwm >> /tmp/dwm.log 2>&1 
 done 
-# exec dwm >> /tmp/dwm.log 2>&1
