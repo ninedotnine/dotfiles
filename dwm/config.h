@@ -113,7 +113,7 @@ static const char *upbright[] = { "brighten", NULL};
 static const char *downbright[] = { "brighten", "-d", NULL};
 
 /* other */
-// static const char *whine[] = { "zenity", "--warning", NULL};
+static const char *whine[] = { "zenity", "--warning", NULL};
 static const char *browser[] = { "firefox", NULL};
 static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
@@ -171,8 +171,10 @@ static Key keys[] = {
     { 0,              XF86XK_AudioPlay,        spawn,          {.v = mpctoggle} },
     { MODKEY,         XF86XK_AudioPlay,        spawn,          {.v = songinfo} },
     { 0,              XF86XK_AudioStop,        spawn,          {.v = mpcstop} },
-    { 0,              XF86XK_AudioPrev,        spawn,          {.v = mpcprev} },
-    { 0,              XF86XK_AudioNext,        spawn,          {.v = mpcnext} },
+//     { 0,              XF86XK_AudioPrev,        spawn,          {.v = mpcprev} },
+//     { 0,              XF86XK_AudioNext,        spawn,          {.v = mpcnext} },
+    { MODKEY,         XK_Left,                 spawn,          {.v = mpcprev} },
+    { MODKEY,         XK_Right,                spawn,          {.v = mpcnext} },
     // i guess there is no audiopause button on my keyboard
 //     { 0,              XF86XK_AudioPause,       spawn,          {.v = whine} },
     { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol} },
@@ -195,6 +197,7 @@ static Key keys[] = {
 	{ MODKEY,         XK_apostrophe,            view,           {0} },
 // 	{ MODKEY,         XK_F1,                   view,           {0} },
 // 	{ MODKEY,         XK_semicolon,            view,           {0} },
+	{ MODKEY,         XK_semicolon,            spawn,          {.v = whine} },
 };
 
 /* button definitions */
