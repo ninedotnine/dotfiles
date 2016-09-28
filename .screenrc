@@ -8,3 +8,10 @@ term screen-256color
 vbell off
 
 startup_message off
+
+# what do these do? hm...
+hardstatus on
+# hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w"
+
+# how many lines of history to save for each "window"
+defscrollback 1000
