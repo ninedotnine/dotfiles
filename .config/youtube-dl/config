@@ -1,0 +1,10 @@
+# file naming defaults
+# -o "%(title)s-%(id)s.%(ext)s"
+
+-o "%(title)s.%(ext)s"
+
+# Restrict filenames to only ASCII characters, and avoid "&" and spaces in filenames
+--restrict-filenames
+
+# Continue on download errors, for example to skip unavailable videos in a playlist
+--ignore-errors
