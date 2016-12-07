@@ -9,7 +9,7 @@ export LESS_TERMCAP_so=$'\E[01;30;03;36m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;35m'
 
-export PATH="/home/dan/bin/:$PATH"
+export PATH="/home/dan/bin:$PATH"
 export EDITOR="vim"
 export PAGER="less"
 export BROWSER="firefox"
@@ -19,7 +19,8 @@ export BROWSER="firefox"
 # even if i log in multiple times
 if [ $(tty) = '/dev/tty1' ]; then
     if [ "$HOST" = "multivac" ]; then
-        eval "$(gpg-agent --daemon)"
+#         eval "$(gpg-agent --daemon)"
+        firefox-sync >> /dev/null
         startx
     else
         exec startx
