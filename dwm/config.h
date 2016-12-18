@@ -106,7 +106,7 @@ static const char *mpcstop[] = { "mpc", "stop", "--quiet", NULL};
 static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
-static const char *statuscmd[] = { "dwmstatus", "--update", NULL};
+static const char *statuscmd[] = { "dwmstatus", "--update", "--no-network", NULL};
 
 /* screen brightness */
 static const char *upbright[] = { "brighten", NULL};
