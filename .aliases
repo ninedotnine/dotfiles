@@ -14,8 +14,6 @@ alias vi="vim -p"
 alias vim="vim -p"
 alias view="vim -R"
 
-alias less="less --quit-at-eof --LONG-PROMPT --RAW-CONTROL-CHARS --jump-target=5"
-
 alias cal="cal --three"
 
 alias strings="strings --all"

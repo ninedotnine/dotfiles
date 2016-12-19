@@ -9,6 +9,8 @@ export LESS_TERMCAP_so=$'\E[01;30;03;36m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;35m'
 
+export LESS="--quit-at-eof --quit-on-intr --LONG-PROMPT --RAW-CONTROL-CHARS --jump-target=2 --ignore-case"
+
 export PATH="/home/dan/bin:$PATH"
 export EDITOR="vim"
 export PAGER="less"
