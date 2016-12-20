@@ -16,6 +16,8 @@ export EDITOR="vim"
 export PAGER="less"
 export BROWSER="firefox"
 
+export GCC_COLORS="error=01;37:warning=01;34:note=01;33:caret=01;32:locus=01;36:quote=36"
+
 # start x server on tty1, also other things
 # basically i use this for stuff i only want to run once,
 # even if i log in multiple times
