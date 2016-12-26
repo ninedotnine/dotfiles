@@ -59,6 +59,9 @@ static const Rule rules[] = {
 	{ "ibreoffice",NULL,      NULL,       1,            False,       -1 },
 	{ "Zenity",   NULL,       NULL,       ~0,           False,       -1 },
 	{ "feh",      NULL,       NULL,       0,            True,        -1 },
+// 	{ "sxiv",     NULL,       NULL,       0,            True,        -1 },
+	{ NULL,       NULL,       "sxiv",     0,            True,        -1 },
+	{ NULL,       NULL,       "MPlayer",  0,            True,        -1 },
 };
 
 /* layout(s) */
