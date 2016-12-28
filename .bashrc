@@ -10,6 +10,7 @@ case $- in
 esac
 
 # PS1='[\u@\h \W]\$ '
+# PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
