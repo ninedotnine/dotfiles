@@ -15,6 +15,7 @@ alias vim="vim -p"
 alias view="vim -R"
 
 alias cal="cal --three"
+alias today='date +"%A, %B %-d, %Y"'
 
 alias strings="strings --all"
 
