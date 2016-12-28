@@ -6,3 +6,4 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreof
 application/pdf; evince %s;
 image/jpeg; feh %s;
 image/png; feh %s;
+image/gif; sxiv -a %s;
