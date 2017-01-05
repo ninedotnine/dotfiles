@@ -16,7 +16,7 @@ set smartindent
 
 set expandtab
 set tabstop=4 
-set sw=4
+set shiftwidth=4
 
 set wildmenu           " better command-line completion
 set showcmd            " Show (partial) command in status line.
@@ -24,22 +24,24 @@ set showmatch          " Show matching brackets.
 set ignorecase         " Do case insensitive matching
 set smartcase          " Do smart case matching
 set incsearch          " Incremental search
-" set autowrite       " Automatically save before commands like :next and :make
-" set hidden             " Hide buffers when they are abandoned
 set mouse=nv            " Enable mouse usage, but not in insert mode
+set nostartofline       " don't jump to column 0 when possible
 
 set nomodeline          " don't try to read vim settings from a file
 
+set wildmode=longest,list,full          " better filename tab completion
+
 set history=20
 
-set ttyfast   " this might improve performance, iono
+set ttyfast             " this might improve performance, iono
+set ttimeoutlen=100     " this might fix the slow O problem
 
-" this might fix the slow O problem
-set ttimeoutlen=100
+set spelllang=en_us
+set spellfile=~/.vim/spell.add           " my goodwords
 
+set hlsearch            " keep matches highlighted after searching
 " Clear highlighting from screen
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
-set hlsearch
 
 " colours after 80 chars
 " set colorcolumn=81
@@ -67,7 +69,9 @@ nnoremap Q :
 " command causes vim to explode when i reload $MYVIMRC
 " ! forces overwrite of whatever the command was before
 command! Q qall
-command! W w
+" command! W w
+cabbr W w       
+"  how is cabbr different?
 
 "this stuff is also set in /usr/share/vim/vimfiles/archlinux.vim
 "allow backspacing over everything in insert mode
@@ -183,3 +187,12 @@ nnoremap <F2> :r! earlget
 
 " if writing mail, set the spellchecker to F7 (-e for email syntax)
 autocmd FileType mail :nnoremap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR> 
+
+" email, git commits - wrap at 68 for future quoting, enable spelling
+au FileType mail setlocal tw=79 colorcolumn=80 spell
+au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
+
+
+" disable annoying behavior where starting an auto-indented line with a hash
+" makes it unindent and refuse to >>
+:inoremap # #
