@@ -196,3 +196,6 @@ au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
 " disable annoying behavior where starting an auto-indented line with a hash
 " makes it unindent and refuse to >>
 :inoremap # #
+
+" open each file in a new tab (basically the -p cmdline option)
+au BufRead,BufNewFile * nested tab sball
