@@ -10,8 +10,7 @@ alias egrep='egrep --ignore-case --color=auto'
 alias mv="mv -i"
 alias rm="rm -I"
 
-alias vi="vim -p"
-alias vim="vim -p"
+alias vi="vim"
 alias view="vim -R"
 
 alias cal="cal --three"
