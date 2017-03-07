@@ -11,7 +11,7 @@ export LESS_TERMCAP_us=$'\E[01;35m'
 export LESS="--quit-at-eof --quit-on-intr --LONG-PROMPT --RAW-CONTROL-CHARS --jump-target=2 --ignore-case"
 export GCC_COLORS="error=01;37:warning=01;34:note=01;33:caret=01;32:locus=01;36:quote=36"
 export PASSWORD_STORE_X_SELECTION="primary"
-export PATH="/home/dan/bin:$PATH"
+export PATH="$PATH:/home/dan/bin"
 export EDITOR="vim"
 export PAGER="less"
 export BROWSER="firefox"
@@ -23,4 +23,3 @@ if [ $(tty) = '/dev/tty1' ]; then
 #         eval "$(gpg-agent --daemon)"
     startx
 fi
-
