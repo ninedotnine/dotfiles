@@ -1,7 +1,7 @@
 " more configs in /etc/vimrc and /usr/share/vim/vimfiles
 
 set nocompatible
-" set relativenumber
+set relativenumber
 set number
 set ruler
 set scrolloff=5 " keep 5 lines of context above and below cursor
