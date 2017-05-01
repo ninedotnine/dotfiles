@@ -8,3 +8,6 @@
 
 # Continue on download errors, for example to skip unavailable videos in a playlist
 --ignore-errors
+
+# Prefer free video formats unless a specific one is requested
+--prefer-free-formats
