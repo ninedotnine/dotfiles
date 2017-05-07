@@ -20,7 +20,7 @@ alias strings="strings --all"
 
 alias irc="exec screen -raAd"
 
-alias gcc99="gcc -std=c99 -Wall -pedantic"
+alias gcc99="gcc -std=c99 -Wall -Wextra -Wpedantic"
 alias ghc="ghc -dynamic" # this improves the performance of the linker
 # once more, with optimizations
 alias ogcc99="gcc -std=c99 -Wall -pedantic -O2 -s"
@@ -30,8 +30,11 @@ alias oghc="ghc -dynamic -Wall -O2" # this should also strip but that's harder
 #   sleep 10; alert
 alias alert="echo -ne '\a'"
 
-if [ "$HOST" = "multivac" ]; then
-    alias mplayer="mplayer -vo sdl"
-fi
+# if [ "$HOST" = "multivac" ]; then
+#     alias mplayer="mplayer -vo sdl"
+# fi
+alias fastmplayer="mplayer -fs -lavdopts lowres=1:fast:skiploopfilter=all"
 
 alias lab="ssh soucydi194@137.143.158.1"
+
+alias testmic="arecord -d 2 -f dat testmic.wav ; mplayer testmic.wav ; rm testmic.wav"
