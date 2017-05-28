@@ -5,9 +5,7 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 urxvtd -q -o -f
 
-dwmstatus --daemon
-
-tilda > /dev/null 2>&1 &
+~/devel/dwmstatus/bin/dwmstatus --daemon >> /tmp/dwmstatus.log 2>&1
 
 # compositing manager, makes shit transparent
 xcompmgr & 
@@ -29,13 +27,8 @@ fi
 # turn on screensaver after 25 minutes
 #xset s 1500
 
-# i always start this anyway...
-if [[ "$HOSTNAME" = "arch" ]]; then
-    thunderbird &
-fi
-
 urxvtc
 
-firefox &
+tilda > /dev/null 2>&1 &
 
 exec dwm >> /tmp/dwm.log 2>&1 
