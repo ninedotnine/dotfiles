@@ -3,9 +3,13 @@
 alias ls="ls -hFA --color=auto"
 alias vdir='vdir --color=auto'
 
-alias grep='grep --ignore-case --color=auto'
-alias fgrep='fgrep --ignore-case --color=auto'
-alias egrep='egrep --ignore-case --color=auto'
+alias grep='grep --ignore-case --color=auto --binary-files=without-match'
+alias fgrep='fgrep --ignore-case --color=auto --binary-files=without-match'
+alias egrep='egrep --ignore-case --color=auto --binary-files=without-match'
+
+mcd() {
+    test -d "$1" || mkdir "$1" && cd "$1"
+}
 
 alias mv="mv -i"
 alias rm="rm -I"
@@ -33,8 +37,6 @@ alias alert="echo -ne '\a'"
 # if [ "$HOST" = "multivac" ]; then
 #     alias mplayer="mplayer -vo sdl"
 # fi
-alias fastmplayer="mplayer -fs -lavdopts lowres=1:fast:skiploopfilter=all"
-
-alias lab="ssh soucydi194@137.143.158.1"
+alias fastmplayer="mplayer -fs -framedrop -lavdopts lowres=1:fast:skiploopfilter=all"
 
 alias testmic="arecord -d 2 -f dat testmic.wav ; mplayer testmic.wav ; rm testmic.wav"
