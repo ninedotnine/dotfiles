@@ -62,6 +62,7 @@ static const Rule rules[] = {
 // 	{ "sxiv",     NULL,       NULL,       0,            True,        -1 },
 	{ NULL,       NULL,       "sxiv",     0,            True,        -1 },
 	{ NULL,       NULL,       "MPlayer",  0,            True,        -1 },
+	{ NULL,       NULL,       "Video Preview",0,        True,        -1 },
 };
 
 /* layout(s) */
