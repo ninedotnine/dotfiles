@@ -127,8 +127,8 @@ static const char *wallpaper[] = { "wallpaper-updater", NULL};
 static const char *middleclick[] = { "xdotool", "click", "2", NULL};
 
 /* enable or disable the touchpad */
-static const char *touchpadoff[] = { "xinput", "--disable", "DLL064D:00 06CB:2985", NULL}; 
-static const char *touchpadon[] = { "xinput", "--enable", "DLL064D:00 06CB:2985", NULL}; 
+static const char *touchpadoff[] = { "xinput", "--disable", "Synaptics s3203", NULL};
+static const char *touchpadon[] = { "xinput", "--enable", "Synaptics s3203", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
