@@ -23,6 +23,9 @@ xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 urxvtc
 
+autocutsel -fork -buttonup &
+autocutsel -selection PRIMARY -fork -buttonup &
+
 tilda > /dev/null 2>&1 &
 
 exec dwm >> /tmp/dwm.log 2>&1 
