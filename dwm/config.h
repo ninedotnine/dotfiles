@@ -124,7 +124,7 @@ static const char *chromium[] = { "chromium", NULL};
 static const char *wallpaper[] = { "wallpaper-updater", NULL};
 
 /* middle click */
-// static const char *middleclick[] = { "xdotool", "click", "2", NULL}; 
+static const char *middleclick[] = { "xdotool", "click", "2", NULL};
 
 /* enable or disable the touchpad */
 static const char *touchpadoff[] = { "xinput", "--disable", "DLL064D:00 06CB:2985", NULL}; 
@@ -197,6 +197,8 @@ static Key keys[] = {
     // touchpad
     { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
     { MODKEY|ShiftMask,XK_z,                   spawn,          {.v = touchpadon}  },
+
+    { MODKEY,         XK_x,                    spawn,          {.v = middleclick} },
     // my tab key is getting worn out! :(
 	{ MODKEY,         XK_apostrophe,            view,           {0} },
 // 	{ MODKEY,         XK_F1,                   view,           {0} },
@@ -216,7 +218,6 @@ static Button buttons[] = {
 	{ ClkRootWin,           0,              Button1,        spawn,          {.v = termcmd } },
 	{ ClkRootWin,           0,              Button3,        spawn,          {.v = wallpaper } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
