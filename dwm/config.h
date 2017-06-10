@@ -171,12 +171,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
     /* custom */
+    /* control music */
+    { 0,              XF86XK_AudioMedia,        spawn,          SHCMD("/usr/bin/mpd") },
     { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol} },
     { 0,              XF86XK_AudioPlay,        spawn,          {.v = mpctoggle} },
     { MODKEY,         XF86XK_AudioPlay,        spawn,          {.v = songinfo} },
     { 0,              XF86XK_AudioStop,        spawn,          {.v = mpcstop} },
-//     { 0,              XF86XK_AudioPrev,        spawn,          {.v = mpcprev} },
-//     { 0,              XF86XK_AudioNext,        spawn,          {.v = mpcnext} },
+    { 0,              XF86XK_AudioPrev,        spawn,          {.v = mpcprev} },
+    { 0,              XF86XK_AudioNext,        spawn,          {.v = mpcnext} },
     { MODKEY,         XK_Left,                 spawn,          {.v = mpcprev} },
     { MODKEY,         XK_Right,                spawn,          {.v = mpcnext} },
     // i guess there is no audiopause button on my keyboard
