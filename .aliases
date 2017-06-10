@@ -14,8 +14,8 @@ mcd() {
 alias mv="mv -i"
 alias rm="rm -I"
 
-alias vi="vim"
-alias view="vim -R"
+alias vi="vim -p"
+alias view="vim -Rp"
 
 alias cal="cal --three"
 alias today='date +"%A, %B %-d, %Y"'
