@@ -7,3 +7,6 @@ application/pdf; evince %s;
 image/jpeg; feh %s;
 image/png; feh %s;
 image/gif; sxiv -a %s;
+audio/m4a; mplayer %s
+audio/x-m4a; mplayer %s
+audio/mp3; mplayer %s
