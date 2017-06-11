@@ -7,22 +7,8 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-   // TO USE TERMINUS, you might gotta rehash it, see ~/.xinitrc
-// static const char font[]            = "-*-inconsolata-medium-r-*-*-14-*-*-*-*-*-*-*";
-// static const char font[]            = "-*-inconsolata-*-*-*-*-*-*-*-*-*-*-*-*";
-// static const char font[]            = "-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*";
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-// static const char font[]            = "-*-clean-medium-*-*-*-12-*-*-*-*-70-*-*";
-// static const char font[]            = "-*-*-medium-*-*-*-14-*-*-*-*-*-*-*";
-
-/* kinda cute fonts
-// static const char font[]            = "-*-urw chancery l-*-*-*-*-*-*-*-*-*-*-*-*"; // so loopy
-// static const char font[]            = "-*-urw bookman l-medium-r-*-*-*-*-*-*-*-*-*-*"; // really big though
-// static const char font[]            = "-*-urw gothic l-*-r-*-*-*-*-*-*-*-*-*-*"; // really big though
-*/ // end of kinda cute
-
 static const char normbordercolor[] = "#444444"; // grey
-// static const char normbordercolor[] = "#000000"; // black (no border)
 static const char selbordercolor[]  = "#E80572"; // magenta
 static const char normbgcolor[]     = "#10271e"; // deep green
 static const char normfgcolor[]     = "#b779bc"; // light purple
