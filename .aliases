@@ -22,6 +22,8 @@ alias today='date +"%A, %B %-d, %Y"'
 
 alias strings="strings --all"
 
+alias sxiv="sxiv -a"
+
 alias irc="exec screen -raAd"
 
 alias gcc99="gcc -std=c99 -Wall -Wextra -Wpedantic"
