@@ -21,6 +21,8 @@ alias view="vim -Rp"
 alias cal="cal --three"
 alias today='date +"%A, %B %-d, %Y"'
 
+alias curl="curl --remote-name-all"
+
 alias strings="strings --all"
 
 alias sxiv="sxiv -a"
