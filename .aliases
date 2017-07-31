@@ -23,6 +23,8 @@ alias today='date +"%A, %B %-d, %Y"'
 
 alias curl="curl --remote-name-all"
 
+alias scrot="scrot 'scrot-%Y-%m-%d-%H%M%S.png' --exec 'mv \$f ~/pics/scrots'"
+
 alias strings="strings --all"
 
 alias sxiv="sxiv -a"
