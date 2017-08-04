@@ -1,27 +1,61 @@
-# store message headers locally to speed things up
-set header_cache = ~/.mutt/hcache
+set mbox_type   = Maildir
+# set sendmail    = /usr/bin/msmtp
 
+# store message headers locally to speed things up
+set header_cache=~/.cache/mutt
+# set header_cache = ~/.mutt/hcache
+
+set folder      = ~/mail/
+
+# handle html messages nicely
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 bind attach <return> view-mailcap
 
+# keep sent messages
+set record = +sent
+
 # specify where to save and/or look for postponed messages
 # set postponed =+Drafts
 
-set folder="$HOME/mail"
-set record="+sent"
-set mbox="+mbox"
-set postponed="+drafts"
+# what does this do
+# set mbox="+mbox"
 
-# allow mutt to open new imap connection automatically
-unset imap_passive
+source "~/.mutt/accounts"
 
-set beep_new
+set use_from = yes
+# set ssl_force_tls = yes
+# set ssl_starttls = yes
+
+set sidebar_visible = yes
+set sidebar_width = 20
+set sidebar_format = "%n %* %B"
+
+bind index,pager K sidebar-prev
+bind index,pager J sidebar-next
+bind index,pager O sidebar-open
+
+set sleep_time = 0
+set beep_new = yes
+set beep = no
+
+set tilde=yes
+
+set menu_context=1
+
+set pager_context=2
+set pager_stop=yes
+
+set postponed="~/mail/postponed"
+
+set mime_forward=ask-no # to forward attachments
 
 set sort=threads
-set pager_index_lines=5#You might want to increase this
-set pager_context=1
-set index_format='%4C %Z %{%b %d} %-15.15F (%4l) %s'
+set pager_index_lines=5 # You might want to increase this
+# set pager_context=1
+set index_format="%4C %{%b %d} %Z %-30.25F %s"
+set pager_format='-%Z- %C/%m: %[[%a %b %d %H:%M]] %-20.20n   %s%*  -- (%P)'
+set date_format="!%a, %b %d, %Y at %H:%M:%S %Z" # 24-hour time
 
 #Different colors for different levels of quoting
 color quoted    magenta         black
@@ -66,20 +100,43 @@ color index brightred default ~D
 # remap keys to behave more like vim
 bind index \cd half-down
 bind index \cu half-up
-bind index G last-entry
-bind index H current-top
-bind index M current-middle
-bind index L current-bottom
+bind index,generic G last-entry
+bind index,generic H current-top
+bind index,generic M current-middle
+bind index,generic L current-bottom
+bind index,generic j next-entry
+bind index,generic k previous-entry
+bind index,generic L current-bottom
 bind index N search-opposite
 bind index  toggle-new
+
+bind pager <down> next-line                     # makes sense
+bind pager <up> previous-line                   # as does this
 
 # automatically include message in reply
 set include=yes
 
+set text_flowed=yes
+
+# skip confirmation of address to reply to
+set fast_reply=yes
+
 # contacts are managed by aliases
 set alias_file = "~/.mutt/aliases"
 set sort_alias = alias
+set alias_format="%4n %2f %t %-25a %r"
 set reverse_alias = yes
 source $alias_file
+source "~/.mutt/aliases_hs_test"
 
-source "~/.mutt/credentials"
+# set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+# set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)---(mailboxen: %b)-%>-(%P)---"
+
+# slightly faster maybe? :)
+# set shell=/usr/bin/dash
+
+set pipe_decode=yes # makes messages easier for external programs to parse
+# set display_filter="~/.mutt/newalias"
+set display_filter="~/bin/util/mutt_alias"
+
+macro pager A |'~/.mutt/mail2muttalias.py ~/.mutt/aliases.dum'\n
