@@ -21,6 +21,8 @@ alias view="vim -Rp"
 alias cal="cal --three"
 alias today='date +"%A, %B %-d, %Y"'
 
+alias free="free --human"
+
 alias curl="curl --remote-name-all"
 
 alias scrot="scrot 'scrot-%Y-%m-%d-%H%M%S.png' --exec 'mv \$f ~/pics/scrots'"
@@ -28,6 +30,7 @@ alias scrot="scrot 'scrot-%Y-%m-%d-%H%M%S.png' --exec 'mv \$f ~/pics/scrots'"
 alias strings="strings --all"
 
 alias sxiv="sxiv -a"
+alias ffeh="feh --full-screen"
 
 alias irc="exec screen -raAd"
 
