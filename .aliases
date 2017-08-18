@@ -22,6 +22,7 @@ alias cal="cal --three"
 alias today='date +"%A, %B %-d, %Y"'
 
 alias free="free --human"
+alias du="du --human-readable"
 
 alias curl="curl --remote-name-all"
 
