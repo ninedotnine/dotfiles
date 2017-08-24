@@ -33,7 +33,7 @@ alias strings="strings --all"
 alias sxiv="sxiv -a"
 alias ffeh="feh --full-screen"
 
-alias irc="exec screen -raAd"
+alias irc="exec screen -aAdR"
 
 alias gcc99="gcc -std=c99 -Wall -Wextra -Wpedantic"
 alias ghc="ghc -dynamic" # this improves the performance of the linker
