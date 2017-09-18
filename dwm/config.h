@@ -111,6 +111,10 @@ static const char *middleclick[] = { "xdotool", "click", "2", NULL};
 static const char *touchpadoff[] = { "xinput", "--disable", "Synaptics s3203", NULL};
 static const char *touchpadon[] = { "xinput", "--enable", "Synaptics s3203", NULL};
 
+/* shutdown and poweroff the computer */
+static const char *shutoff[] = { "shutoff", NULL};
+
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -180,6 +184,8 @@ static Key keys[] = {
     // touchpad
     { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
     { MODKEY|ShiftMask,XK_z,                   spawn,          {.v = touchpadon}  },
+    // shutoff
+    { MODKEY,ShiftMask,XK_s,                    spawn,          {.v = shutoff} },
 
     { MODKEY,         XK_x,                    spawn,          {.v = middleclick} },
     // my tab key is getting worn out! :(
