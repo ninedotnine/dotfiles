@@ -81,8 +81,8 @@ static const char *termcmd[]  = { "urxvtc", NULL };
 
 /* custom commands */
 /* alsamixer, volume control */
-static const char *upvol[] = { "amixer", "set", "Master", "4+", "-q", NULL};
-static const char *downvol[] = { "amixer", "set", "Master", "4-", "-q", NULL};
+static const char *upvol[] = { "amixer", "set", "Master", "4%+", "-q", NULL};
+static const char *downvol[] = { "amixer", "set", "Master", "4%-", "-q", NULL};
 static const char *mutevol[] = { "amixer", "set", "Master", "toggle", "-q", NULL};
 
 /* mpc controls */
