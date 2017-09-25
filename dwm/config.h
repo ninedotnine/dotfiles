@@ -42,6 +42,7 @@ static const Rule rules[] = {
 	{ "feh",      NULL,       NULL,       0,            True,        -1 },
 // 	{ "sxiv",     NULL,       NULL,       0,            True,        -1 },
 	{ NULL,       NULL,       "sxiv",     0,            True,        -1 },
+	{ NULL,       NULL,       "pinentry", 0,            True,        -1 },
 	{ NULL,       NULL,       "MPlayer",  0,            True,        -1 },
 	{ NULL,       NULL,       "Video Preview", ~0,      True,        -1 },
 };
