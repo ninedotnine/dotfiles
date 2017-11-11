@@ -4,6 +4,7 @@ set nocompatible
 set relativenumber
 set number
 set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set scrolloff=5 " keep 5 lines of context above and below cursor
 
 set t_Co=256
