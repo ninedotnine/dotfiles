@@ -4,7 +4,9 @@ set nocompatible
 set relativenumber
 set number
 set ruler
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+set rulerformat=%49(%=%n:%<%t%y%r%m%h%w\ %-10.19(%l,%c%V,%o%)\ %P%)
+set laststatus=1
+set statusline=%n:%f\ %y%r%m%=%h%w\ %-10.19(%l,%c%V,%o%)\ %P
 set scrolloff=5 " keep 5 lines of context above and below cursor
 
 set t_Co=256
