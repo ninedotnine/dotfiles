@@ -33,6 +33,7 @@ set nostartofline       " don't jump to column 0 when possible
 set nomodeline          " don't try to read vim settings from a file
 
 set wildmode=longest,list,full          " better filename tab completion
+" set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
 set history=20
 
@@ -198,3 +199,17 @@ au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
 " disable annoying behavior where starting an auto-indented line with a hash
 " makes it unindent and refuse to >>
 :inoremap # #
+
+function! StripTrailingWhitespace()
+    " preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
