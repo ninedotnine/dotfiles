@@ -24,6 +24,7 @@ alias today='date +"%A, %B %-d, %Y"'
 
 alias free="free --human"
 alias du="du --human-readable"
+alias df="df --human-readable"
 
 alias curl="curl --remote-name-all"
 
