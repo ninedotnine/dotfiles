@@ -32,6 +32,9 @@ set nostartofline       " don't jump to column 0 when possible
 
 set nomodeline          " don't try to read vim settings from a file
 
+set formatoptions+=j   " remove a comment leader when joining lines. 
+set formatoptions+=o   " insert the comment leader after hitting 'o'
+
 set wildmode=longest,list,full          " better filename tab completion
 " set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
