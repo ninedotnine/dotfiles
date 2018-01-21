@@ -36,6 +36,7 @@ alias sxiv="sxiv -a"
 alias ffeh="feh --full-screen"
 
 alias irc="exec screen -aAdR"
+alias weechat="exec weechat"
 
 alias gcc99="gcc -std=c99 -Wall -Wextra -Wpedantic"
 alias ghc="ghc -dynamic -no-keep-o-files -no-keep-hi-files"
