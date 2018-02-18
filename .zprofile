@@ -17,6 +17,7 @@ export PATH="$PATH:/home/dan/bin"
 export EDITOR="vim"
 export PAGER="less"
 export BROWSER="firefox"
+export TERMCMD="urxvtc"
 
 # start x server on tty1, also other things
 # basically i use this for stuff i only want to run once,
