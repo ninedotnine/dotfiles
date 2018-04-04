@@ -38,7 +38,7 @@ alias ffeh="feh --full-screen"
 alias irc="exec screen -aAdR"
 alias weechat="exec weechat"
 
-alias gcc99="gcc -std=c99 -Wall -Wextra -Wpedantic -Wstrict-prototypes"
+alias gcc99="gcc -std=c99 -Wall -Wextra -Wpedantic -Wstrict-prototypes -Wold-style-definition"
 alias ghc="ghc -dynamic -no-keep-o-files -no-keep-hi-files"
 alias ghcw="ghc -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates \
             -Wmissing-import-lists"
