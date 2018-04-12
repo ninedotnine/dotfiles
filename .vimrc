@@ -20,6 +20,7 @@ set smartindent
 set expandtab
 set tabstop=4 
 set shiftwidth=4
+autocmd FileType make setlocal noexpandtab   " makefiles hate spaces.
 
 set wildmenu           " better command-line completion
 set showcmd            " Show (partial) command in status line.
