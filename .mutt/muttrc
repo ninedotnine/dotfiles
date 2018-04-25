@@ -46,6 +46,8 @@ set menu_context=1
 set pager_context=2
 set pager_stop=yes
 
+set editor="vim -c 'set spell spelllang=fr,en'
+
 set postponed="~/mail/postponed"
 
 set mime_forward=ask-no # to forward attachments
