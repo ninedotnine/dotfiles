@@ -1,13 +1,16 @@
 [user]
 	name = dan soucy
-	email = warfegle@hotmail.com
+	email = email@email.com
 [core]
     editor = vim
 [credential]
-	helper = cache --timeout=604800
+#     helper = cache --timeout=604800 # one week
+    helper = cache --timeout=3600
 [push]
-	default = current
+    default = current
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lg = log --color --graph --date=relative --decorate=full --pretty=format:\"%C(green)%h, %C(yellow)%ad%C(red)%d %C(reset)- %C(bold red)%s%C(reset) %C(blue)(%an) %C(bold green)<%ae>\" 
+    ld = log --color --graph --date=short --decorate=full --pretty=format:\"%C(yellow)%h %C(green)1%ad%Cred%d %Creset%s%Cblue (%cn) %C(bold green)<%ce>\"
+    ll = log --color --decorate=full --stat --pretty=format:\"%C(yellow)%h%C(red)%d %C(white)%s%C(blue) (%cn)%C(reset)%n%B\" 
 [color]
     ui = true
