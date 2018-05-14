@@ -19,6 +19,8 @@ alias rm="rm -I"
 alias vi="vim -p"
 alias view="vim -Rp"
 
+alias diff="diff --unified"
+
 alias cal="cal --three"
 alias today='date +"%A, %B %-d, %Y"'
 
