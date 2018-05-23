@@ -33,10 +33,6 @@ screen -t "derivejoy"
 shelltitle "joy will be derived"
 stuff "cd devel/derivejoy > /dev/null && ./derivejoy.py"
 
-screen -t "prickles"
-shelltitle "so prickly"
-stuff "cd devel/mrprickles > /dev/null && bin/mrprickles"
-
 screen -t "under the weather"
 shelltitle "feeling a little under the weather"
 stuff "cd devel/under_the_weather/ > /dev/null && ./under_the_weather.py"
