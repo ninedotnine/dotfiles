@@ -70,6 +70,9 @@ else
     "set wrapmargin=14
 endif
 
+" for the haskell.vim syntax highlighting, highlight things like "undefined"
+let hs_highlight_debug = "yes"
+
 nnoremap Y y$
 nnoremap <space> :
 nnoremap Q :
