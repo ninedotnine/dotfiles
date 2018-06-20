@@ -19,19 +19,10 @@ defscrollback 1000
 # funnier error messages
 nethack on
 
-# screen weechat
-# screen sh -c "cd devel/derivejoy/ && exec ./derivejoy.py"
-# screen sh -c "cd devel/mrprickles/ && exec bin/mrprickles"
-# screen sh -c "cd devel/under_the_weather/ && exec ./under_the_weather.py"
-
 sessionname mainsesh
 
 # execute these when screen starts
 screen weechat
-
-screen -t "derivejoy"
-shelltitle "joy will be derived"
-stuff "cd devel/derivejoy > /dev/null && ./derivejoy.py"
 
 screen -t "under the weather"
 shelltitle "feeling a little under the weather"
