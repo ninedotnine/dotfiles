@@ -64,9 +64,11 @@ colorscheme solarized
 
 if has("syntax_items")
     syntax on
+    set foldmethod=syntax " automatic folding
 "     set textwidth=79
 else
     set spell
+    set foldmethod=indent " automatic folding
     "set wrapmargin=14
 endif
 
