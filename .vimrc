@@ -62,7 +62,7 @@ let g:solarized_termcolors = 1
 let g:solarized_termtrans = 1
 colorscheme solarized
 
-if has("syntax_items")
+if has("syntax")
     syntax on
     set foldmethod=syntax " automatic folding
 "     set textwidth=79
