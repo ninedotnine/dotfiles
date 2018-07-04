@@ -161,6 +161,7 @@ au FileType bash,zsh,sh,python,perl,make,conf,gitcommit,muttrc let b:comment_lea
 au FileType vim let b:comment_leader = '" '
 au FileType tex let b:comment_leader = '% '
 au FileType fortran,xdefaults let b:comment_leader = '! '
+au FileType souc let b:comment_leader = '; '
 if !exists("b:comment_leader") 
     let b:comment_leader = '# ' " a sane default 
 endif
