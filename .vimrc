@@ -69,8 +69,10 @@ if has("syntax")
 else
     set spell
     set foldmethod=indent " automatic folding
-    "set wrapmargin=14
+"     "set wrapmargin=14
 endif
+
+set foldlevel=100
 
 " c-specific highlighting options
 let c_gnu = 1
