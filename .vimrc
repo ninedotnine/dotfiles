@@ -62,7 +62,7 @@ let g:solarized_termcolors = 1
 let g:solarized_termtrans = 1
 colorscheme solarized
 
-if has("syntax")
+if has("syntax_items")
     syntax on
 "     set textwidth=79
 else
