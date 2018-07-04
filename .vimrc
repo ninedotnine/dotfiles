@@ -72,6 +72,11 @@ else
     "set wrapmargin=14
 endif
 
+" c-specific highlighting options
+let c_gnu = 1
+let c_comment_strings = 1
+let c_space_errors = 1
+
 " for the haskell.vim syntax highlighting, highlight things like "undefined"
 let hs_highlight_debug = "yes"
 
