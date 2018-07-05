@@ -22,7 +22,7 @@ URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.shading: 185
 
 ! scrollback buffer lines - 65535 is max on most machines (64 is default)
-URxvt.saveLines: 900
+URxvt.saveLines: 1500
 
 URxvt.fading: 40
 URxvt.fadeColor: #000000
