@@ -7,6 +7,11 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
+static const char *fonts[] = {
+    /* list all with fc-list  */
+    "xos4 Terminus:style=Regular:size=8"
+};
+static const char dmenufont[]       = "xos4 Terminus:style=Regular:size=8";
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444"; // grey
 static const char selbordercolor[]  = "#E80572"; // magenta
@@ -45,6 +50,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,       "pinentry", 0,            True,        -1 },
 	{ NULL,       NULL,       "MPlayer",  0,            True,        -1 },
 	{ NULL,       NULL,       "Video Preview", ~0,      True,        -1 },
+	{ NULL,       NULL,       "pacdan",   0,            True,        -1 },
 };
 
 /* layout(s) */
@@ -75,7 +81,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *olddmenucmd[] = { "dmenu_run", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *dmenucmd[] = { "dmenu_launcher", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_launcher", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 // static const char *termcmd[]  = { "uxterm", NULL };
 // static const char *termcmd[]  = { "urxvt", NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
@@ -99,7 +105,7 @@ static const char *upbright[] = { "brighten", NULL};
 static const char *downbright[] = { "brighten", "-d", NULL};
 
 /* other */
-static const char *whine[] = { "zenity", "--warning", NULL};
+static const char *whine[] = { "zenity", "--warning", "--text=\"whine whine\"", NULL};
 static const char *browser[] = { "firefox", NULL};
 static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
