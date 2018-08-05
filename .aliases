@@ -30,7 +30,7 @@ alias df="df --human-readable"
 
 alias curl="curl --remote-name-all"
 
-alias scrot="scrot 'scrot-%Y-%m-%d-%H%M%S.png' --exec 'mv \$f ~/pics/scrots'"
+alias scrot="scrot 'scrot-1%Y-%m-%d-%H%M%S.png' --exec 'mv \$f ~/pics/scrots'"
 
 alias strings="strings --all"
 
