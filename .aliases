@@ -1,5 +1,7 @@
 # .aliases
 
+alias sudo="sudo " # recommended by archwiki to enable aliases with sudo
+
 alias ls="ls -hFA --color=auto"
 alias vdir='vdir --color=auto'
 alias tree='tree --dirsfirst --du -ChFaL 2'
