@@ -60,3 +60,5 @@ alias alert="echo -ne '\a'"
 alias fastmplayer="mplayer -fs -framedrop -lavdopts lowres=1:fast:skiploopfilter=all"
 
 alias testmic="arecord -d 2 -f dat testmic.wav ; mplayer testmic.wav ; rm testmic.wav"
+
+alias startx="startx -- -keeptty >> /tmp/xorg.log 2>&1"
