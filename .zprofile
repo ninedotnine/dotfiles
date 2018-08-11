@@ -21,6 +21,8 @@ export TERMCMD="urxvtc"
 export PATH="$PATH:/home/dan/bin"
 export CPATH="$CPATH:/home/dan/devel/include"
 
+eval $(thefuck --alias osti)
+
 # start x server on tty1, also other things
 # basically i use this for stuff i only want to run once,
 # even if i log in multiple times
