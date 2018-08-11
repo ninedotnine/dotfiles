@@ -155,6 +155,13 @@ noremap <c-t> :call DmenuOpen("tabe")<cr>
 " open help in a vertical split on the left
 autocmd FileType help wincmd L
 
+" jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        \ | exe "normal! g`\""
+    \ | endif
+
+
 " automatically comment out lines 
 au FileType haskell,vhdl,ada let b:comment_leader = '-- '
 au FileType c,cpp,java,javascript let b:comment_leader = '// '
