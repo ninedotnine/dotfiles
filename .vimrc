@@ -78,6 +78,7 @@ set foldlevel=100
 let c_gnu = 1
 let c_comment_strings = 1
 let c_space_errors = 1
+au FileType c,cpp,java,javascript syntax keyword Debug assert
 
 " for the haskell.vim syntax highlighting, highlight things like "undefined"
 let hs_highlight_debug = "yes"
