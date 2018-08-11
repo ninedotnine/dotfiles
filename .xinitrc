@@ -26,6 +26,6 @@ urxvtc
 autocutsel -fork -buttonup &
 autocutsel -selection PRIMARY -fork -buttonup &
 
-tilda >> /tmp/tilda.log 2>&1
+tilda >> /tmp/tilda.log 2>&1 &
 
 exec builds/dwm_statuscolors/dwm/dwm >> /tmp/dwm.log 2>&1
