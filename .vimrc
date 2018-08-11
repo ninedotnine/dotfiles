@@ -204,7 +204,7 @@ endif
 
 nnoremap <F5> :diffu<CR>
 set pastetoggle=<F11>
-nnoremap <F12> :so $MYVIMRC<CR>
+nnoremap <F12> :so $MYVIMRC<CR> :nohlsearch<CR><C-l>
 
 " save whenever focus is lost
 au FocusLost * silent! wa
