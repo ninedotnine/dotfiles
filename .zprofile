@@ -24,5 +24,5 @@ export TERMCMD="urxvtc"
 # even if i log in multiple times
 if [ $(tty) = '/dev/tty1' ]; then
 #         eval "$(gpg-agent --daemon)"
-    startx
+    startx >> /tmp/xorg.log 2>&1
 fi
