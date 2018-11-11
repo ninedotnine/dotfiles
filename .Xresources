@@ -1,3 +1,7 @@
+dzen.font:               xft:Inconsolata
+dzen2.foreground: #22EE11
+dzen2.background: black
+
 !URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
 
 ! makes every new instance start in ~
