@@ -22,6 +22,8 @@ random() {
     head --bytes 1000 /dev/urandom | tr -dc '[:alnum:]' | fold -w 50 | head -n 1
 }
 
+alias offlineimap="pass dummy > /dev/null && offlineimap"
+
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -I"
