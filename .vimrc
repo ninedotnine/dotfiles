@@ -45,7 +45,6 @@ set ttyfast             " this might improve performance, iono
 set ttimeoutlen=100     " this might fix the slow O problem
 
 set spelllang=en_us
-set spellfile=~/.vim/spell.add           " my goodwords
 
 set hlsearch            " keep matches highlighted after searching
 " Clear highlighting from screen
