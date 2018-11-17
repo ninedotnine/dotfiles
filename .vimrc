@@ -58,7 +58,7 @@ nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 " end of new stuff, aug 21 2014
 
 " these three lines are for the solarized colour scheme
-let g:solarized_termcolors = 1
+let g:solarized_termcolors = 256
 let g:solarized_termtrans = 1
 colorscheme solarized
 
