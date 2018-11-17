@@ -125,7 +125,6 @@ endif
 " abbreviations, these are pretty cool
 abbreviate #d #define
 abbreviate #i #include
-abbreviate Wall {-# OPTIONS_GHC -Wall #-}
 abbreviate LANGUAGE {-# LANGUAGE #-}
 
 " these two functions are to integrate dmenu
