@@ -216,7 +216,7 @@ nnoremap <F2> :r! earlget
 autocmd FileType mail :nnoremap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR> 
 
 " email, git commits - wrap at 68 for future quoting, enable spelling
-au FileType mail setlocal tw=79 colorcolumn=80 spell
+au FileType mail setlocal tw=78 colorcolumn=79 spell
 au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
 
 " disable annoying behavior where starting an auto-indented line with a hash
