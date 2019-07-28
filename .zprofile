@@ -13,7 +13,7 @@ export LESS_TERMCAP_us=$'\E[01;35m'
 export LESS="--quit-at-eof --quit-on-intr --LONG-PROMPT --RAW-CONTROL-CHARS --jump-target=2 --ignore-case"
 export GCC_COLORS="error=01;37:warning=01;34:note=01;33:caret=01;32:locus=01;36:quote=36"
 export PASSWORD_STORE_X_SELECTION="primary"
-export MPC_FORMAT="[[[%artist%|%performer%] - ][%title%|%album%|%track%]\n][%composer%\n][%file%]"
+export MPC_FORMAT="[[[%position%]: [%artist%|%performer%] - ][%title%|%album%|%track%]\n][%composer%\n][%file%]"
 export EDITOR="vim"
 export PAGER="less"
 export BROWSER="firefox"
