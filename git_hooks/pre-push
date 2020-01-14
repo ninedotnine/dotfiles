@@ -1,0 +1,23 @@
+#!/bin/bash
+# don't allow --force-pushing to master branch
+
+HOOK_NAME="hooks/$(basename $0)"
+CUR_BRANCH=$(git name-rev --name-only --no-undefined --always HEAD)
+PUSH_CMD=$(ps --pid $PPID --format "command=")
+PROTECTED_BRANCHES="^(master|dev|release-*|patch-*)"
+
+# putting regexes in quotes makes them fail, because bash ¯\_(ツ)_/¯
+if [[ "$CUR_BRANCH" =~ $PROTECTED_BRANCHES ]]; then
+    CUR_BRANCH="\033[0;36m${CUR_BRANCH}\033[0m"
+    if [[ "$PUSH_CMD" =~ force|delete|-f ]]; then
+        echo -e "${HOOK_NAME}: don't force-push to $CUR_BRANCH"
+        exit 1
+    else
+        echo -ne "${HOOK_NAME}: are you aware that you are on branch ${CUR_BRANCH}? "
+        read yes < /dev/tty
+        if [[ ! "$yes" =~ yes|y|Y ]]; then
+            exit 2
+        fi
+    fi
+fi
+exit 0

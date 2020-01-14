@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# after making a commit, copy that commit's hash to clipboard
+
+git log -1 --format=format:%h | xclip
