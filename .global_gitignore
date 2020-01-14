@@ -1,0 +1,20 @@
+# personal workspace, most agreeable
+dans_scratchpad/
+
+# binary files, don't commit these.
+*.hi
+*.o
+*.so
+
+# archives. don't commit these.
+*.7z
+*.bz
+*.bz2
+*.gz
+*.iso
+*.jar
+*.tar
+*.zip
+
+# logs, can be generated from testing and whatnot
+*.log
