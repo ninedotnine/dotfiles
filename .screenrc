@@ -23,7 +23,3 @@ sessionname mainsesh
 
 # execute these when screen starts
 screen weechat
-
-screen -t "under the weather"
-shelltitle "feeling a little under the weather"
-stuff "cd devel/under_the_weather/ > /dev/null && ./under_the_weather.py"
