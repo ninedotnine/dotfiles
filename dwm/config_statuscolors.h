@@ -76,10 +76,9 @@ static const char *tags[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 9,       False,       -1 },
-// 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
-// 	{ "Firefox",  NULL,       "Firefox Preferences",1 << 8,True,     -1 },
-	{ NULL,       NULL,  "Firefox Preferences",1 << 8,  True,        -1 },
+	{ "firefox",  NULL,       NULL,       1 << 9,       False,       -1 },
+	{ NULL,       NULL,  "Firefox Preferences",1 << 9,  True,        -1 },
+	{ NULL,       NULL,  "Browser Console",1 << 8,      True,        -1 },
 	{ "Firefox",  NULL,       "Library",  0,            True,        -1 },
 	{ "opera",    NULL,       NULL,       1 << 7,       False,       -1 },
 	{ "Tilda",    NULL,       NULL,       ~0,           True,        -1 },
@@ -144,6 +143,7 @@ static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
 static const char *statuscmd[] = { "dwmstatus", "--update", "--no-network", NULL};
+
 
 /* screen brightness */
 static const char *upbright[] = { "brighten", NULL};
