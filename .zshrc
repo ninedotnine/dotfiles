@@ -94,3 +94,5 @@ precmd () {
 preexec () {
     print -Pn "\e]0;$SCREENTITLE%~: $1\a"
 }
+
+eval $(thefuck --alias osti)
