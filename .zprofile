@@ -24,10 +24,6 @@ export CPATH="$CPATH:/home/dan/devel/include"
 
 eval $(thefuck --alias osti)
 
-# start x server on tty1, also other things
-# basically i use this for stuff i only want to run once,
-# even if i log in multiple times
 if [ $(tty) = '/dev/tty1' ]; then
-#         eval "$(gpg-agent --daemon)"
     startx >> /tmp/xorg.log 2>&1
 fi
