@@ -22,7 +22,7 @@ parse_git_state() {
   local num_ahead
   num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
   if [ "$num_ahead" -gt 0 ]; then
-    echo -n "%{$fg[green]%}$num_ahead%{$reset_color%}"
+    echo -n "%{$fg_bold[cyan]%}$num_ahead%{$reset_color%}"
   fi
 
   local num_behind
