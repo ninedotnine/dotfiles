@@ -19,41 +19,41 @@ parse_git_branch() {
 
 # Show different symbols as appropriate for various Git repository states
 parse_git_state() {
-  local NUM_AHEAD
-  NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-  if [ "$NUM_AHEAD" -gt 0 ]; then
-    echo -n "%{$fg[green]%}$NUM_AHEAD%{$reset_color%}"
+  local num_ahead
+  num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+  if [ "$num_ahead" -gt 0 ]; then
+    echo -n "%{$fg[green]%}$num_ahead%{$reset_color%}"
   fi
 
-  local NUM_BEHIND
-  NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-  if [ "$NUM_BEHIND" -gt 0 ]; then
-    echo -n "%{$fg[red]%}$NUM_BEHIND%{$reset_color%}"
+  local num_behind
+  num_behind="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+  if [ "$num_behind" -gt 0 ]; then
+    echo -n "%{$fg[red]%}$num_behind%{$reset_color%}"
   fi
 
   # Compose this value via multiple conditional appends.
-  local GIT_STATE=""
+  local git_state=""
 
-  local GIT_DIR
-  GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
-  if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
-    GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
+  local git_dir
+  git_dir="$(git rev-parse --git-dir 2> /dev/null)"
+  if [ -n $git_dir ] && test -r $git_dir/MERGE_HEAD; then
+    git_state=$git_state$GIT_PROMPT_MERGING
   fi
 
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
+    git_state=$git_state$GIT_PROMPT_UNTRACKED
   fi
 
   if ! git diff --quiet 2> /dev/null; then
-    GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
+    git_state=$git_state$GIT_PROMPT_MODIFIED
   fi
 
   if ! git diff --cached --quiet 2> /dev/null; then
-    GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
+    git_state=$git_state$GIT_PROMPT_STAGED
   fi
 
-  if [[ -n $GIT_STATE ]]; then
-    echo "$GIT_PROMPT_PREFIX$GIT_STATE$GIT_PROMPT_SUFFIX"
+  if [[ -n $git_state ]]; then
+    echo "$GIT_PROMPT_PREFIX$git_state$GIT_PROMPT_SUFFIX"
   fi
 }
 
