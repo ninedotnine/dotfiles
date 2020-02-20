@@ -65,15 +65,15 @@ fi
 setopt prompt_subst
 
 # %F{xxx} generates any of 256 colours
-RPROMPT="%(?.%F{125}♥0♥.%S%{$fg[red]%}ψ☭%?☭ψ%s)%{$reset_color%}"
+smile="%(?.%{$fg_no_bold[green]%}:^).%{$fg_no_bold[red]%}:v()"
 
 interface=$(tty | cut -c 6-)
 
 . ~/dotfiles/.zsh_git_prompt
 
-PROMPTINS='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
+PROMPTINS='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
+PROMPTCMD='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} '
 
 # 10ms for key sequences, less delay on switching from ins to cmd mode 
