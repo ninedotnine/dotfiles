@@ -36,23 +36,23 @@ parse_git_state() {
 
   local git_dir
   git_dir="$(git rev-parse --git-dir 2> /dev/null)"
-  if [ -n $git_dir ] && test -r $git_dir/MERGE_HEAD; then
-    git_state=$git_state$GIT_PROMPT_MERGING
+  if [ -n "$git_dir" ] && test -r "$git_dir/MERGE_HEAD"; then
+    git_state="$git_state$GIT_PROMPT_MERGING"
   fi
 
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    git_state=$git_state$GIT_PROMPT_UNTRACKED
+    git_state="$git_state$GIT_PROMPT_UNTRACKED"
   fi
 
   if ! git diff --quiet 2> /dev/null; then
-    git_state=$git_state$GIT_PROMPT_MODIFIED
+    git_state="$git_state$GIT_PROMPT_MODIFIED"
   fi
 
   if ! git diff --cached --quiet 2> /dev/null; then
-    git_state=$git_state$GIT_PROMPT_STAGED
+    git_state="$git_state$GIT_PROMPT_STAGED"
   fi
 
-  if [[ -n $git_state ]]; then
+  if [[ -n "$git_state" ]]; then
     echo "$GIT_PROMPT_PREFIX$git_state$GIT_PROMPT_SUFFIX"
   fi
 }
