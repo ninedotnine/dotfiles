@@ -62,19 +62,24 @@ if [ "$STY" ]; then
     screentitle="[screen] "
 fi
 
-interface="$(tty | cut -c 6-)$screenprompt"
 
 setopt prompt_subst
 
 # %F{xxx} generates any of 256 colours
-smile="%(?.%{$fg_no_bold[green]%}:^).%{$fg_no_bold[red]%}:v()"
 
 . ~/dotfiles/.zsh_git_prompt
 
-PROMPTINS='%{$fg_bold[magenta]%}%n@%m $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
-%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%{$fg_bold[magenta]%}%n@%m $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
-%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} '
+name_and_host="%{$fg_bold[magenta]%}%n@%m"
+interface="$(tty | cut -c 6-)$screenprompt"
+smile="%(?.%{$fg_no_bold[green]%}:^).%{$fg_no_bold[red]%}:v()"
+current_dir="%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]"
+prompt_arrow="%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} "
+prompt_dolla="%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} "
+
+PROMPTINS='$name_and_host $interface $smile $(git_prompt_string) $current_dir
+$prompt_arrow'
+PROMPTCMD='$name_and_host $interface $smile $(git_prompt_string) $current_dir
+$prompt_dolla'
 
 # 10ms for key sequences, less delay on switching from ins to cmd mode 
 export KEYTIMEOUT=1
