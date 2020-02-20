@@ -5,63 +5,63 @@ autoload -U colors && colors # Enable colors in prompt
 
 # If inside a Git repository, print its branch and state
 git_prompt_string() {
-  # Modify the colors and symbols in these variables as desired.
-  local git_prompt_symbol="%{$fg_bold[blue]%}±%{$reset_color%}"
-  local git_prompt_prefix="%{$fg_bold[green]%}[%{$reset_color%}"
-  local git_prompt_suffix="%{$fg_bold[green]%}]%{$reset_color%}"
-  local git_prompt_merging="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
-  local git_prompt_untracked="%{$fg[yellow]%}u%{$reset_color%}"
-  local git_prompt_modified="%{$fg_bold[red]%}m%{$reset_color%}"
-  local git_prompt_staged="%{$fg[green]%}s%{$reset_color%}"
+    # Modify the colors and symbols in these variables as desired.
+    local git_prompt_symbol="%{$fg_bold[blue]%}±%{$reset_color%}"
+    local git_prompt_prefix="%{$fg_bold[green]%}[%{$reset_color%}"
+    local git_prompt_suffix="%{$fg_bold[green]%}]%{$reset_color%}"
+    local git_prompt_merging="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
+    local git_prompt_untracked="%{$fg[yellow]%}u%{$reset_color%}"
+    local git_prompt_modified="%{$fg_bold[red]%}m%{$reset_color%}"
+    local git_prompt_staged="%{$fg[green]%}s%{$reset_color%}"
 
-  local git_where
-  git_where="$(parse_git_branch)"
-  if [ -n "$git_where" ]; then
-      echo "$git_prompt_symbol$(parse_git_state)$git_prompt_prefix%{$fg[cyan]%}${git_where#(refs/heads/|tags/)}$git_prompt_suffix "
-  fi
+    local git_where
+    git_where="$(parse_git_branch)"
+    if [ -n "$git_where" ]; then
+        echo "$git_prompt_symbol$(parse_git_state)$git_prompt_prefix%{$fg[cyan]%}${git_where#(refs/heads/|tags/)}$git_prompt_suffix "
+    fi
 }
 
 # Show Git branch/tag, or name-rev if on detached head
 parse_git_branch() {
-  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+    (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
 # Show different symbols as appropriate for various Git repository states
 parse_git_state() {
-  local num_ahead
-  num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-  if [ "$num_ahead" -gt 0 ]; then
-    echo -n "%{$fg_bold[cyan]%}$num_ahead%{$reset_color%}"
-  fi
+    local num_ahead
+    num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+    if [ "$num_ahead" -gt 0 ]; then
+        echo -n "%{$fg_bold[cyan]%}$num_ahead%{$reset_color%}"
+    fi
 
-  local num_behind
-  num_behind="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-  if [ "$num_behind" -gt 0 ]; then
-    echo -n "%{$fg[red]%}$num_behind%{$reset_color%}"
-  fi
+    local num_behind
+    num_behind="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+    if [ "$num_behind" -gt 0 ]; then
+        echo -n "%{$fg[red]%}$num_behind%{$reset_color%}"
+    fi
 
-  # Compose this value via multiple conditional appends.
-  local git_state=""
+    # Compose this value via multiple conditional appends.
+    local git_state=""
 
-  local git_dir
-  git_dir="$(git rev-parse --git-dir 2> /dev/null)"
-  if [ -n "$git_dir" ] && test -r "$git_dir/MERGE_HEAD"; then
-    git_state="$git_state$git_prompt_merging"
-  fi
+    local git_dir
+    git_dir="$(git rev-parse --git-dir 2> /dev/null)"
+    if [ -n "$git_dir" ] && test -r "$git_dir/MERGE_HEAD"; then
+        git_state="$git_state$git_prompt_merging"
+    fi
 
-  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    git_state="$git_state$git_prompt_untracked"
-  fi
+    if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+        git_state="$git_state$git_prompt_untracked"
+    fi
 
-  if ! git diff --quiet 2> /dev/null; then
-    git_state="$git_state$git_prompt_modified"
-  fi
+    if ! git diff --quiet 2> /dev/null; then
+        git_state="$git_state$git_prompt_modified"
+    fi
 
-  if ! git diff --cached --quiet 2> /dev/null; then
-    git_state="$git_state$git_prompt_staged"
-  fi
+    if ! git diff --cached --quiet 2> /dev/null; then
+        git_state="$git_state$git_prompt_staged"
+    fi
 
-  if [[ -n "$git_state" ]]; then
-    echo "$git_prompt_prefix$git_state$git_prompt_suffix"
-  fi
+    if [[ -n "$git_state" ]]; then
+        echo "$git_prompt_prefix$git_state$git_prompt_suffix"
+    fi
 }
