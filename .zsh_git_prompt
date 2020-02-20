@@ -3,14 +3,23 @@
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 
-# Modify the colors and symbols in these variables as desired.
-GIT_PROMPT_SYMBOL="%{$fg_bold[blue]%}±%{$reset_color%}"
-GIT_PROMPT_PREFIX="%{$fg_bold[green]%}[%{$reset_color%}"
-GIT_PROMPT_SUFFIX="%{$fg_bold[green]%}]%{$reset_color%}"
-GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
-GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}u%{$reset_color%}"
-GIT_PROMPT_MODIFIED="%{$fg_bold[red]%}m%{$reset_color%}"
-GIT_PROMPT_STAGED="%{$fg[green]%}s%{$reset_color%}"
+# If inside a Git repository, print its branch and state
+git_prompt_string() {
+  # Modify the colors and symbols in these variables as desired.
+  local git_prompt_symbol="%{$fg_bold[blue]%}±%{$reset_color%}"
+  local git_prompt_prefix="%{$fg_bold[green]%}[%{$reset_color%}"
+  local git_prompt_suffix="%{$fg_bold[green]%}]%{$reset_color%}"
+  local git_prompt_merging="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
+  local git_prompt_untracked="%{$fg[yellow]%}u%{$reset_color%}"
+  local git_prompt_modified="%{$fg_bold[red]%}m%{$reset_color%}"
+  local git_prompt_staged="%{$fg[green]%}s%{$reset_color%}"
+
+  local git_where
+  git_where="$(parse_git_branch)"
+  if [ -n "$git_where" ]; then
+      echo "$git_prompt_symbol$(parse_git_state)$git_prompt_prefix%{$fg[cyan]%}${git_where#(refs/heads/|tags/)}$git_prompt_suffix "
+  fi
+}
 
 # Show Git branch/tag, or name-rev if on detached head
 parse_git_branch() {
@@ -37,31 +46,22 @@ parse_git_state() {
   local git_dir
   git_dir="$(git rev-parse --git-dir 2> /dev/null)"
   if [ -n "$git_dir" ] && test -r "$git_dir/MERGE_HEAD"; then
-    git_state="$git_state$GIT_PROMPT_MERGING"
+    git_state="$git_state$git_prompt_merging"
   fi
 
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    git_state="$git_state$GIT_PROMPT_UNTRACKED"
+    git_state="$git_state$git_prompt_untracked"
   fi
 
   if ! git diff --quiet 2> /dev/null; then
-    git_state="$git_state$GIT_PROMPT_MODIFIED"
+    git_state="$git_state$git_prompt_modified"
   fi
 
   if ! git diff --cached --quiet 2> /dev/null; then
-    git_state="$git_state$GIT_PROMPT_STAGED"
+    git_state="$git_state$git_prompt_staged"
   fi
 
   if [[ -n "$git_state" ]]; then
-    echo "$GIT_PROMPT_PREFIX$git_state$GIT_PROMPT_SUFFIX"
-  fi
-}
-
-# If inside a Git repository, print its branch and state
-git_prompt_string() {
-  local git_where
-  git_where="$(parse_git_branch)"
-  if [ -n "$git_where" ]; then
-      echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[cyan]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX "
+    echo "$git_prompt_prefix$git_state$git_prompt_suffix"
   fi
 }
