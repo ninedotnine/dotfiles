@@ -3,11 +3,13 @@
     email = email@email.com
 [core]
     editor = vim
+	excludesfile = ~/dotfiles/.global_gitignore
 [credential]
 #     helper = cache --timeout=604800 # one week
     helper = cache --timeout=3600
 [push]
     default = current
+	followTags = true
 [alias]
     aa = add --all
     lg = log --color --graph --date=relative --decorate=full --pretty=format:\"%C(green)%h, %C(yellow)%ad%C(red)%d %C(reset)- %C(bold red)%s%C(reset) %C(blue)(%an) %C(bold green)<%ae>\" 
@@ -23,7 +25,7 @@
     sho = show
     co = commit
     com = commit
-    statut = status
+    patch = add -p
 
     unadd = reset HEAD
     uncommit = reset --soft HEAD^
@@ -32,7 +34,7 @@
     staged = diff --staged
     ctags = "!.git/hooks/ctags"
 
-    tags = tag -l
+    tags = tag -l --sort=v:refname
     branches = branch -va
     remotes = remote -v
 
