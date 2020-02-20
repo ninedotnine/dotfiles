@@ -76,9 +76,9 @@ current_dir="%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]"
 prompt_arrow="%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} "
 prompt_dolla="%(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} "
 
-PROMPTINS='$name_and_host $interface $smile $(git_prompt_string) $current_dir
+PROMPTINS='$name_and_host $interface $smile $(git_prompt_string)$current_dir
 $prompt_arrow'
-PROMPTCMD='$name_and_host $interface $smile $(git_prompt_string) $current_dir
+PROMPTCMD='$name_and_host $interface $smile $(git_prompt_string)$current_dir
 $prompt_dolla'
 
 # 10ms for key sequences, less delay on switching from ins to cmd mode 
