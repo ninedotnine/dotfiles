@@ -58,22 +58,22 @@ export GPG_TTY
 
 # $STY will be set if zsh is running in an instance of screen
 if [ "$STY" ]; then
-    screenprompt="-$reset_color$fg[yellow]screen$fg_bold[magenta]"
+    screenprompt=" %{$fg_bold[blue]%}(screen)$fg_bold[magenta]"
     screentitle="[screen] "
 fi
+
+interface="$(tty | cut -c 6-)$screenprompt"
 
 setopt prompt_subst
 
 # %F{xxx} generates any of 256 colours
 smile="%(?.%{$fg_no_bold[green]%}:^).%{$fg_no_bold[red]%}:v()"
 
-interface=$(tty | cut -c 6-)
-
 . ~/dotfiles/.zsh_git_prompt
 
-PROMPTINS='%{$fg_bold[magenta]%}%n@%m$screenprompt $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
+PROMPTINS='%{$fg_bold[magenta]%}%n@%m $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%{$fg_bold[magenta]%}%n@%m$screenprompt $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
+PROMPTCMD='%{$fg_bold[magenta]%}%n@%m $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} '
 
 # 10ms for key sequences, less delay on switching from ins to cmd mode 
