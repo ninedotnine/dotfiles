@@ -58,8 +58,8 @@ export GPG_TTY
 
 # $STY will be set if zsh is running in an instance of screen
 if [ "$STY" ]; then
-    SCREENPROMPT="-$reset_color$fg[yellow]screen$fg_bold[magenta]"
-    SCREENTITLE="[screen] "
+    screenprompt="-$reset_color$fg[yellow]screen$fg_bold[magenta]"
+    screentitle="[screen] "
 fi
 
 setopt prompt_subst
@@ -71,9 +71,9 @@ interface=$(tty | cut -c 6-)
 
 . ~/dotfiles/.zsh_git_prompt
 
-PROMPTINS='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
+PROMPTINS='%{$fg_bold[magenta]%}%n@%m$screenprompt $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}»%{$reset_color%} '
-PROMPTCMD='%{$fg_bold[magenta]%}%n@%m$SCREENPROMPT $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
+PROMPTCMD='%{$fg_bold[magenta]%}%n@%m$screenprompt $interface $smile $(git_prompt_string)%{$fg_bold[green]%}[%{$fg_no_bold[magenta]%}%~%{$fg_bold[green]%}]
 %(1j.[%{%F{40}%}%j%{$fg_bold[green]%}] .)%{$fg[blue]%}$%{$reset_color%} '
 
 # 10ms for key sequences, less delay on switching from ins to cmd mode 
@@ -89,10 +89,10 @@ zle -N zle-keymap-select
 
 # set window title to show currently running command
 precmd () {
-    print -Pn "\e]0;$SCREENTITLE%~ »\a"
+    print -Pn "\e]0;$screentitle%~ »\a"
 }
 preexec () {
-    print -Pn "\e]0;$SCREENTITLE%~: $1\a"
+    print -Pn "\e]0;$screentitle%~: $1\a"
 }
 
 eval $(thefuck --alias osti)
