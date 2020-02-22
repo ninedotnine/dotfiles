@@ -50,3 +50,5 @@
     ui = true
 [merge]
     tool = vimdiff
+[apply]
+    whitespace = fix
