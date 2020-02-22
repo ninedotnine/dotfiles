@@ -3,6 +3,7 @@
     email = email@email.com
 [core]
     editor = vim
+    hooksPath = ~/dotfiles/git_hooks
 	excludesfile = ~/dotfiles/.global_gitignore
 [credential]
 #     helper = cache --timeout=604800 # one week
