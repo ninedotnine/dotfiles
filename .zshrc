@@ -65,10 +65,10 @@ fi
 
 setopt prompt_subst
 
-# %F{xxx} generates any of 256 colours
 
 . ~/dotfiles/.zsh_git_prompt
 
+# %F{xxx} generates any of 256 colours
 name_and_host="%{$fg_bold[magenta]%}%n@%m"
 interface="$(tty | cut -c 6-)$screenprompt"
 smile="%(?.%{$fg_no_bold[green]%}:^).%{$fg_no_bold[red]%}:v()"
