@@ -28,6 +28,8 @@
     com = commit
     patch = add -p
 
+    fpush = push --force-with-lease
+
     unadd = reset HEAD
     uncommit = reset --soft HEAD^
     unstage = reset HEAD
