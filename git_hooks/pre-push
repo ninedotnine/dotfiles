@@ -7,7 +7,7 @@ push_cmd=$(ps --pid $PPID --format "command=")
 
 protected_branches="^(master|dev|release-*|patch-*)"
 forceful_flags="force|delete|-f"
-affirmative="yes|y|Y"
+affirmative="^(yes|y|Y)$"
 
 # putting regexes in quotes makes them fail, because bash ¯\_(ツ)_/¯
 if [[ "$cur_branch" =~ $protected_branches ]]; then
