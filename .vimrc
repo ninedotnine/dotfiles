@@ -162,8 +162,8 @@ autocmd BufReadPost *
 
 " automatically comment out lines 
 au FileType haskell,vhdl,ada let b:comment_leader = '-- '
-au FileType c,cpp,java,javascript let b:comment_leader = '// '
-au FileType bash,zsh,sh,python,perl,make,conf,gitcommit,muttrc let b:comment_leader = '# '
+au FileType c,cpp,java,javascript,rust let b:comment_leader = '// '
+au FileType bash,zsh,sh,python,perl,ruby,make,conf,gitcommit,muttrc let b:comment_leader = '# '
 au FileType vim let b:comment_leader = '" '
 au FileType tex let b:comment_leader = '% '
 au FileType fortran,xdefaults let b:comment_leader = '! '
