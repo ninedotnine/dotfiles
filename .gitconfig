@@ -4,13 +4,13 @@
 [core]
     editor = vim
     hooksPath = ~/dotfiles/git_hooks
-	excludesfile = ~/dotfiles/.global_gitignore
+    excludesfile = ~/dotfiles/.global_gitignore
 [credential]
 #     helper = cache --timeout=604800 # one week
     helper = cache --timeout=3600
 [push]
     default = current
-	followTags = true
+    followTags = true
 [alias]
     aa = add --all
     lg = log --color --graph --date=relative --decorate=full --pretty=format:\"%C(green)%h, %C(yellow)%ad%C(red)%d %C(reset)- %C(bold red)%s%C(reset) %C(blue)(%an) %C(bold green)<%ae>\" 
