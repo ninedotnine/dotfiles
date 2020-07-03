@@ -8,6 +8,7 @@ set rulerformat=%49(%=%n:%<%t%y%r%m%h%w\ %-10.19(%l,%c%V,%o%)\ %P%)
 set laststatus=1
 set statusline=%n:%f\ %y%r%m%=%h%w\ %-10.19(%l,%c%V,%o%)\ %P
 set scrolloff=5 " keep 5 lines of context above and below cursor
+set lazyredraw  " do not redraw screen while executing a macro
 
 set t_Co=256
 set background=dark
