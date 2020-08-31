@@ -240,8 +240,8 @@ endfunction
 
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,haskell autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 
-:inoremap ( ()<Esc>i
-:inoremap [ []<Esc>i
-:inoremap { {}<Esc>i
-:inoremap " ""<Esc>i
-:inoremap ' ''<Esc>i
+:inoremap ( ()<C-G>U<Left>
+:inoremap [ []<C-G>U<Left>
+:inoremap { {}<C-G>U<Left>
+:inoremap " ""<C-G>U<Left>
+:inoremap ' ''<C-G>U<Left>
