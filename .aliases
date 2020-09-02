@@ -9,6 +9,7 @@ alias tree='tree --dirsfirst --du -ChFaL 2'
 alias grep='grep --ignore-case --color=auto --binary-files=without-match'
 alias fgrep='fgrep --ignore-case --color=auto --binary-files=without-match'
 alias egrep='egrep --ignore-case --color=auto --binary-files=without-match'
+alias ack='ack --smart-case'
 
 mcd() {
     test -d "$1" || mkdir "$1" && cd "$1"
