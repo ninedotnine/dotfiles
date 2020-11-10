@@ -24,7 +24,7 @@
 
     amend = commit --amend
     sho = show
-    co = commit
+    co = checkout
     com = commit
     patch = add -p
 
