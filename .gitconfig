@@ -54,3 +54,7 @@
     tool = vimdiff
 [apply]
     whitespace = fix
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
