@@ -101,3 +101,5 @@ preexec () {
 }
 
 eval $(thefuck --alias osti)
+
+source .zsh_dansohost
