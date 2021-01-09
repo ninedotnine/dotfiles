@@ -1,0 +1,24 @@
+auto-reload no
+reload-threads 30
+show-read-feeds     no
+
+cache-file ~/.cache/newsboat/cache.db
+history-limit 0
+
+datetime-format "%d %b 1%Y"
+articlelist-format "%4i %f  %D  %?T?  |%-17T| ?%t"
+
+color   listfocus           blue    default      
+color   listfocus_unread    blue    default  bold
+color   info                white   black
+
+unbind-key  A
+unbind-key  C
+unbind-key  J
+unbind-key  K
+unbind-key  ^K
+unbind-key  ^D
+
+bind-key j next
+bind-key k prev
+bind-key d delete-article
