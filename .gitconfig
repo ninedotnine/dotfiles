@@ -27,7 +27,7 @@
     co = checkout
     com = commit
     patch = add -p
-	up = "!git remote update -p; git merge --ff-only @{u}"
+	up = "!git remote update --prune; git merge --ff-only @{u}"
 
 
     fpush = push --force-with-lease
