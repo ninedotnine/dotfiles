@@ -141,6 +141,6 @@ source "~/.mutt/aliases_hs_test"
 
 set pipe_decode=yes # makes messages easier for external programs to parse
 # set display_filter="~/.mutt/newalias"
-set display_filter="~/bin/util/mutt_alias"
+set display_filter="~/bin/util/mutt_alias/bin/mutt_alias"
 
 macro pager A |'~/.mutt/mail2muttalias.py ~/.mutt/aliases.dum'\n
