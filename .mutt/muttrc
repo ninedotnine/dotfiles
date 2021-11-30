@@ -57,7 +57,9 @@ set pager_index_lines=5 # You might want to increase this
 # set pager_context=1
 set index_format="%4C %{%b %d} %Z %-30.25F %s"
 set pager_format='-%Z- %C/%m: %[[%a %b %d %H:%M]] %-20.20n   %s%*  -- (%P)'
-set date_format="!%a, %b %d, %Y at %H:%M:%S %Z" # 24-hour time
+set date_format="%A le %-e %B, 1%Y à %H h %M %Z" # 24-hour time
+set attribution_locale="fr_CA.UTF-8"
+set attribution="%d, %n a écrit :"
 
 #Different colors for different levels of quoting
 color quoted    magenta         black
