@@ -8,7 +8,8 @@
 /* appearance */
 static const char *fonts[] = {
     /* list all with fc-list  */
-    "xos4 Terminus:style=Regular:size=8"
+    "xos4 Terminus:style=Regular:size=8",
+    "DejaVu Sans Mono:style=Book:size=8"
 };
 static const char dmenufont[]       = "xos4 Terminus:style=Regular:size=8";
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
@@ -155,8 +156,10 @@ static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
 static const char *wallpaper[] = { "wallpaper-updater", NULL};
 
-/* middle click */
+/* mouse clicks */
+static const char *leftclick[]   = { "xdotool", "click", "1", NULL};
 static const char *middleclick[] = { "xdotool", "click", "2", NULL};
+static const char *rightclick[]  = { "xdotool", "click", "3", NULL};
 
 /* enable or disable the touchpad */
 static const char *touchpadoff[] = { "xinput", "--disable", "Synaptics s3203", NULL};
@@ -236,7 +239,11 @@ static Key keys[] = {
     // shutoff
     { MODKEY|ShiftMask,XK_s,                    spawn,          {.v = shutoff} },
 
+
     { MODKEY,         XK_x,                    spawn,          {.v = middleclick} },
+    { 0,              XF86XK_Mail,             spawn,          {.v = leftclick} },
+    { 0,              XF86XK_Messenger,        spawn,          {.v = middleclick} },
+    { 0,              XF86XK_WebCam,           spawn,          {.v = rightclick} },
     // my tab key is getting worn out! :(
 	{ MODKEY,         XK_apostrophe,            view,           {0} },
 // 	{ MODKEY,         XK_F1,                   view,           {0} },
