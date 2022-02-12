@@ -245,3 +245,7 @@ autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,pe
 :inoremap { {}<C-G>U<Left>
 :inoremap " ""<C-G>U<Left>
 :inoremap ' ''<C-G>U<Left>
+
+" for rainbow parens
+let g:rainbow_conf = { 'ctermfgs': ['darkyellow', 'darkcyan', 'darkgray', 'darkblue', 'darkmagenta', 'magenta'] }
+let g:rainbow_active = 1
