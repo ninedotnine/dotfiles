@@ -7,7 +7,7 @@ urxvtd -q -o -f
 
 ~/devel/dwmstatus/bin/dwmstatus --daemon >> /tmp/dwmstatus.log 2>&1
 
-# compositing manager, makes shit transparent
+# compositing manager, makes windows transparent
 xcompmgr & 
 
 # hides the mouse when not in use
