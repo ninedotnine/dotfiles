@@ -51,7 +51,6 @@ alias sxiv="sxiv -a"
 alias ffeh="feh --full-screen"
 
 alias irc="exec screen -aAdR"
-alias weechat="exec weechat"
 
 alias bake="make -j"
 
