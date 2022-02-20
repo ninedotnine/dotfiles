@@ -1,5 +1,5 @@
 auto-reload no
-reload-threads 30
+reload-threads 2
 show-read-feeds     no
 
 cache-file ~/.cache/newsboat/cache.db
