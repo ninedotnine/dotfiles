@@ -56,7 +56,8 @@ alias bake="make -j"
 
 alias ghc="ghc -dynamic -no-keep-o-files -no-keep-hi-files"
 alias ghcw="ghc -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates \
-            -Wmissing-import-lists"
+            -Wmissing-import-lists -Wpartial-fields -Wredundant-constraints \
+            -Widentities"
 alias ghco="ghc -dynamic -Wall -O2" # this should also strip but that's harder
 
 alias gcc="gcc -std=c99 -Wall -Wextra -Wstrict-prototypes -Wold-style-definition -pipe"
