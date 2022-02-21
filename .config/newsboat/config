@@ -16,9 +16,20 @@ unbind-key  A
 unbind-key  C
 unbind-key  J
 unbind-key  K
+# unbind-key  N
 unbind-key  ^K
 unbind-key  ^D
+unbind-key  G
 
 bind-key j next
 bind-key k prev
 bind-key d delete-article
+bind-key ^N toggle-article-read
+bind-key G end
+bind-key R rev-sort
+
+article-sort-order date-desc
+
+browser curler
+
+notify-program "~/bin/newsboat-notifier"
