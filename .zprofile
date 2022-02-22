@@ -23,8 +23,6 @@ export PATH="$PATH:/home/dan/bin"
 
 eval $(thefuck --alias osti)
 
-mpd >> /tmp/mpd.log 2>&1 # this should probably be handled by systemd
-
 if [ $(tty) = '/dev/tty1' ]; then
     startx >> /tmp/xorg.log 2>&1
 fi
