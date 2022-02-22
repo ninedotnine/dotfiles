@@ -4,5 +4,5 @@ Wants=dhclient@enp58s0f1.service
 After=dhclient@enp58s0f1.service
 
 [Service]
-Type=exec
-ExecStart=newsboat -x reload
+Type=oneshot
+ExecStart=/usr/bin/newsboat -x reload

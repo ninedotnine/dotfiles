@@ -1,5 +1,5 @@
 [Unit]
-Description=reload newsboat feeds every 2 hours
+Description=reload newsboat feeds
 
 [Timer]
 OnBootSec=5min
