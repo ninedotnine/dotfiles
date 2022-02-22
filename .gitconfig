@@ -30,6 +30,7 @@
     patch = add -p
 	up = "!git remote update --prune; git merge --ff-only @{u}"
 
+    main = checkout main
 
     fpush = push --force-with-lease
 
