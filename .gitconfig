@@ -1,6 +1,7 @@
 [user]
     name = dan soucy
     email = email@email.com
+	signingkey = C018929BFBD9F126
 [core]
     editor = vim
     hooksPath = ~/dotfiles/git_hooks
@@ -60,3 +61,5 @@
 	defaultBranch = main
 [pull]
     ff = only
+[commit]
+	gpgsign = true
