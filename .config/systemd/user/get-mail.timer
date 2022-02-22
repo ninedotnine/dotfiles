@@ -1,0 +1,10 @@
+[Unit]
+Description=get mail using offlineimap
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30m
+Persistent=true
+
+[Install]
+WantedBy=timers.target
