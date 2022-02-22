@@ -20,6 +20,3 @@ defscrollback 1000
 nethack on
 
 sessionname mainsesh
-
-# execute these when screen starts
-screen weechat
