@@ -2,7 +2,7 @@
 Description=get mail using offlineimap
 
 [Timer]
-OnBootSec=5min
+OnStartupSec=5min
 OnUnitActiveSec=30m
 Persistent=true
 
