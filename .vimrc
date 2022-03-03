@@ -21,7 +21,15 @@ set smartindent
 set expandtab
 set tabstop=4 
 set shiftwidth=4
-autocmd FileType make setlocal noexpandtab   " makefiles hate spaces.
+
+augroup tabstuff
+    autocmd!
+    autocmd FileType make setlocal noexpandtab   " makefiles hate spaces.
+    autocmd FileType souc setlocal noexpandtab   " souc uses tabs too.
+    " for js
+    autocmd FileType javascript setlocal tabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2
+augroup end
 
 set wildmenu           " better command-line completion
 set showcmd            " Show (partial) command in status line.
@@ -78,7 +86,10 @@ set foldlevel=100
 let c_gnu = 1
 let c_comment_strings = 1
 let c_space_errors = 1
-au FileType c,cpp,java,javascript syntax keyword Debug assert
+augroup cstuff
+    autocmd!
+    au FileType c,cpp,java,javascript syntax keyword Debug assert
+augroup end
 
 " for the haskell.vim syntax highlighting, highlight things like "undefined"
 let hs_highlight_debug = "yes"
@@ -116,8 +127,11 @@ if has('persistent_undo')
     set undofile
 
     " disable persistent undo for files stored in /tmp or ~/tmp
-    au BufWritePre /tmp/* setlocal noundofile
-    au BufWritePre ~/tmp/* setlocal noundofile
+    augroup undostuff
+        autocmd!
+        au BufWritePre /tmp/* setlocal noundofile
+        au BufWritePre ~/tmp/* setlocal noundofile
+    augroup undostuff
 endif
 
 " compile and display a latex file
@@ -153,24 +167,31 @@ endfunction
 noremap <c-t> :call DmenuOpen("tabe")<cr>
 " noremap <c-e> :call DmenuOpen("e")<cr>
 
-" open help in a vertical split on the left
-autocmd FileType help wincmd L
+augroup helpstuff
+    autocmd!
+    " open help in a vertical split on the left
+    autocmd FileType help wincmd L
+augroup end
 
-" jump to last cursor position unless it's invalid or in an event handler
-autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-        \ | exe "normal! g`\""
-    \ | endif
+augroup jumpstuff
+    " jump to last cursor position unless it's invalid or in an event handler
+    autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+            \ | exe "normal! g`\""
+        \ | endif
+augroup end
 
-
-" automatically comment out lines 
-au FileType haskell,vhdl,ada let b:comment_leader = '-- '
-au FileType c,cpp,java,javascript,rust let b:comment_leader = '// '
-au FileType bash,zsh,sh,python,perl,ruby,make,conf,gitcommit,muttrc let b:comment_leader = '# '
-au FileType vim let b:comment_leader = '" '
-au FileType tex let b:comment_leader = '% '
-au FileType fortran,xdefaults let b:comment_leader = '! '
-au FileType souc let b:comment_leader = '; '
+augroup commentstuff
+    autocmd!
+    " automatically comment out lines
+    au FileType haskell,vhdl,ada let b:comment_leader = '-- '
+    au FileType c,cpp,java,javascript,rust let b:comment_leader = '// '
+    au FileType bash,zsh,sh,python,perl,ruby,make,conf,gitcommit,muttrc let b:comment_leader = '# '
+    au FileType vim let b:comment_leader = '" '
+    au FileType tex let b:comment_leader = '% '
+    au FileType fortran,xdefaults let b:comment_leader = '! '
+    au FileType souc let b:comment_leader = '; '
+augroup end
 if !exists("b:comment_leader") 
     let b:comment_leader = '# ' " a sane default 
 endif
@@ -207,20 +228,27 @@ nnoremap <F5> :diffu<CR>
 set pastetoggle=<F11>
 nnoremap <F12> :so $MYVIMRC<CR> :nohlsearch<CR><C-l>
 
-" save whenever focus is lost
-au FocusLost * silent! wa
+augroup savingstuff
+    autocmd!
+    " save whenever focus is lost
+    au FocusLost * silent! wa
 
-" before saving, delete spaces on otherwise empty lines
-autocmd BufWritePre * silent! :%s/^\s\+$//
+    " before saving, delete spaces on otherwise empty lines
+    autocmd BufWritePre * silent! :%s/^\s\+$//
 
-nnoremap <F2> :r! earlget 
+    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,haskell autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+augroup end
 
-" if writing mail, set the spellchecker to F7 (-e for email syntax)
-autocmd FileType mail :nnoremap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR> 
 
-" email, git commits - wrap at 68 for future quoting, enable spelling
-au FileType mail setlocal tw=78 colorcolumn=79 spell
-au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
+augroup columnstuff
+    autocmd!
+    " if writing mail, set the spellchecker to F7 (-e for email syntax)
+    autocmd FileType mail :nnoremap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR>
+
+    " email, git commits - wrap at 68 for future quoting, enable spelling
+    au FileType mail setlocal tw=78 colorcolumn=79 spell
+    au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
+augroup end
 
 " disable annoying behavior where starting an auto-indented line with a hash
 " makes it unindent and refuse to >>
@@ -238,7 +266,6 @@ function! StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,haskell autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 
 :inoremap ( ()<C-G>U<Left>
 :inoremap [ []<C-G>U<Left>
