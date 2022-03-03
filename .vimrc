@@ -237,6 +237,9 @@ augroup savingstuff
     autocmd BufWritePre * silent! :%s/^\s\+$//
 
     autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,haskell autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+
+    " disallow writing to files named "w"
+    autocmd BufWriteCmd w :w % | echo 'not writing to w' | set nomodified
 augroup end
 
 
