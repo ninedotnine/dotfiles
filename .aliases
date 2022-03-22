@@ -54,6 +54,8 @@ alias irc="exec screen -aAdR"
 
 alias bake="make -j"
 
+alias makepkg="makepkg --clean"
+
 alias ghc="ghc -dynamic -no-keep-o-files -no-keep-hi-files"
 alias ghcw="ghc -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates \
             -Wmissing-import-lists -Wpartial-fields -Wredundant-constraints \
