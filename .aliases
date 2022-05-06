@@ -56,16 +56,15 @@ alias bake="make -j"
 
 alias makepkg="makepkg --clean"
 
-alias ghc="ghc -dynamic -no-keep-o-files -no-keep-hi-files"
-alias ghcw="ghc -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates \
-            -Wmissing-import-lists -Wpartial-fields -Wredundant-constraints \
-            -Widentities"
-alias ghco="ghc -dynamic -Wall -O2" # this should also strip but that's harder
+alias ghc="ghc -dynamic -Wall -O1 -no-keep-o-files -no-keep-hi-files \
+           -Wincomplete-uni-patterns -Wincomplete-record-updates \
+           -Wmissing-import-lists -Wpartial-fields -Wredundant-constraints \
+           -Widentities"
 
 alias gcc="gcc -std=c99 -Wall -Wextra -Wstrict-prototypes -Wold-style-definition -pipe"
 alias gcco="gcc -std=c99 -Wall -Wextra -O3 -s -march=native -pipe"
-alias gcc99w="gcc -std=c99 -fsanitize=address -fsanitize=pointer-subtract -ftrapv -fwrapv -fno-strict-aliasing -fdelete-null-pointer-checks -pipe -ggdb -Wpedantic -Werror -Wall -Wextra -Wundef -Wcast-align -Wwrite-strings -Wunreachable-code -Wformat=2 -Wformat-overflow=2 -Winit-self -Wunused-result -Wstrict-aliasing"
-alias gcc11w="gcc -std=c11 -ggdb -pipe -Wall -Wextra -Wpedantic -Waggregate-return -Walloc-zero -Walloca -Wbad-function-cast -Wcast-align -Wcast-align=strict -Wcast-qual -Wconversion -Wdate-time -Wdisabled-optimization -Wdouble-promotion -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wformat-overflow=2 -Wformat-signedness -Wformat-truncation=2 -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Wmissing-declarations -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wmissing-prototypes -Wmultichar -Wnested-externs -Wnormalized=nfkc -Wnull-dereference -Wold-style-definition -Wredundant-decls -Wshadow -Wstack-protector -Wstrict-aliasing -Wstrict-prototypes -Wstringop-overflow=4 -Wswitch-enum -Wswitch-default -Wtrampolines -Wundef -Wunreachable-code -Wunused-const-variable=2 -Wunused-macros -Wunused-result -Wvector-operation-performance -Wwrite-strings"
+alias gcc99="gcc -std=c99 -fsanitize=address -fsanitize=pointer-subtract -ftrapv -fwrapv -fno-strict-aliasing -fdelete-null-pointer-checks -pipe -ggdb -Wpedantic -Werror -Wall -Wextra -Wundef -Wcast-align -Wwrite-strings -Wunreachable-code -Wformat=2 -Wformat-overflow=2 -Winit-self -Wunused-result -Wstrict-aliasing"
+alias gcc11="gcc -std=c11 -ggdb -pipe -Wall -Wextra -Wpedantic -Waggregate-return -Walloc-zero -Walloca -Wbad-function-cast -Wcast-align -Wcast-align=strict -Wcast-qual -Wconversion -Wdate-time -Wdisabled-optimization -Wdouble-promotion -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wformat-overflow=2 -Wformat-signedness -Wformat-truncation=2 -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Wmissing-declarations -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wmissing-prototypes -Wmultichar -Wnested-externs -Wnormalized=nfkc -Wnull-dereference -Wold-style-definition -Wredundant-decls -Wshadow -Wstack-protector -Wstrict-aliasing -Wstrict-prototypes -Wstringop-overflow=4 -Wswitch-enum -Wswitch-default -Wtrampolines -Wundef -Wunreachable-code -Wunused-const-variable=2 -Wunused-macros -Wunused-result -Wvector-operation-performance -Wwrite-strings"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 /* build and install with makepkg -efi */
 
-/* dan: this version is really good!!! */
+/* dan: this version is older. please merge them */
 
 /* for audio */
 #include <X11/XF86keysym.h>
@@ -21,8 +21,8 @@ static const char selbgcolor[]      = "#132d22"; // deep green
 static const char selfgcolor[]      = "#b6b6b6"; // grey
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const Bool showbar           = True;     /* False means no bar */
-static const Bool topbar            = True;     /* False means bottom bar */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
 static const char *tags[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -34,7 +34,6 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 9,       False,       -1 },
 // 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 // 	{ "Firefox",  NULL,       "Firefox Preferences",1 << 8,True,     -1 },
-	{ NULL,       NULL,  "Firefox Preferences",1 << 8,  True,        -1 },
 	{ "Firefox",  NULL,       "Library",  0,            True,        -1 },
 	{ "opera",    NULL,       NULL,       1 << 7,       False,       -1 },
 	{ "Tilda",    NULL,       NULL,       ~0,           True,        -1 },
@@ -58,7 +57,7 @@ static const Rule rules[] = {
 // static const float mfact      = 0.5513; /* 79 chars wide for urxvt with inconsolata */
 static const float mfact      = 0.4913; /* 79 chars wide for urxvt with inconsolata */
 static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -98,7 +97,7 @@ static const char *mpcstop[] = { "mpc", "stop", "--quiet", NULL};
 static const char *mpcprev[] = { "mpc", "prev", "--quiet", NULL};
 static const char *mpcnext[] = { "mpc", "next", "--quiet", NULL};
 static const char *songinfo[] = { "songinfo", NULL};
-static const char *statuscmd[] = { "dwmstatus", "--update", "--no-network", NULL};
+static const char *statuscmd[] = { "signal_dwmstatus", NULL};
 
 /* screen brightness */
 static const char *upbright[] = { "brighten", NULL};
@@ -111,12 +110,14 @@ static const char *chromium[] = { "chromium", NULL};
 // static const char *mail[] = { "thunderbird", NULL};
 static const char *wallpaper[] = { "wallpaper-updater", NULL};
 
-/* middle click */
+/* mouse clicks */
+static const char *leftclick[]   = { "xdotool", "click", "1", NULL};
 static const char *middleclick[] = { "xdotool", "click", "2", NULL};
+static const char *rightclick[]  = { "xdotool", "click", "3", NULL};
 
 /* enable or disable the touchpad */
-static const char *touchpadoff[] = { "xinput", "--disable", "Synaptics s3203", NULL};
-static const char *touchpadon[] = { "xinput", "--enable", "Synaptics s3203", NULL};
+static const char *touchpadoff[] = { "xinput", "--disable", "SynPS/2 Synaptics TouchPad", NULL};
+static const char *touchpadon[] = { "xinput", "--enable", "SynPS/2 Synaptics TouchPad", NULL};
 
 /* shutdown and poweroff the computer */
 static const char *shutoff[] = { "shutoff", NULL};
@@ -185,15 +186,19 @@ static Key keys[] = {
     { MODKEY|ShiftMask,XK_w,                   spawn,          {.v = statuscmd} },
     // brightness
 
-    { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
-    { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
+//     { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
+//     { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
     // touchpad
+    { 0,              XF86XK_TouchpadToggle,   spawn,          {.v = touchpadon} },
     { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
     { MODKEY|ShiftMask,XK_z,                   spawn,          {.v = touchpadon}  },
     // shutoff
-    { MODKEY,ShiftMask,XK_s,                    spawn,          {.v = shutoff} },
+    { MODKEY|ShiftMask,XK_s,                    spawn,          {.v = shutoff} },
 
     { MODKEY,         XK_x,                    spawn,          {.v = middleclick} },
+    { 0,              XF86XK_Mail,             spawn,          {.v = leftclick} },
+    { 0,              XF86XK_Messenger,        spawn,          {.v = middleclick} },
+    { 0,              XF86XK_WebCam,           spawn,          {.v = rightclick} },
     // my tab key is getting worn out! :(
 	{ MODKEY,         XK_apostrophe,            view,           {0} },
 // 	{ MODKEY,         XK_F1,                   view,           {0} },

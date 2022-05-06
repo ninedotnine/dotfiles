@@ -65,8 +65,6 @@ static const char selbgcolor[]      = "#132d22"; // deep green
 static const char selfgcolor[]      = "#b6b6b6"; // grey
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-// static const Bool showbar           = True;     /* False means no bar */
-// static const Bool topbar            = True;     /* False means bottom bar */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
@@ -162,8 +160,8 @@ static const char *middleclick[] = { "xdotool", "click", "2", NULL};
 static const char *rightclick[]  = { "xdotool", "click", "3", NULL};
 
 /* enable or disable the touchpad */
-static const char *touchpadoff[] = { "xinput", "--disable", "Synaptics s3203", NULL};
-static const char *touchpadon[] = { "xinput", "--enable", "Synaptics s3203", NULL};
+static const char *touchpadoff[] = { "xinput", "--disable", "SynPS/2 Synaptics TouchPad", NULL};
+static const char *touchpadon[] = { "xinput", "--enable", "SynPS/2 Synaptics TouchPad", NULL};
 
 /* shutdown and poweroff the computer */
 static const char *shutoff[] = { "shutoff", NULL};
@@ -231,14 +229,14 @@ static Key keys[] = {
     { MODKEY|ShiftMask,XK_w,                   spawn,          {.v = statuscmd} },
     // brightness
 
-    { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
-    { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
+//     { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
+//     { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
     // touchpad
+    { 0,              XF86XK_TouchpadToggle,   spawn,          {.v = touchpadon} },
     { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
     { MODKEY|ShiftMask,XK_z,                   spawn,          {.v = touchpadon}  },
     // shutoff
     { MODKEY|ShiftMask,XK_s,                    spawn,          {.v = shutoff} },
-
 
     { MODKEY,         XK_x,                    spawn,          {.v = middleclick} },
     { 0,              XF86XK_Mail,             spawn,          {.v = leftclick} },
