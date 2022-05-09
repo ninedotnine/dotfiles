@@ -1,5 +1,8 @@
 #!/usr/bin/dash
 # after making a commit, copy that commit's hash to clipboard
 
-git log -1 --format=format:%h | xclip
+
+# stdout,stderr must be closed or xclip will hang.
+# https://emacs.stackexchange.com/questions/39019/xclip-hangs-shell-command
+git log -1 --format=format:%h | xclip -in > /dev/null 2>&1
 echo "copied to clipboard"
