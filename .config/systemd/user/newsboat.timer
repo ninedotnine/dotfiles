@@ -2,7 +2,7 @@
 Description=reload newsboat feeds
 
 [Timer]
-OnStartupSec=5min
+OnStartupSec=3min
 OnUnitActiveSec=2h
 Persistent=true
 
