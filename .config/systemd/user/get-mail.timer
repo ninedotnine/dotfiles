@@ -2,8 +2,10 @@
 Description=get mail using offlineimap
 
 [Timer]
-OnStartupSec=5min
-OnUnitActiveSec=30m
+OnStartupSec=3min
+# re-run every 20 minutes
+# handled by goimapnotify now
+# OnUnitActiveSec=20m
 Persistent=true
 
 [Install]

@@ -1,9 +1,14 @@
 [Unit]
-Description=get mail using offlineimap
+Description=get mail using offlineimap (all accounts)
 Wants=dhclient@enp58s0f1.service
 After=dhclient@enp58s0f1.service
 
 [Service]
 Type=oneshot
 ExecStartPre=pass dummy
-ExecStart=/usr/bin/offlineimap
+ExecStart=/usr/bin/offlineimap -o -u basic
+# after 3 minutes, something has failed. kill it.
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target
