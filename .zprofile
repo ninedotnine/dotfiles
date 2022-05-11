@@ -22,7 +22,6 @@ export TRASH_D_DIR="/media/trash"
 
 export PATH="$PATH:/home/dan/bin"
 
-source "$HOME/dotfiles/.aliases"
 
 if [ $(tty) = '/dev/tty1' ]; then
     startx >> /tmp/xorg.log 2>&1

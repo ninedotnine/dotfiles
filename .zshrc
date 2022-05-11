@@ -37,6 +37,8 @@ bindkey "^N" expand-or-complete
 # allow backspace to work even after command mode
 bindkey '^?' backward-delete-char
 
+source "$HOME/dotfiles/.aliases"
+
 # show ls on every dir change
 function chpwd() {
     emulate -L zsh
