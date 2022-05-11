@@ -18,6 +18,7 @@ export EDITOR="vim"
 export PAGER="less"
 export BROWSER="firefox"
 export TERMCMD="urxvtc"
+export TRASH_D_DIR="/media/trash"
 
 export PATH="$PATH:/home/dan/bin"
 

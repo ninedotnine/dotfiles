@@ -27,7 +27,7 @@ alias offlineimap="pass dummy > /dev/null && offlineimap"
 
 alias cp="cp -i"
 alias mv="mv -i"
-alias rm="rm -I"
+alias rm="trash"
 
 alias vi="vim -p"
 alias view="vim -Rp"
