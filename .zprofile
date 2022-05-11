@@ -21,7 +21,7 @@ export TERMCMD="urxvtc"
 
 export PATH="$PATH:/home/dan/bin"
 
-eval $(thefuck --alias osti)
+source "$HOME/dotfiles/.aliases"
 
 if [ $(tty) = '/dev/tty1' ]; then
     startx >> /tmp/xorg.log 2>&1

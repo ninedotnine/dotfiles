@@ -37,8 +37,6 @@ bindkey "^N" expand-or-complete
 # allow backspace to work even after command mode
 bindkey '^?' backward-delete-char
 
-source "$HOME/dotfiles/.aliases"
-
 # show ls on every dir change
 function chpwd() {
     emulate -L zsh
@@ -99,5 +97,3 @@ precmd () {
 preexec () {
     print -Pn "\e]0;$screentitle%~: $1\a"
 }
-
-eval $(thefuck --alias osti)

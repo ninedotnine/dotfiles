@@ -70,6 +70,8 @@ alias gcc11="gcc -std=c11 -ggdb -pipe -Wall -Wextra -Wpedantic -Waggregate-retur
 #   sleep 10; alert
 alias alert="echo -ne '\a'"
 
+eval $(thefuck --alias osti)
+
 # if [ "$HOST" = "multivac" ]; then
 #     alias mplayer="mplayer -vo sdl"
 # fi
