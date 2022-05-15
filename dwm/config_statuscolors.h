@@ -6,6 +6,10 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int snap      = 32;       /* snap pixel */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = {
     /* list all with fc-list  */
     "xos4 Terminus:style=Regular:size=8",
@@ -15,39 +19,40 @@ static const char dmenufont[]       = "xos4 Terminus:style=Regular:size=8";
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 
 /* from old dwm config.h */
-static const char colo_magenta[] = "#E80572";
-static const char colo_deepgreen2[] = "#10271e";
+static const char colo_magenta[]     = "#E80572";
+static const char colo_deepgreen2[]  = "#10271e";
 static const char colo_lightpurple[] = "#b779bc";
-static const char colo_deepgreen[] = "#132d22";
-static const char colo_lightgrey[] = "#b6b6b6";
-static const char colo_grey[]       = "#444444";
+static const char colo_deepgreen[]   = "#132d22";
+static const char colo_lightgrey[]   = "#b6b6b6";
+static const char colo_grey[]        = "#444444";
 
 /* from dwmstatus */
-static const char colo_red[]       = "#ff0000";
-static const char colo_yellow[]       = "#d7ff00";
-static const char colo_cyan[]       = "#00d7ff";
-static const char colo_nicegreen[]    = "#00af00"; // deep green of dwmstatus
-static const char colo_magenta2[]       = "#ff00af"; // magenta of dwmstatus
-static const char colo_brightgreen[]       = "#00ff00";
-static const char colo_blue[]       = "#0087d7";
+static const char colo_red[]         = "#ff0000";
+static const char colo_yellow[]      = "#d7ff00";
+static const char colo_cyan[]        = "#00d7ff";
+static const char colo_nicegreen[]   = "#00af00"; // deep green of dwmstatus
+static const char colo_magenta2[]    = "#ff00af"; // magenta of dwmstatus
+static const char colo_brightgreen[] = "#00ff00";
+static const char colo_blue[]        = "#0087d7";
 
 /* i don't use these */
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#111111";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_red[]         = "#ee4444";
-static const char *colors[][8]      = {
-	/*               fg         bg         border   */
-    [SchemeNorm] = { colo_lightpurple,  colo_deepgreen2,    colo_grey },
-    [SchemeSel] =  { colo_lightgrey,    colo_deepgreen,     colo_magenta },
-    [SchemeUrg] = { colo_red,   colo_deepgreen2,    colo_red },
-    { colo_yellow,   colo_deepgreen2,    colo_red },
-    { colo_nicegreen,   colo_deepgreen2,    colo_red },
-    { colo_magenta2,   colo_deepgreen2,    colo_red },
-    { colo_cyan,   colo_deepgreen2,    colo_red },
-    { colo_blue,   colo_deepgreen2,    colo_red },
+static const char col_gray1[]        = "#222222";
+static const char col_gray2[]        = "#111111";
+static const char col_gray3[]        = "#bbbbbb";
+static const char col_gray4[]        = "#eeeeee";
+static const char col_cyan[]         = "#005577";
+static const char col_red[]          = "#ee4444";
+
+static const char *colors[][8]       = {
+	/*                 fg                 bg                  border   */
+    [SchemeNorm] =   { colo_lightpurple,  colo_deepgreen2,    colo_grey },
+    [SchemeSel] =    { colo_lightgrey,    colo_deepgreen,     colo_magenta },
+    [SchemeUrgent] = { colo_red,          colo_deepgreen2,    colo_red },
+                     { colo_yellow,       colo_deepgreen2,    colo_red },
+                     { colo_nicegreen,    colo_deepgreen2,    colo_red },
+                     { colo_magenta2,     colo_deepgreen2,    colo_red },
+                     { colo_cyan,         colo_deepgreen2,    colo_red },
+                     { colo_blue,         colo_deepgreen2,    colo_red },
 };
 
 /* kinda cute fonts
@@ -63,19 +68,19 @@ static const char normbgcolor[]     = "#10271e"; // deep green
 static const char normfgcolor[]     = "#b779bc"; // light purple
 static const char selbgcolor[]      = "#132d22"; // deep green
 static const char selfgcolor[]      = "#b6b6b6"; // grey
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
 static const char *tags[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
+	/* xprop(1):
+	 *	WM_CLASS(STRING) = instance, class
+	 *	WM_NAME(STRING) = title
+	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "firefox",  NULL,       NULL,       1 << 9,       False,       -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 9,       0,           -1 },
 	{ NULL,       NULL,  "Firefox Preferences",1 << 9,  True,        -1 },
 	{ NULL,       NULL,  "Browser Console",1 << 8,      True,        -1 },
 	{ "Firefox",  NULL,       "Library",  0,            True,        -1 },
@@ -97,10 +102,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact      = 0.5157; /* 119 chars wide for urxvt with inconsolata */
-static const int nmaster      = 1;    /* number of clients in master area */
+static const float mfact     = 0.5157; /* 119 chars wide for urxvt with inconsolata */
+static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-// static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -229,8 +234,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,XK_w,                   spawn,          {.v = statuscmd} },
     // brightness
 
-//     { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
-//     { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
+    { 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = upbright} },
+    { 0,              XF86XK_MonBrightnessDown,spawn,          {.v = downbright} },
     // touchpad
     { 0,              XF86XK_TouchpadToggle,   spawn,          {.v = touchpadon} },
     { MODKEY,         XK_z,                    spawn,          {.v = touchpadoff} },
@@ -250,7 +255,7 @@ static Key keys[] = {
 };
 
 /* button definitions */
-/* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
