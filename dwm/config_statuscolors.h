@@ -10,6 +10,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+
 static const char *fonts[] = {
     /* list all with fc-list  */
     "xos4 Terminus:style=Regular:size=8",
@@ -79,8 +80,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 9,       0,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
+	{ "firefox",  NULL,       NULL,       1 << 9,       False,       -1 },
 	{ NULL,       NULL,  "Firefox Preferences",1 << 9,  True,        -1 },
 	{ NULL,       NULL,  "Browser Console",1 << 8,      True,        -1 },
 	{ "Firefox",  NULL,       "Library",  0,            True,        -1 },
