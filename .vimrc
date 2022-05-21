@@ -140,7 +140,6 @@ endif
 " abbreviations, these are pretty cool
 abbreviate #d #define
 abbreviate #i #include
-abbreviate LANGUAGE {-# LANGUAGE #-}
 
 " these two functions are to integrate dmenu
 " thanks dude: http://leafo.net/posts/using_dmenu_to_open_quickly.html
