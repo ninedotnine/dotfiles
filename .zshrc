@@ -99,3 +99,6 @@ precmd () {
 preexec () {
     print -Pn "\e]0;$screentitle%~: $1\a"
 }
+
+# smart case matching
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
