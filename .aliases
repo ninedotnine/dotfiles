@@ -4,7 +4,7 @@ alias sudo="sudo " # recommended by archwiki to enable aliases with sudo
 
 alias ls="TZ=/usr/share/zoneinfo/Canada/Eastern exa --classify --all --links --group --git"
 alias vdir='vdir --color=auto'
-alias tree='tree --dirsfirst --du -ChFaL 2'
+alias tree='tree --dirsfirst --du -ChFaL 2 -I .git/'
 
 alias grep='grep --ignore-case --color=auto --binary-files=without-match'
 alias fgrep='fgrep --ignore-case --color=auto --binary-files=without-match'
