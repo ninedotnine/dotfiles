@@ -22,6 +22,10 @@ set expandtab
 set tabstop=4 
 set shiftwidth=4
 
+augroup filetypedetect
+  au BufNewFile,BufRead justfile setfiletype make
+augroup end
+
 augroup tabstuff
     autocmd!
     autocmd FileType make setlocal noexpandtab   " makefiles hate spaces.
