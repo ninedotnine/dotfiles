@@ -26,9 +26,8 @@ augroup tabstuff
     autocmd!
     autocmd FileType make setlocal noexpandtab   " makefiles hate spaces.
     autocmd FileType souc setlocal noexpandtab   " souc uses tabs too.
-    " for js
-    autocmd FileType javascript,typescript setlocal tabstop=2
-    autocmd FileType javascript,typescript setlocal shiftwidth=2
+    autocmd FileType javascript,typescript,html,css setlocal tabstop=2
+    autocmd FileType javascript,typescript,html,css setlocal shiftwidth=2
 augroup end
 
 set wildmenu           " better command-line completion
