@@ -126,12 +126,11 @@ set text_flowed=yes
 set fast_reply=yes
 
 # contacts are managed by aliases
-set alias_file = "~/.mutt/aliases"
+set alias_file = "~/.mutt/aliases/aliases"
 set sort_alias = alias
 set alias_format="%4n %2f %t %-25a %r"
 set reverse_alias = yes
 source $alias_file
-source "~/.mutt/aliases_hs_test"
 
 # set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
 # set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)---(mailboxen: %b)-%>-(%P)---"
@@ -140,7 +139,6 @@ source "~/.mutt/aliases_hs_test"
 # set shell=/usr/bin/dash
 
 set pipe_decode=yes # makes messages easier for external programs to parse
-# set display_filter="~/.mutt/newalias"
-set display_filter="~/bin/util/mutt_alias/bin/mutt_alias"
+set display_filter="/usr/bin/madm-client"
 
 macro pager A |'~/.mutt/mail2muttalias.py ~/.mutt/aliases.dum'\n
