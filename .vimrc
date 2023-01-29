@@ -271,12 +271,20 @@ function! StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 
+function! ConditionalPairMap(open, close)
+  let line = getline('.')
+  let col = col('.')
+  if col < col('$') || stridx(line, a:close, col + 1) != -1
+    return a:open
+  else
+    return a:open . a:close . repeat("\<left>", len(a:close))
+  endif
+endf
 
-:inoremap ( ()<C-G>U<Left>
-:inoremap [ []<C-G>U<Left>
-:inoremap { {}<C-G>U<Left>
-:inoremap " ""<C-G>U<Left>
-:inoremap ' ''<C-G>U<Left>
+inoremap <expr> ( ConditionalPairMap('(', ')')
+inoremap <expr> { ConditionalPairMap('{', '}')
+inoremap <expr> [ ConditionalPairMap('[', ']')
+inoremap <expr> " ConditionalPairMap('"', '"')
 
 " for rainbow parens
 let g:rainbow_conf = { 'ctermfgs': ['darkyellow', 'darkcyan', 'darkgray', 'darkblue', 'darkmagenta', 'magenta'] }
