@@ -30,6 +30,7 @@ alias mv="mv -i"
 alias rm="trash"
 
 alias vi="vim -p"
+alias vim="vim -p"
 alias view="vim -Rp"
 
 alias diff="diff --unified"
