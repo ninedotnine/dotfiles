@@ -24,10 +24,11 @@
     rlg = !git lg -30
 
     amend = commit --amend
+    undo = reset HEAD~1 --mixed
     sho = show
     co = checkout
     com = commit
-    patch = add -p
+    patch = commit --patch
 	up = "!git remote update --prune; git merge --ff-only @{u}"
 
     main = checkout main
@@ -64,3 +65,5 @@
     ff = only
 [commit]
 	gpgsign = true
+[rebase]
+	updateRefs = true
