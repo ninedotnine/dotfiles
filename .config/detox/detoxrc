@@ -1,0 +1,7 @@
+sequence "dans" {
+	utf_8;
+	safe { filename "/home/dan/.config/detox/safe.tbl"; };
+	wipeup {
+		remove_trailing;
+	};
+};
