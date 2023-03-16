@@ -13,6 +13,8 @@ xcompmgr &
 # hides the mouse when not in use
 unclutter -noevents -idle 5 -not "tilda" &
 
+setxkbmap dvorak
+
 # remap keys
 xmodmap dotfiles/xmodmap
 
