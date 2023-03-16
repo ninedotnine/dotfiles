@@ -93,10 +93,8 @@ mutt() {
     fi
 }
 
-# if [ "$HOST" = "multivac" ]; then
-#     alias mplayer="mplayer -vo sdl"
-# fi
 alias fastmplayer="mplayer -fs -framedrop -lavdopts lowres=1:fast:skiploopfilter=all"
+alias mpv="mpv --demuxer-max-bytes=900M"
 
 alias testmic="arecord -d 2 -f dat testmic.wav ; mplayer testmic.wav ; rm testmic.wav"
 
