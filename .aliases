@@ -5,7 +5,12 @@ alias sudo="sudo " # recommended by archwiki to enable aliases with sudo
 # just until my patch is accepted
 alias detox="detox -f ~/dotfiles/.config/detox/detoxrc"
 
-alias ls="TZ=/usr/share/zoneinfo/Canada/Eastern exa --classify --all --links --group --git"
+if which exa > /dev/null ; then
+    alias ls="TZ=/usr/share/zoneinfo/Canada/Eastern exa --classify --all --links --group --git"
+else
+    alias ls="ls -hFA --color=auto"
+fi
+
 alias vdir='vdir --color=auto'
 alias tree='tree --dirsfirst --du -ChFaL 2 -I .git/'
 
