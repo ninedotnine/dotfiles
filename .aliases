@@ -81,6 +81,18 @@ alias alert="echo -ne '\a'"
 
 eval $(thefuck --alias osti)
 
+mutt() {
+    if pgrep '^mutt$' > /dev/null ; then
+        echo 'warning: mutt is already running'
+        read
+        /usr/bin/mutt -R
+    else
+        pushd ~/downloads/mutt > /dev/null
+        /usr/bin/mutt
+        popd > /dev/null
+    fi
+}
+
 # if [ "$HOST" = "multivac" ]; then
 #     alias mplayer="mplayer -vo sdl"
 # fi
