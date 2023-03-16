@@ -13,8 +13,10 @@ xcompmgr &
 # hides the mouse when not in use
 unclutter -noevents -idle 5 -not "tilda" &
 
-# remap caps lock to be an escape key
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+# remap keys
+xmodmap dotfiles/xmodmap
+
+xcape -t 130 -e "Shift_L=parenleft;Shift_R=parenright"
 
 # turn off default screensaver
 #xset s off
