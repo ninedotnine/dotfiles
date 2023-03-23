@@ -32,11 +32,6 @@ if [ "$TERM" != "linux" ]; then
     stty -ixon
 fi
 
-# allow ctrl+n to work like tab, similar to vim
-bindkey "^N" expand-or-complete
-# allow backspace to work even after command mode
-bindkey '^?' backward-delete-char
-
 source "$HOME/dotfiles/.aliases"
 
 # show ls on every dir change
@@ -102,3 +97,31 @@ preexec () {
 
 # smart case matching
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
+
+bindkey "^A"    beginning-of-line
+bindkey "^B"    backward-char
+bindkey "^D"    delete-char
+bindkey "^E"    end-of-line
+bindkey "^F"    forward-char
+bindkey "^K"    kill-line
+
+bindkey "^[b"   backward-word
+bindkey "^[c"   capitalize-word
+bindkey "^[d"   kill-word
+bindkey "^[f"   forward-word
+bindkey "^[l"   down-case-word
+bindkey "^[u"   up-case-word
+
+bindkey -- "${terminfo[khome]}"     beginning-of-line
+bindkey -- "${terminfo[kend]}"      end-of-line
+bindkey -- "${terminfo[kich1]}"     overwrite-mode          # insert
+bindkey -- "${terminfo[kbs]}"       backward-delete-char    # backspace
+bindkey -- "${terminfo[kdch1]}"     delete-char             # delete
+bindkey -- "${terminfo[kcbt]}"      reverse-menu-complete   # shift+tab
+bindkey -- "${terminfo[kLFT5]}"     backward-word           # ctrl+left
+bindkey -- "${terminfo[kRIT5]}"     forward-word            # ctrl+right
+
+# allow ctrl+n to work like tab, similar to vim
+bindkey "^N" expand-or-complete
+# allow backspace to work even after command mode
+bindkey '^?' backward-delete-char
