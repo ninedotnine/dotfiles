@@ -52,7 +52,7 @@ alias df="df --human-readable --print-type"
 
 alias curl="curl --remote-name-all --location"
 
-alias scrot="scrot 'scrot-1%Y-%m-%d-%H%M%S.png' -l mode=edge --exec 'mv \$f ~/pics/scrots'"
+alias scrot='scrot --file "$HOME/pics/scrots/1%Y-%m-%d-%H%M%S.png" -l mode=edge'
 
 alias strings="strings --all"
 
