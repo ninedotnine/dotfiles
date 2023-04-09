@@ -41,6 +41,8 @@ alias vi="vim -p"
 alias vim="vim -p"
 alias view="vim -Rp"
 
+alias e="$EDITOR"
+
 alias diff="diff --unified"
 
 alias cal="cal --three"
