@@ -41,8 +41,6 @@ alias vi="vim -p"
 alias vim="vim -p"
 alias view="vim -Rp"
 
-alias e="$EDITOR"
-
 alias diff="diff --unified"
 
 alias cal="cal --three"
@@ -114,3 +112,7 @@ alias youtube-dl="yt-dlp"
 nodeload() {
     node --interactive --eval "$(< $1)"
 }
+
+# one-letter aliases
+alias c="cd"
+alias e="$EDITOR"
