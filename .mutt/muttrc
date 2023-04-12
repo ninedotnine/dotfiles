@@ -41,7 +41,8 @@ set beep = no
 
 set tilde=yes
 
-set menu_context=1
+set menu_context=3
+set menu_scroll=yes
 
 set pager_context=2
 set pager_stop=yes
@@ -53,6 +54,7 @@ set postponed="~/mail/postponed"
 set mime_forward=ask-no # to forward attachments
 
 set sort=threads
+set strict_threads = yes
 set pager_index_lines=5 # You might want to increase this
 # set pager_context=1
 set index_format="%4C %{%b %d} %Z %-30.25F %s"
