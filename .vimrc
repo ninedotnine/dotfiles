@@ -101,6 +101,9 @@ nnoremap Y y$
 nnoremap <space> :
 nnoremap Q :
 
+inoremap <KEnter> ;<CR>
+inoremap <S-CR> ;<CR>
+
 " command causes vim to explode when i reload $MYVIMRC
 " ! forces overwrite of whatever the command was before
 command! Q qall
