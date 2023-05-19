@@ -29,9 +29,9 @@ augroup end
 augroup tabstuff
     autocmd!
     autocmd FileType make setlocal noexpandtab   " makefiles hate spaces.
-    autocmd FileType souc setlocal noexpandtab   " souc uses tabs too.
-    autocmd FileType javascript,typescript,html,css setlocal tabstop=2
-    autocmd FileType javascript,typescript,html,css setlocal shiftwidth=2
+    autocmd FileType souc,surc setlocal noexpandtab   " souc uses tabs too.
+    autocmd FileType javascript,typescript,html,htmlm4,css setlocal tabstop=2
+    autocmd FileType javascript,typescript,html,htmlm4,css setlocal shiftwidth=2
 augroup end
 
 set wildmenu           " better command-line completion
@@ -62,6 +62,14 @@ set hlsearch            " keep matches highlighted after searching
 " Clear highlighting from screen
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 
+" start empty files in insert mode
+autocmd BufNewFile * start
+
+autocmd BufNewFile  *.c 0r ~/dotfiles/skeletons/skeleton.c
+autocmd BufNewFile  *.h 0r ~/dotfiles/skeletons/skeleton.h
+autocmd BufNewFile  *.py 0r ~/dotfiles/skeletons/skeleton.py
+
+
 " colours after 80 chars
 " set colorcolumn=81
 " set columns=81
@@ -91,7 +99,7 @@ let c_comment_strings = 1
 let c_space_errors = 1
 augroup cstuff
     autocmd!
-    au FileType c,cpp,java,javascript syntax keyword Debug assert
+    au FileType c,cpp,java,javascript,typescript syntax keyword Debug assert
 augroup end
 
 " for the haskell.vim syntax highlighting, highlight things like "undefined"
@@ -198,7 +206,7 @@ augroup commentstuff
     au FileType vim let b:comment_leader = '" '
     au FileType tex let b:comment_leader = '% '
     au FileType fortran,xdefaults let b:comment_leader = '! '
-    au FileType souc let b:comment_leader = '; '
+    au FileType souc,surc let b:comment_leader = '; '
 augroup end
 if !exists("b:comment_leader") 
     let b:comment_leader = '# ' " a sane default 
@@ -259,6 +267,9 @@ augroup columnstuff
     " email, git commits - wrap at 68 for future quoting, enable spelling
     au FileType mail setlocal tw=78 colorcolumn=79 spell
     au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
+
+    " useful for mutt with `text_flowed=yes` in .muttrc
+    autocmd FileType mail setlocal formatoptions+=w
 augroup end
 
 " disable annoying behavior where starting an auto-indented line with a hash
