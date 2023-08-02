@@ -115,6 +115,9 @@ inoremap <S-CR> ;<CR>
 inoremap q qu
 inoremap Q Qu
 
+nnoremap , ;
+nnoremap ; ,
+
 " command causes vim to explode when i reload $MYVIMRC
 " ! forces overwrite of whatever the command was before
 command! Q qall
