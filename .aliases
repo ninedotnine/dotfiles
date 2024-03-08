@@ -115,6 +115,8 @@ nodeload() {
     node --interactive --eval "$(< $1)"
 }
 
+alias ranger="lf"
+
 # one-letter aliases
 alias c="cd"
 alias e="$EDITOR"
