@@ -106,7 +106,7 @@ record() {
     ffmpeg -y -loglevel error -f alsa -ac 2 -ar 44100 -i pulse -ss 4 -f ogg -acodec libvorbis "$(date '+%H-%M-%S').ogg"
 }
 
-alias yt-dlpl="yt-dlp -o '%(playlist_title)s/%(playlist_index)s-%(title)s.%(ext)s'"
+alias ytpl-dl="yt-dlp -o '%(playlist_title)s/%(playlist_index)s-%(title)s.%(ext)s'"
 alias youtube-dl="yt-dlp"
 
 nodeload() {
