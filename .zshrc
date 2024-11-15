@@ -21,6 +21,9 @@ zstyle :compinstall filename '/home/dan/.zshrc'
 setopt INC_APPEND_HISTORY
 setopt HIST_REDUCE_BLANKS
 
+# make cd behave like pushd
+setopt autopushd
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
