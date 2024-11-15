@@ -39,14 +39,16 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="trash"
 
-alias vi="vim -p"
-alias vim="vim -p"
-alias view="vim -Rp"
+alias vi="nvim -p"
+alias vim="nvim -p"
+alias view="nvim -Rp"
+alias vimdiff="nvim -d"
 
 alias diff="diff --unified"
 
 alias cal="cal --three"
-alias today='date +"%A, %B %-d, %Y"'
+# alias today='date +"%A, %B %-d, 1%Y"'
+alias today='date +"1%Y-%m-%d"'
 
 alias free="free --human"
 alias du="du --human-readable"
@@ -62,6 +64,8 @@ alias sxiv="sxiv -a"
 alias ffeh="feh --full-screen"
 
 alias irc="exec screen -aAdR"
+
+alias wl-copy="wl-copy --primary"
 
 alias bake="make -j"
 
@@ -96,7 +100,8 @@ mutt() {
 }
 
 alias fastmplayer="mplayer -fs -framedrop -lavdopts lowres=1:fast:skiploopfilter=all"
-alias mpv="mpv --demuxer-max-bytes=900M"
+alias mpv="mpv --cache-pause-initial=yes --demuxer-max-bytes=2G"
+alias mpva="mpv --cache-pause-initial=yes --demuxer-max-bytes=2G --no-video"
 
 alias testmic="arecord -d 2 -f dat testmic.wav ; mplayer testmic.wav ; rm testmic.wav"
 
@@ -120,3 +125,5 @@ alias ranger="lf"
 # one-letter aliases
 alias c="cd"
 alias e="$EDITOR"
+
+alias -g ¬="/home/danso"
