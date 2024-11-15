@@ -16,20 +16,35 @@ unbind-key  A
 unbind-key  C
 unbind-key  J
 unbind-key  K
-# unbind-key  N
+unbind-key  N
 unbind-key  ^K
 unbind-key  ^D
 unbind-key  G
 
 bind-key j next
 bind-key k prev
-bind-key d delete-article
-bind-key ^N toggle-article-read
+bind-key l open
+bind-key h quit
+bind-key ^N next-feed
+bind-key ^P prev-feed
 bind-key G end
-bind-key R rev-sort
+bind-key R toggle-article-read
+bind-key = sort
+bind-key ∝ rev-sort
+
+bind-key TAB next-unread
+bind-key f goto-title
+bind-key z toggle-show-read-feeds
+bind-key ^D halfpagedown
+bind-key ^U halfpageup
 
 article-sort-order date-desc
 
-browser curler
+browser "newsboat-downloader %t %u %F %n %N %f"
+# browser "/usr/bin/w3m %u"
 
 notify-program "~/bin/newsboat-notifier"
+
+highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
