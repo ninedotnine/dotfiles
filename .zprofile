@@ -28,10 +28,10 @@ export MPC_FORMAT="[%position%: ][[%artist%|%performer%][ / %composer%] - ][%tit
 export EDITOR="nvim"
 export PAGER="less"
 export BROWSER="firefox"
-export TERMCMD="urxvtc"
-export TRASH_D_DIR="/media/trash"
+export TERMCMD="kitty"
+export TRASH_D_DIR="$HOME/.trash"
 
-export PATH="$PATH:/home/dan/bin"
+export PATH="$PATH:$HOME/bin"
 
 
 if [ $(tty) = '/dev/tty1' ]; then
