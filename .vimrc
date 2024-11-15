@@ -170,6 +170,7 @@ endfunction
 
 " open file under cursor in new tab
 noremap gf gf
+set tabpagemax=15   " limit number of tabs open at once
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
