@@ -99,17 +99,49 @@ noremap gM :w\|:silent !echo "make" > async_build_fifo<cr>
 " let g:solarized_termtrans = 1
 " colorscheme solarized
 
-if has("syntax")
-    syntax on
-    set foldmethod=syntax " automatic folding
-"     set textwidth=79
-else
-    set spell
-    set foldmethod=indent " automatic folding
-"     "set wrapmargin=14
-endif
+" if has("syntax")
+"     syntax on
+"     set foldmethod=syntax " automatic folding
+" "     set textwidth=79
+" else
+"     set spell
+"     set foldmethod=indent " automatic folding
+" "     "set wrapmargin=14
+" endif
 
 set foldlevel=100
+highlight Folded ctermbg=238 ctermfg=250
+
+function! FoldMethod(lnum)
+    let l:indent_this = indent(a:lnum)
+"     let l:indent_prev = indent(a:lnum-1)
+    let l:indent_next = indent(a:lnum+1)
+"     if l:indent_next < l:indent_this
+"         let l:level = l:indent_this / &shiftwidth
+"         return '<' .. l:level
+"     elseif l:indent_this < l:indent_prev
+"         let l:level = l:indent_this / &shiftwidth
+"         return '>' .. l:level
+"     endif
+    let l:indent_max = max([indent_this, indent_next])
+    return l:indent_max / &shiftwidth
+endfunction
+
+function! FoldText()
+    let line = getline(v:foldstart)
+    let size = v:foldend - v:foldstart
+    return '÷' .. size .. v:folddashes .. ' ' .. line .. ' '
+endfunction
+
+set foldmethod=expr
+set foldexpr=FoldMethod(v:lnum)
+set foldtext=FoldText()
+
+" augroup foldstuff
+"     autocmd!
+"     au FileType haskell setlocal foldmethod=indent
+" augroup end
+
 
 " c-specific highlighting options
 let c_gnu = 1
@@ -122,6 +154,9 @@ augroup end
 
 " for the haskell.vim syntax highlighting, highlight things like "undefined"
 let hs_highlight_debug = "yes"
+
+" make `cw` behave like `dwi` instead of like `ce`
+set cpoptions-=_
 
 nnoremap Y y$
 nnoremap <space> :
@@ -146,8 +181,8 @@ noremap _ ^
 
 nnoremap « <<
 nnoremap » >>
-vnoremap » >>
-vnoremap » >>
+vnoremap « <
+vnoremap » >
 
 " insert a (s)ingle character
 nnoremap <silent>= :exec "normal i".nr2char(getchar())."\e"<CR>
@@ -167,10 +202,14 @@ nnoremap <silent>À m`:silent -g/\m^\s*$/d<CR>``h:noh<CR>
 nnoremap Ô d$O<esc>p0
 nnoremap ô i<cr><esc>
 
+" delete all characters on a line, leaving the line blank
+nnoremap dc cc<esc>
+
 noremap · #
 noremap × #
 
 noremap \ ?
+noremap ÷ ?
 
 nnoremap <c-h> <c-u>
 
@@ -187,9 +226,13 @@ nnoremap <c-k> <PageUp>
 
 noremap <c-b> <c-x>
 
-" disable i_0_CTRL-D and i_^_CTRL-D
+" disable i_0_CTRL-D and i_^_CTRL-^
+" unsatisfyingly, this breaks . repetition.
 " iunmap 0<c-d>
-inoremap 0<c-d> <Esc>:set timeoutlen=1<CR>a0<Esc>:set timeoutlen=1000<CR>a
+" inoremap 0<c-d> <Esc>:set timeoutlen=1<CR>a0<Esc>:set timeoutlen=1000<CR>a
+" inoremap 0<c-d> <Esc>a0<Esc>a
+" inoremap <nowait> 0 0<esc>a
+" inoremap <nowait> ^ ^<esc>a
 " iunmap ^<c-d>
 
 nnoremap <c-n> gt
@@ -205,6 +248,11 @@ command! Q qall
 " command! W w
 cabbr W w       
 "  how is cabbr different?
+
+" go to [count] next unmatched ']'  or '['
+noremap <silent> ]b :call searchpair('\[','','\]')<cr>
+noremap <silent> [b :call searchpair('\[','','\]','b')<cr>
+
 
 "this stuff is also set in /usr/share/vim/vimfiles/archlinux.vim
 "allow backspacing over everything in insert mode
@@ -253,13 +301,14 @@ noremap gf gf
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
     let fwindow = Chomp(system("xdotool getwindowfocus"))
-    let fname = Chomp(system("find . -path ./.git -prune -o -print | dmenu -i -l 20 -p " . a:cmd))
-"     let fname = Chomp(system("ls -A1 | dmenu -i -l 20 -p " . a:cmd))
-    let unused = system("xdotool windowfocus " . fwindow)
+    let fname = Chomp(system("find . -path ./.git -prune -o -print | wofi -i --dmenu " .. a:cmd))
+"     let fname = Chomp(system("find . -path ./.git -prune -o -print | dmenu -i -l 20 -p " .. a:cmd))
+"     let fname = Chomp(system("ls -A1 | dmenu -i -l 20 -p " .. a:cmd))
+    let unused = system("xdotool windowfocus " .. fwindow)
     if empty(fname)
         return
     endif
-    execute a:cmd . " " . fname
+    execute a:cmd .. " " .. fname
 endfunction
 
 noremap <c-t> :call DmenuOpen("tabe")<cr>
@@ -304,7 +353,7 @@ hi clear CursorLine
 hi clear CursorLineNR
 hi LineNr ctermfg=magenta
 hi CursorLineNR cterm=bold,italic ctermfg=93
-set cursorline
+set nocursorline
 set nocursorcolumn
 
 " highlights for the tab bar
@@ -410,14 +459,18 @@ inoremap <c-(> <c-o>(
 inoremap <c-)> <c-o>)
 inoremap <c-}> <c-o>}
 " inoremap <c-]> <c-o>]]
-inoremap <c-+> ciaje
-inoremap <c-*> ciaje
-inoremap <c-=> ciaje
-inoremap <c--> ciaje
-inoremap <c-/> ciaje
-inoremap <c-&> ciaje
+inoremap <c-+> +++++
+inoremap <c-*> *****
+inoremap <c-=> =====
+inoremap <c--> -----
+inoremap <c-/> /////
+inoremap <c-&> &&&&&
 
-inoremap <c-_> endur
+inoremap <c-_> _____
+
+
+" replace visual selection with contents of unnamed register
+vnoremap R "1dp
 
 " Settings {{{
 let g:InsertSingleCharacter_show_prompt_message = get(g:, "InsertSingleCharacter_show_prompt_message", 0)
@@ -450,3 +503,6 @@ imap <c-+> <Plug>(ISC-append-at-end-insert-mode)
 " nmap à <Plug>(ISC-insert-enter-at-cursor)
 " nmap À <Plug>(ISC-append-enter-at-cursor)
 " }}}
+
+" works with kitty? 
+noremap <c-Tab> :set expandtab!<CR>
