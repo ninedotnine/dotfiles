@@ -11,8 +11,8 @@ scroll_down  K C-Down
 scroll_left  H C-Left
 scroll_right L C-Right
 
-zoom_in         +
-zoom_out        -
+zoom_in         plus
+zoom_out        minus
 
 toggle_pause    p
 
