@@ -1,0 +1,64 @@
+set hidden true
+set shell dash
+set sixel true 
+set scrolloff 5
+
+
+# Use the `dim` attribute instead of underline
+# for the cursor in the preview pane
+# danso: does this work?
+set cursorpreviewfmt "\033[7;2m"
+
+cmd delete $trash "$f"
+
+# mkdir command. See wiki if you want it to select created dir
+map A :push %mkdir<space>
+
+# make touch also open the file in an editor?
+map a :push %touch<space>
+map b !bat "$f"
+
+# is this even useful? 
+# map c :push %cd<space> 
+
+map o open
+map w &firefox "$f"
+map D delete
+map E :push $nvim<space>
+map S $$SHELL
+map Z :push :tarz<space>
+
+map v toggle
+map V invert
+
+map <delete> delete
+map <enter> open
+map <space> shell
+
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+# show the result of execution of previous commands
+map ` !true
+
+map ; find-prev
+map , find-next
+
+# create empty files
+cmd touch ${{
+    set -f      # disables pathname expansion
+    printf "touch"
+    read ans
+    touch $ans
+}}
+
+# compress current file or selected files with tar and zstd
+cmd tarz ${{
+    set -f
+    tmpdir=$(mktemp -d /tmp/lf-tarz-XXXXXXX)
+    mkdir -p $tmpdir/$1
+    cp -r $fx $tmpdir/$1
+    tar cf $1.tar.zst --zstd $tmpdir/$1
+    # rm -rf $tmpdir/$1
+}}
