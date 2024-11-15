@@ -3,7 +3,7 @@
     email = email@email.com
 	signingkey = C018929BFBD9F126
 [core]
-    editor = vim
+    editor = nvim
     hooksPath = ~/dotfiles/git_hooks
     excludesfile = ~/dotfiles/.global_gitignore
 [credential]
