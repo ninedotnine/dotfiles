@@ -32,8 +32,3 @@ export TERMCMD="kitty"
 export TRASH_D_DIR="$HOME/.trash"
 
 export PATH="$PATH:$HOME/bin"
-
-
-if [ $(tty) = '/dev/tty1' ]; then
-    startx >> /tmp/xorg.log 2>&1
-fi
