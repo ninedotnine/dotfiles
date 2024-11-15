@@ -1,0 +1,23 @@
+menu_parent h Left
+menu_child  l Right
+menu_down   j Down
+menu_up     k Up
+
+next_img j l Right space
+prev_img k h Left BackSpace
+
+scroll_up    J C-Up
+scroll_down  K C-Down
+scroll_left  H C-Left
+scroll_right L C-Right
+
+zoom_in         +
+zoom_out        -
+
+toggle_pause    p
+
+# unbind these
+save_filelist
+toggle_keep_vp
+reload_plus
+reload_minus
