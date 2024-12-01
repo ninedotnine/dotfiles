@@ -64,60 +64,201 @@ set attribution_locale="fr_CA.UTF-8"
 set attribution="%d, %n a écrit :"
 
 #Different colors for different levels of quoting
-color quoted    magenta         black
-color quoted1   blue            black
-color quoted2   red             black
-color quoted3   yellow          black
-color quoted4   cyan            black
-color quoted5   blue            black
-color quoted6   magenta         black
-color quoted7   red             black
-color quoted8   yellow          black
-color quoted9   cyan            black
-color signature blue            default
+color quoted    color246        default
+color quoted1   color240        default
+color quoted2   color234          default
+color quoted3   cyan            default
+color quoted4   green           default
+color quoted5   blue            default
+color quoted6   yellow          default
+color quoted7   cyan            default
+color quoted8   green           default
+color quoted9   blue            default
+color signature brightblack     default
 
 # Palette for use with the Linux console.  Black background.
-color hdrdefault blue black
-color quoted blue black
-color signature blue black
-color attachment red black
-color prompt brightmagenta black
-color message brightred black
-color error brightred black
-color indicator default black
-color status magenta default
-color tree white default
-color normal white default
-color markers red black
-color search white black
+color hdrdefault    brightblue      default
+color attachment    red             default
+color prompt        brightmagenta   default
+color message       brightyellow    default
+color error         brightred       default
+color indicator     brightcolor111  default
+color status        magenta         default
+color tree          color250        default
+color normal        color253        default
+color markers       black           default
+color search        white           default
+
+# you should check what this does, hah
 color tilde brightmagenta black
-color index blue default ~F
-# color index red default "~O"
-# color index brightred default "~O"
-color index magenta default "~O"
-# color index brightyellow default "~N"
-color index brightmagenta default "~N"
-color index brightgreen default ~Q
-color index brightred default ~D
+
+color index color245        default     "~Q"        # replied
+color index magenta         default     "~O"        # old
+color index brightmagenta   default     "~N"        # new
+color index color208        default     "~X >0"     # attachments
+color index brightcolor208  default     "~O~X >0"
+color index brightcolor208  default     "~N~X >0"
+color index brightblue      default     "~F"        # flagged
+color index yellow          default     "~T"        # tagged
+color index brightred       default     "~D"        # deleted
+
+color header        color251        default        "^(Date:)"
+color header        color246        default        "^(From:)"
+# color header        color234        default        "^(To:)"
+color header        color243        default        "^(To:)"
+color header        magenta         default        "^(Subject:)"
+
+# color signature blue black
 
 # color body brightwhite black '\*+[^*]+\*+'
 # color body brightwhite black '_+[^_]+_+'
 
 # remap keys to behave more like vim
-bind index \cd half-down
-bind index \cu half-up
-bind index,generic G last-entry
-bind index,generic H current-top
-bind index,generic M current-middle
-bind index,generic L current-bottom
-bind index,generic j next-entry
-bind index,generic k previous-entry
-bind index,generic L current-bottom
-bind index N search-opposite
-bind index  toggle-new
+bind index,pager,generic \cd half-down
+bind index,pager,generic \cu half-up
+bind index,pager,generic \cf next-page
+bind index,pager J next-thread
+bind index,pager K previous-thread
+bind pager,generic h exit
+bind index,pager,generic N 	search-opposite
+bind index,pager,generic \\ search-reverse
+bind index,generic H top-page
+bind index,generic L bottom-page
+bind index j next-undeleted
+bind index k previous-undeleted
+bind generic j next-entry
+bind generic k previous-entry
+bind generic x exit
+bind index x quit
+
+
+# l for lu, or for later
+bind index l toggle-new
+bind pager l mark-as-new
+
+bind index ) next-undeleted
+bind index ( previous-undeleted
+bind index,pager } sidebar-next
+bind index,pager { sidebar-prev
+
+bind index,pager = sort-mailbox
+bind index,pager ∝ sort-reverse
+bind index,pager o noop
+bind index h noop
+
+bind index,pager <backtab> previous-new-then-unread
+# bind index,pager,generic <esc><tab> noop
+bind pager,index <esc><tab> noop
+bind pager <esc>/ noop
+
+bind index <esc>C noop
+bind index <esc>L noop
+bind index <esc>P noop
+bind index <esc>V noop
+bind index <esc>b noop
+bind index <esc>c noop
+bind index <esc>d noop
+bind index <esc>e noop
+bind index <esc>k noop
+bind index <esc>l noop
+bind index <esc>n noop
+bind index <esc>p noop
+bind index <esc>r noop
+bind index <esc>s noop
+bind index <esc>t noop
+bind index <esc>u noop
+bind index <esc>v noop
+
+bind generic <esc>/ noop
+
+bind pager <esc>C noop
+bind pager <esc>L noop
+bind pager <esc>P noop
+bind pager <esc>c noop
+bind pager <esc>d noop
+bind pager <esc>e noop
+bind pager <esc>k noop
+bind pager <esc>n noop
+bind pager <esc>p noop
+bind pager <esc>r noop
+bind pager <esc>s noop
+bind pager <esc>u noop
+
+# doesn't work?
+macro index ga <search>~b
 
 bind pager <down> next-line                     # makes sense
 bind pager <up> previous-line                   # as does this
+bind pager j next-line
+bind pager k previous-line
+bind pager i root-message
+bind pager ) next-undeleted
+bind pager ( previous-undeleted
+
+# find a use for + and *
+bind generic * noop
+bind index ^ noop
+bind pager ^ noop
+
+bind index,pager,generic g noop
+bind index,pager go sidebar-open
+bind index,pager gm compose-to-sender
+bind index,generic gg first-entry
+bind index,generic G last-entry
+bind pager gg top
+bind pager G bottom
+bind index gf limit
+bind index gF show-limit
+bind index,generic gj next-entry
+bind index,generic gk previous-entry
+bind index,pager gl list-reply
+bind index,pager gL list-action
+bind index,pager gr group-chat-reply
+bind pager g) next-entry
+bind pager g( previous-entry
+bind index,pager gp print-message
+
+# get urls out of a message
+macro index,pager gw "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose gw "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+bind index,pager \cB noop
+
+
+
+bind index,pager,generic z noop
+bind index,pager z@ display-address
+bind index,pager,generic ze error-history
+bind index,pager zv show-version
+bind index,pager,generic zw what-key
+bind index,pager zs sidebar-toggle-visible
+bind index,pager [z root-message
+bind index,pager zh display-toggle-weed
+bind pager zqu toggle-quoted
+bind index,generic zt current-top
+bind index,generic zz current-middle
+bind index,generic zb current-bottom
+
+bind index zC collapse-all
+bind index za collapse-thread
+bind index,pager zd delete-thread
+bind index,pager zj next-subthread
+bind index,pager zk previous-subthread
+bind index,pager zr read-subthread
+bind index zt tag-subthread
+bind index,pager zu undelete-subthread
+bind index,pager zU undelete-thread
+
+bind index,pager zS check-stats
+
+bind generic [ noop
+bind generic ] noop
+
+bind index,pager [[ sidebar-first
+bind index,pager ]] sidebar-last
+bind index,pager [{ sidebar-prev
+bind index,pager [} sidebar-next
+bind index,pager ]n sidebar-next-new
+bind index,pager [n sidebar-prev-new
 
 # automatically include message in reply
 set include=yes
