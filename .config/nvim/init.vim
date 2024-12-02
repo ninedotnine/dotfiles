@@ -3,9 +3,10 @@ let g:is_posix = 1
 set relativenumber
 set number
 set ruler
-set rulerformat=%49(%=%n:%<%t%y%r%m%h%w\ %-10.19(%l,%c%V,%o%)\ %P%)
+set rulerformat=%=%5.16(%l,%v,%o%)\ %P
 set laststatus=1
-set statusline=%n:%f\ %y%r%m%=%h%w\ %-10.19(%l,%c%V,%o%)\ %P
+set statusline=%n:%f\ %w%y%r%m%=%5.16(%l,%v,%o%)\ %P
+set shortmess=filnrxtoOsTf
 set scrolloff=3 " keep 3 lines of context above and below cursor
 set sidescrolloff=3 
 
