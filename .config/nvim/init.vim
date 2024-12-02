@@ -288,31 +288,10 @@ augroup end
 abbreviate #d #define
 abbreviate #i #include
 
-" these two functions are to integrate dmenu
-" thanks dude: http://leafo.net/posts/using_dmenu_to_open_quickly.html
-" Strip the newline from the end of a string
-function! Chomp(str)
-    return substitute(a:str, '\n$', '', '')
-endfunction
-
 " open file under cursor in new tab
 noremap gf gf
 
-" Find a file and pass it to cmd
-function! DmenuOpen(cmd)
-    let fwindow = Chomp(system("xdotool getwindowfocus"))
-    let fname = Chomp(system("find . -path ./.git -prune -o -print | wofi -i --dmenu " .. a:cmd))
-"     let fname = Chomp(system("find . -path ./.git -prune -o -print | dmenu -i -l 20 -p " .. a:cmd))
-"     let fname = Chomp(system("ls -A1 | dmenu -i -l 20 -p " .. a:cmd))
-    let unused = system("xdotool windowfocus " .. fwindow)
-    if empty(fname)
-        return
-    endif
-    execute a:cmd .. " " .. fname
-endfunction
-
-noremap <c-t> :call DmenuOpen("tabe")<cr>
-" noremap <c-e> :call DmenuOpen("e")<cr>
+noremap <c-t> :call fzf#run({'sink': 'tabnew'})<cr>
 
 augroup helpstuff
     autocmd!
