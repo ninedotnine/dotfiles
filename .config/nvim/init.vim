@@ -8,7 +8,7 @@ set laststatus=1
 set statusline=%n:%f\ %w%y%r%m%=%5.16(%l,%v,%o%)\ %P
 set shortmess=filnrxtoOsTf
 set scrolloff=3 " keep 3 lines of context above and below cursor
-set sidescrolloff=3 
+set sidescrolloff=3
 
 " scroll 8 lines with ctrl-d
 set scroll=7
@@ -24,11 +24,12 @@ set background=dark
 
 filetype indent on
 set wrap linebreak
+let &showbreak = "»»"
 set autoindent
 set smartindent
 
 set expandtab
-set tabstop=4 
+set tabstop=4
 set shiftwidth=4
 
 augroup filetypedetect
@@ -56,7 +57,7 @@ set nrformats-=octal  " don't skip 8 and 9 when incrementing
 
 set nomodeline          " don't try to read vim settings from a file
 
-set formatoptions+=j   " remove a comment leader when joining lines. 
+set formatoptions+=j   " remove a comment leader when joining lines.
 set formatoptions+=o   " insert the comment leader after hitting 'o'
 
 set wildmode=longest,list,full          " better filename tab completion
@@ -192,12 +193,12 @@ nnoremap <silent>+ :exec "normal i".nr2char(getchar())."\e"<CR>
 nnoremap <silent>† :exec "normal a".nr2char(getchar())."\e"<CR>
 
 " insert a blank line above or below the current line
-nnoremap é :set paste<CR>m`o<Esc>``h:set nopaste<CR> 
+nnoremap é :set paste<CR>m`o<Esc>``h:set nopaste<CR>
 nnoremap à :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " delete the line above or below if it is blank
-nnoremap <silent>É m`:silent +g/\m^\s*$/d<CR>``h:noh<CR> 
-nnoremap <silent>À m`:silent -g/\m^\s*$/d<CR>``h:noh<CR> 
+nnoremap <silent>É m`:silent +g/\m^\s*$/d<CR>``h:noh<CR>
+nnoremap <silent>À m`:silent -g/\m^\s*$/d<CR>``h:noh<CR>
 
 " bring text until end-of-line to a new line below or above
 nnoremap Ô d$O<esc>p0
@@ -247,7 +248,7 @@ inoremap <c-w> <c-g>u<c-w>
 " ! forces overwrite of whatever the command was before
 command! Q qall
 " command! W w
-cabbr W w       
+cabbr W w
 "  how is cabbr different?
 
 " go to [count] next unmatched ']'  or '['
@@ -320,8 +321,8 @@ augroup commentstuff
     au FileType fortran,xdefaults let b:comment_leader = '! '
     au FileType souc,surc let b:comment_leader = '; '
 augroup end
-if !exists("b:comment_leader") 
-    let b:comment_leader = '# ' " a sensible default 
+if !exists("b:comment_leader")
+    let b:comment_leader = '# ' " a sensible default
 endif
 noremap <silent> g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
@@ -367,8 +368,8 @@ nnoremap <F8> :%s/\s\+$//<CR>
 nnoremap <F6> :call ToggleLineNumbers()<CR>
 
 function! ToggleLineNumbers()
-    set relativenumber!   
-    set number! 
+    set relativenumber!
+    set number!
 endfunction
 
 augroup savingstuff
@@ -477,7 +478,7 @@ nnoremap = <Plug>(ISC-insert-at-cursor)
 nnoremap ∝ <Plug>(ISC-insert-at-start)
 nnoremap + <Plug>(ISC-append-at-cursor)
 nnoremap † <Plug>(ISC-append-at-end)
-" temporary ¶ until i fix my kbd 
+" temporary ¶ until i fix my kbd
 nnoremap ¶ <Plug>(ISC-append-at-end)
 imap <c-=> <Plug>(ISC-insert-at-start-insert-mode)
 imap <c-+> <Plug>(ISC-append-at-end-insert-mode)
