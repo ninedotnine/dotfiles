@@ -291,7 +291,7 @@ abbreviate #i #include
 " open file under cursor in new tab
 noremap gf gf
 
-noremap <c-t> :call fzf#run({'sink': 'tabnew'})<cr>
+noremap <c-t> :call fzf#run({'sink': 'tabnew', 'options': "--prompt '» ' --pointer '»'"})<cr>
 
 augroup helpstuff
     autocmd!
