@@ -329,13 +329,18 @@ noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>/
 " nnoremap g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 " nnoremap g- :<C-B>sil <C-E>s/^/V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
-" highlight current line number 
+" highlights
+hi MatchParen ctermfg=cyan ctermbg=240
+
+" highlight current line number
 hi clear LineNr
 hi clear CursorLine
 hi clear CursorLineNR
-hi LineNr ctermfg=magenta
+hi clear StatusLineNC
+hi StatusLineNC ctermbg=238
+hi LineNr ctermfg=141
 hi CursorLineNR cterm=bold,italic ctermfg=93
-set nocursorline
+set cursorline
 set nocursorcolumn
 
 " highlights for the tab bar
