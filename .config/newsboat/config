@@ -8,7 +8,7 @@ history-limit 0
 datetime-format "%d %b 1%Y"
 articlelist-format "%4i %f  %D  %?T?  |%-17T| ?%t"
 
-color   listfocus           blue    default      
+color   listfocus           blue    default
 color   listfocus_unread    blue    default  bold
 color   info                white   black
 
@@ -25,10 +25,16 @@ bind-key j next
 bind-key k prev
 bind-key l open
 bind-key h quit
+bind-key x quit
+bind-key t toggle-article-read
 bind-key ^N next-feed
 bind-key ^P prev-feed
+bind-key } next-feed
+bind-key { prev-feed
+bind-key g home
 bind-key G end
 bind-key R toggle-article-read
+bind-key T select-tag
 bind-key = sort
 bind-key ∝ rev-sort
 
