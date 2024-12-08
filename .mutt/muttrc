@@ -7,6 +7,8 @@ set header_cache=~/.cache/mutt
 
 set folder      = ~/mail/
 
+alternative_order text/plain text/html
+
 # handle html messages nicely
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
@@ -31,23 +33,19 @@ set sidebar_visible = yes
 set sidebar_width = 20
 set sidebar_format = "%n %* %B"
 
-bind index,pager K sidebar-prev
-bind index,pager J sidebar-next
-bind index,pager O sidebar-open
-
 set sleep_time = 0
 set beep_new = yes
 set beep = no
 
 set tilde=yes
 
-set menu_context=3
+set menu_context=0
 set menu_scroll=yes
 
 set pager_context=2
 set pager_stop=yes
 
-set editor="vim -c 'set spell spelllang=fr,en'
+set editor="nvim -c 'set spell spelllang=fr,en'
 
 set postponed="~/mail/postponed"
 
@@ -119,7 +117,11 @@ bind index,pager,generic \cu half-up
 bind index,pager,generic \cf next-page
 bind index,pager J next-thread
 bind index,pager K previous-thread
-bind pager,generic h exit
+bind pager,generic  h exit
+bind attach         h exit
+bind index      l display-message
+bind pager      l view-attachments
+bind generic    l select-entry
 bind index,pager,generic N 	search-opposite
 bind index,pager,generic \\ search-reverse
 bind index,generic H top-page
@@ -131,10 +133,11 @@ bind generic k previous-entry
 bind generic x exit
 bind index x quit
 
+bind index,generic  * 	tag-entry
+bind pager          * 	tag-message
+bind index          t   toggle-new
+bind pager          t 	mark-as-new
 
-# l for lu, or for later
-bind index l toggle-new
-bind pager l mark-as-new
 
 bind index ) next-undeleted
 bind index ( previous-undeleted
@@ -195,8 +198,7 @@ bind pager i root-message
 bind pager ) next-undeleted
 bind pager ( previous-undeleted
 
-# find a use for + and *
-bind generic * noop
+# find a use for + and ^. + for tagging?
 bind index ^ noop
 bind pager ^ noop
 
@@ -282,6 +284,16 @@ source $alias_file
 # set shell=/usr/bin/dash
 
 set pipe_decode=yes # makes messages easier for external programs to parse
-set display_filter="/usr/bin/madm-client"
+# set display_filter="~/.mutt/newalias"
+# set display_filter="~/bin/util/mutt_alias/bin/mutt_alias"
+set display_filter="~/devel/madm/bin/madm-client"
+# set display_filter="/usr/bin/madm-client"
 
-macro pager A |'~/.mutt/mail2muttalias.py ~/.mutt/aliases.dum'\n
+# macro pager A |'~/.mutt/mail2muttalias.py ~/.mutt/aliases.dum'\n
+
+# only in neomutt (for now)
+# set abort_key = ^C
+# set abort_backspace = yes
+
+# just an example
+# macro index,pager,generic zl ":set sidebar_width = 10" "reduce sidebar width"
