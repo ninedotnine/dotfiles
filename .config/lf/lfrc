@@ -31,6 +31,8 @@ map Z :push :tarz<space>
 map v toggle
 map V invert
 
+map sr set reverse!
+
 map <delete> delete
 map <enter> open
 map <space> shell
