@@ -60,7 +60,8 @@ alias scrot='scrot --file "$HOME/pics/scrots/1%Y-%m-%d-%H%M%S.png" -l mode=edge'
 
 alias strings="strings --all"
 
-alias sxiv="sxiv -a"
+alias sxiv="nsxiv -a"
+alias nsxiv="nsxiv -a"
 alias ffeh="feh --full-screen"
 
 alias irc="exec screen -aAdR"
