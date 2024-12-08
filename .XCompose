@@ -219,3 +219,4 @@ include "%L"
 <Multi_key> <musicalflat> <musicalflat> : "𝄫" U+1D12B # double flat
 
 <Multi_key> <dagger> <dagger> : "‡" doubledagger
+<Multi_key> <asterisk> <asterisk> <asterisk> : "⁂" asterism
