@@ -214,9 +214,9 @@ include "%L"
 
 <Multi_key> <R> <x> : "℞" prescription # U+211E 
 
-<Multi_key> <musicalflat> <numbersign>  : "♮" U+266E # music natural sign
-<Multi_key> <numbersign> <musicalflat>  : "♮" U+266E # music natural sign
-<Multi_key> <musicalflat> <musicalflat> : "𝄫" U+1D12B # double flat
+<Multi_key> <musicalflat> <numbersign>  : "♮" U266E # music natural sign
+<Multi_key> <numbersign> <musicalflat>  : "♮" U266E # music natural sign
+<Multi_key> <musicalflat> <musicalflat> : "𝄫" U1D12B # double flat
 
 <Multi_key> <dagger> <dagger> : "‡" doubledagger
-<Multi_key> <asterisk> <asterisk> <asterisk> : "⁂" asterism
+<Multi_key> <asterisk> <asterisk> <asterisk> : "⁂" U2042 # asterism
