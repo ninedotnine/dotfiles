@@ -1,2 +1,31 @@
 set editing-mode vi
 set keymap vi-insert
+
+"\C-a": beginning-of-line
+"\C-b": backward-char
+"\C-d": delete-char
+"\C-e": end-of-line
+"\C-f": forward-char
+"\C-g": abort
+"\C-k": kill-line
+# "\C-l": clear-screen  # unnecessary ?
+#
+
+# which?
+# "\e.": insert-last-argument
+"\e.": yank-last-arg
+
+# "\e_": insert-last-argument
+"\e_": yank-last-arg
+
+"\e<": beginning-of-history
+"\e>": end-of-history
+
+"\eb": backward-word
+"\ec": capitalize-word
+"\ed": kill-word
+"\ef": forward-word
+"\el": downcase-word
+"\en": non-incremental-forward-search-history
+"\ep": non-incremental-reverse-search-history
+"\eu": upcase-word
