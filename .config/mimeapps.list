@@ -19,7 +19,7 @@ application/x-extension-xht=firefox.desktop;
 application/rss+xml=firefox.desktop;
 
 [Default Applications]
-application/pdf=evince.desktop
+application/pdf=org.gnome.Evince.desktop
 inode/directory=lf.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
@@ -38,3 +38,9 @@ image/webp=feh.desktop
 image/vnd.microsoft.icon=feh.desktop
 image/gif=nsxiv.desktop
 image/avif=nsxiv.desktop
+audio/midi=mpva.desktop;
+audio/ogg=mpva.desktop;
+audio/mp3=mpva.desktop;
+video/x-matroska=mpv.desktop;
+video/webm=mpv.desktop;
+video/mp4=mpv.desktop;
