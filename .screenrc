@@ -9,6 +9,11 @@ vbell off
 
 startup_message off
 
+unbindall               # unbind all keys
+bindkey -k k2 screen    # create new window with f2
+bindkey -k k3 other     # switch to other window with f3
+bindkey -k k4 next      # switch to next window with f4
+
 # what do these do? hm...
 hardstatus on
 # hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w"
