@@ -1,13 +1,23 @@
 " more configs in /etc/vimrc and /usr/share/vim/vimfiles
 
 set nocompatible
+let g:is_posix = 1
 set relativenumber
 set number
 set ruler
 set rulerformat=%49(%=%n:%<%t%y%r%m%h%w\ %-10.19(%l,%c%V,%o%)\ %P%)
 set laststatus=1
 set statusline=%n:%f\ %y%r%m%=%h%w\ %-10.19(%l,%c%V,%o%)\ %P
-set scrolloff=5 " keep 5 lines of context above and below cursor
+set scrolloff=3 " keep 3 lines of context above and below cursor
+set sidescrolloff=3
+
+" scroll 8 lines with ctrl-d
+set scroll=7
+
+set display+=lastline,truncate
+
+let mapleader='¿' " i don't really use this, but i gotta change it from '\'
+
 set lazyredraw  " do not redraw screen while executing a macro
 
 set t_Co=256
@@ -19,7 +29,7 @@ set autoindent
 set smartindent
 
 set expandtab
-set tabstop=4 
+set tabstop=4
 set shiftwidth=4
 
 augroup filetypedetect
@@ -43,18 +53,20 @@ set incsearch          " Incremental search
 set mouse=nv            " Enable mouse usage, but not in insert mode
 set nostartofline       " don't jump to column 0 when possible
 
+set nrformats-=octal  " don't skip 8 and 9 when incrementing
+
 set nomodeline          " don't try to read vim settings from a file
 
-set formatoptions+=j   " remove a comment leader when joining lines. 
+set formatoptions+=j   " remove a comment leader when joining lines.
 set formatoptions+=o   " insert the comment leader after hitting 'o'
 
 set wildmode=longest,list,full          " better filename tab completion
 " set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
-set history=20
+set history=300
 
-set ttyfast             " this might improve performance, iono
-set ttimeoutlen=100     " this might fix the slow O problem
+" set ttyfast             " this might improve performance, iono
+" set ttimeoutlen=100     " this might fix the slow O problem
 
 set spelllang=en_us
 
@@ -69,6 +81,12 @@ autocmd BufNewFile  *.c 0r ~/dotfiles/skeletons/skeleton.c
 autocmd BufNewFile  *.h 0r ~/dotfiles/skeletons/skeleton.h
 autocmd BufNewFile  *.py 0r ~/dotfiles/skeletons/skeleton.py
 
+" in vim, <c-m> is the same as return.
+" nvim with a compatible terminal (kitty) can use <c-m>.
+if has('nvim')
+    inoremap <c-m> :! make<CR>
+    nnoremap <c-m> :! make<CR>
+endif
 
 " colours after 80 chars
 " set colorcolumn=81
@@ -112,17 +130,74 @@ nnoremap Q :
 inoremap <KEnter> ;<CR>
 inoremap <S-CR> ;<CR>
 
-inoremap q qu
-inoremap Q Qu
+inoremap <C-CR> <esc>
+inoremap <C-space> <esc>
 
 nnoremap , ;
 nnoremap ; ,
+
+noremap _ ^
+
+nnoremap « <<
+nnoremap » >>
+vnoremap » >>
+vnoremap » >>
+
+" insert a (s)ingle character
+nnoremap <silent>s :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap <silent>S :exec "normal a".nr2char(getchar())."\e"<CR>
+nnoremap <silent>+ :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap <silent>† :exec "normal a".nr2char(getchar())."\e"<CR>
+
+" insert a blank line above or below the current line
+nnoremap é :set paste<CR>m`o<Esc>``h:set nopaste<CR>
+nnoremap à :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" delete the line above or below if it is blank
+nnoremap <silent>É m`:silent +g/\m^\s*$/d<CR>``h:noh<CR>
+nnoremap <silent>À m`:silent -g/\m^\s*$/d<CR>``h:noh<CR>
+
+" bring text until end-of-line to a new line below or above
+nnoremap Ô d$O<esc>p0
+nnoremap ô i<cr><esc>
+
+noremap · #
+noremap × #
+
+noremap \ ?
+
+nnoremap <c-h> <c-u>
+
+nnoremap <c-s> :w<CR>
+nnoremap <c-q> :x<CR>
+
+inoremap <c-l> <c-x><c-l>
+
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+
+nnoremap <c-j> <PageDown>
+nnoremap <c-k> <PageUp>
+
+noremap <c-b> <c-x>
+
+" disable i_0_CTRL-D and i_^_CTRL-D
+" iunmap 0<c-d>
+inoremap 0<c-d> <Esc>:set timeoutlen=1<CR>a0<Esc>:set timeoutlen=1000<CR>a
+" iunmap ^<c-d>
+
+nnoremap <c-n> gt
+nnoremap <c-p> gT
+
+" make deleting words/lines in insert mode undoable
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 
 " command causes vim to explode when i reload $MYVIMRC
 " ! forces overwrite of whatever the command was before
 command! Q qall
 " command! W w
-cabbr W w       
+cabbr W w
 "  how is cabbr different?
 
 "this stuff is also set in /usr/share/vim/vimfiles/archlinux.vim
@@ -151,7 +226,7 @@ if has('persistent_undo')
         autocmd!
         au BufWritePre /tmp/* setlocal noundofile
         au BufWritePre ~/tmp/* setlocal noundofile
-    augroup undostuff
+    augroup end
 endif
 
 " compile and display a latex file
@@ -170,7 +245,6 @@ endfunction
 
 " open file under cursor in new tab
 noremap gf gf
-set tabpagemax=15   " limit number of tabs open at once
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
@@ -212,15 +286,15 @@ augroup commentstuff
     au FileType fortran,xdefaults let b:comment_leader = '! '
     au FileType souc,surc let b:comment_leader = '; '
 augroup end
-if !exists("b:comment_leader") 
-    let b:comment_leader = '# ' " a sane default 
+if !exists("b:comment_leader")
+    let b:comment_leader = '# ' " a sane default
 endif
 noremap <silent> g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> g- :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 " nnoremap g/ :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 " nnoremap g- :<C-B>sil <C-E>s/^/V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
-" highlight current line number 
+" highlight current line number
 hi clear LineNr
 hi clear CursorLine
 hi clear CursorLineNR
@@ -235,6 +309,7 @@ hi clear TabLineFill
 hi clear TabLineSel
 hi TabLineSel cterm=bolditalic ctermfg=124
 hi TabLine ctermfg=brown
+set tabpagemax=15   " limit number of tabs open at once
 
 " different higlhights for st
 if $TERM == "xterm-256color"
@@ -244,9 +319,24 @@ if $TERM == "xterm-256color"
     set hlsearch
 endif
 
+" press K to load a man page
+runtime ftplugin/man.vim
+
+" append current date/time
+nnoremap <F2> a<C-R>=strftime("%c")<CR><Esc>
 nnoremap <F5> :diffu<CR>
 set pastetoggle=<F11>
 nnoremap <F12> :so $MYVIMRC<CR> :nohlsearch<CR><C-l>
+
+" delete spaces at end-of-line
+nnoremap <F8> :%s/\s\+$//<CR>
+
+nnoremap <F6> :call ToggleLineNumbers()<CR>
+
+function! ToggleLineNumbers()
+    set relativenumber!
+    set number!
+endfunction
 
 augroup savingstuff
     autocmd!
@@ -269,7 +359,7 @@ augroup columnstuff
     autocmd FileType mail :nnoremap <F7> :w<CR>:!aspell -e -c %<CR>:e<CR>
 
     " email, git commits - wrap at 68 for future quoting, enable spelling
-    au FileType mail setlocal tw=78 colorcolumn=79 spell
+    au FileType mail setlocal tw=71 colorcolumn=72 spell
     au FileType gitcommit setlocal tw=68 colorcolumn=69 spell
 
     " useful for mutt with `text_flowed=yes` in .muttrc
@@ -293,5 +383,6 @@ function! StripTrailingWhitespace()
 endfunction
 
 " for rainbow parens
+" let g:rainbow_conf = { 'ctermfgs': [ 'darkmagenta', 'blue', 'darkcyan', 'darkred', 'darkblue' ] }
 let g:rainbow_conf = { 'ctermfgs': ['darkyellow', 'darkcyan', 'darkgray', 'darkblue', 'darkmagenta', 'magenta'] }
 let g:rainbow_active = 1
