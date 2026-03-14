@@ -6,7 +6,8 @@ alias sudo="sudo " # recommended by archwiki to enable aliases with sudo
 alias detox="detox -f ~/dotfiles/.config/detox/detoxrc"
 
 if which eza > /dev/null ; then
-    alias ls="TZ=/usr/share/zoneinfo/Canada/Eastern eza --classify --all --links --smart-group --git"
+    alias ls="TZ=/usr/share/zoneinfo/Canada/Eastern eza --classify --icons --all --links --smart-group --git"
+    alias lstimes="eza -l --created --changed --modified --accessed --time-style='+%Y-%m-%d' --group-directories-first --no-user --no-permissions"
 else
     alias ls="ls -hFA --color=auto"
 fi
@@ -18,11 +19,15 @@ alias grep='grep --ignore-case --color=auto --binary-files=without-match'
 alias fgrep='fgrep --ignore-case --color=auto --binary-files=without-match'
 alias egrep='egrep --ignore-case --color=auto --binary-files=without-match'
 alias ack='ack --smart-case'
-alias rg='rg -i'
-alias rgf='rg -i --files-with-matches'
+alias rg='rg --smart-case'
+alias rgf='rg --smart-case --files-with-matches'
 
 mcd() {
     test -d "$1" || mkdir "$1" && cd "$1"
+}
+
+mtcd() {
+  pushd $(mktemp -d /tmp/$1.XXXX)
 }
 
 mgit() {
@@ -46,6 +51,8 @@ alias vimdiff="nvim -d"
 
 alias diff="diff --unified"
 
+alias column="column --table"
+
 alias cal="cal --three"
 # alias today='date +"%A, %B %-d, 1%Y"'
 alias today='date +"1%Y-%m-%d"'
@@ -60,6 +67,8 @@ alias scrot='scrot --file "$HOME/pics/scrots/1%Y-%m-%d-%H%M%S.png" -l mode=edge'
 
 alias strings="strings --all"
 
+alias tar="tar --preserve-permissions"
+
 alias sxiv="nsxiv -a"
 alias nsxiv="nsxiv -a"
 alias ffeh="feh --full-screen"
@@ -67,6 +76,9 @@ alias ffeh="feh --full-screen"
 alias irc="exec screen -aAdR"
 
 alias wl-copy="wl-copy --primary"
+
+# there's too many completions for system*
+alias cistemctl="systemctl"
 
 alias bake="make -j"
 
@@ -81,6 +93,7 @@ alias gcc="gcc -std=c99 -Wall -Wextra -Wstrict-prototypes -Wold-style-definition
 alias gcco="gcc -std=c99 -Wall -Wextra -O3 -s -march=native -pipe"
 alias gcc99="gcc -std=c99 -fsanitize=address -fsanitize=pointer-subtract -ftrapv -fwrapv -fno-strict-aliasing -fdelete-null-pointer-checks -pipe -ggdb -Wpedantic -Werror -Wall -Wextra -Wundef -Wcast-align -Wwrite-strings -Wunreachable-code -Wformat=2 -Wformat-overflow=2 -Winit-self -Wunused-result -Wstrict-aliasing"
 alias gcc11="gcc -std=c11 -ggdb -pipe -Wall -Wextra -Wpedantic -Waggregate-return -Walloc-zero -Walloca -Wbad-function-cast -Wcast-align -Wcast-align=strict -Wcast-qual -Wconversion -Wdate-time -Wdisabled-optimization -Wdouble-promotion -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wformat-overflow=2 -Wformat-signedness -Wformat-truncation=2 -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Wmissing-declarations -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wmissing-prototypes -Wmultichar -Wnested-externs -Wnormalized=nfkc -Wnull-dereference -Wold-style-definition -Wredundant-decls -Wshadow -Wstack-protector -Wstrict-aliasing -Wstrict-prototypes -Wstringop-overflow=4 -Wswitch-enum -Wswitch-default -Wtrampolines -Wundef -Wunreachable-code -Wunused-const-variable=2 -Wunused-macros -Wunused-result -Wvector-operation-performance -Wwrite-strings"
+alias gcc23="gcc -std=c23 -ggdb -pipe -Wall -Wextra -Wpedantic -Waggregate-return -Walloc-zero -Walloca -Wbad-function-cast -Wcast-align -Wcast-align=strict -Wcast-qual -Wconversion -Wdate-time -Wdisabled-optimization -Wdouble-promotion -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wformat-overflow=2 -Wformat-signedness -Wformat-truncation=2 -Winit-self -Winline -Winvalid-pch -Wjump-misses-init -Wlogical-op -Wmissing-declarations -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wmissing-prototypes -Wmultichar -Wnested-externs -Wnormalized=nfkc -Wnull-dereference -Wold-style-definition -Wredundant-decls -Wshadow -Wstack-protector -Wstrict-aliasing -Wstrict-prototypes -Wstringop-overflow=4 -Wswitch-enum -Wswitch-default -Wtrampolines -Wundef -Wunreachable-code -Wunused-const-variable=2 -Wunused-macros -Wunused-result -Wvector-operation-performance -Wwrite-strings"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
