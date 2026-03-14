@@ -9,8 +9,9 @@ include "%L"
 <Multi_key> <ampersand> <space> : " "	nobreakspace # espace insecable
 <Multi_key> <bar>       <space> : " "   U202F       # espace fine insecable
 
-
 <Multi_key> <i> <f> <f> :   "↔"     U2194   # left-right arrow
+<Multi_key> <asciicircum>   <bar> :   "↑"     U2191   # Upwards Arrow
+<Multi_key> <bar>   <asciicircum> :   "↑"     U2191   # Upwards Arrow
 
 <Multi_key> <e> <j> :   "ʒ" ezh
 <Multi_key> <j> <e> :   "ʒ" ezh
@@ -20,6 +21,14 @@ include "%L"
 <Multi_key> <s> <h> :   "ʃ" U0283 # minuscule esh
 <Multi_key> <S> <H> :   "Ʃ" U01A9 # majuscule esh
 
+<Multi_key> <e> <l>     :   "∈" U2208 # element of
+<Multi_key> <i> <n>     :   "∈" U2208 # element of
+<Multi_key> <n> <e> <l> :   "∉" U2209 # not an element of
+<Multi_key> <n> <i> <n> :   "∉" U2209 # not an element of
+
+<Multi_key> <n> <i>     :   "∋" U220B # contains
+<Multi_key> <h> <a> <s> :   "∋" U220B # contains
+<Multi_key> <n> <n> <i> :   "∌" U220C # does not contain
 
 # greek upper-case
 <Multi_key> <G> <A> :   "Α"     U0391    # GREEK CAPITAL LETTER ALPHA
@@ -201,6 +210,23 @@ include "%L"
 <Multi_key> <U006C> <n> : "h" U0068 # h 
 
 
+<Multi_key> <n> <u> <l> : "␀" U2400 # nul
+<Multi_key> <e> <t> <x> : "␃" U2403 # etx
+<Multi_key> <e> <o> <t> : "␄" U2404 # eot
+<Multi_key> <a> <c> <k> : "␆" U2406 # ack
+<Multi_key> <b> <e> <l> : "␇" U2407 # bel
+<Multi_key> <b> <s>     : "␈" U2408 # bs
+<Multi_key> <h> <t>     : "␉" U2409 # ht
+<Multi_key> <l> <f>     : "␊" U240A # lf
+<Multi_key> <v> <t>     : "␋" U240B # vt
+<Multi_key> <c> <r>     : "␋" U240D # cr
+<Multi_key> <n> <a> <k> : "␕" U2415 # nak
+<Multi_key> <e> <s> <c> : "␛" U241B # esc
+<Multi_key> <s> <p>     : "␠" U2420 # sp
+<Multi_key> <d> <e> <l> : "␡" U2421 # del
+
+<Multi_key> <n> <l>     : "␤" U2424 # nl
+
 # comma punctuation
 <Multi_key> <comma> <exclam>    : "Ɂ̦" # question comma, uses combining ,
 <Multi_key> <exclam> <comma>    : "Ɂ̦"
@@ -220,3 +246,10 @@ include "%L"
 
 <Multi_key> <dagger> <dagger> : "‡" doubledagger
 <Multi_key> <asterisk> <asterisk> <asterisk> : "⁂" U2042 # asterism
+
+
+<Multi_key> <degree>    <plus>  : "♀"   U2640   # FEMALE SIGN
+<Multi_key> <plus>  <degree>    : "♀"   U2640   # FEMALE SIGN
+<Multi_key> <asciicircum>   <o> : "♂"   U2642   # MALE SIGN
+<Multi_key> <o> <asciicircum>   : "♂"   U2642   # MALE SIGN
+<Multi_key> <t> <r> <a> <n> <s> : "⚧"   U26A7   # TRANS
