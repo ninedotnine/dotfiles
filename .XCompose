@@ -1,201 +1,443 @@
 #  necessary?
 include "%L"
 
+# french
+# change default `mk u '` from uacute to ugrave.
 <Multi_key> <u> <apostrophe> :  "ù" ugrave
 <Multi_key> <apostrophe> <u> :  "ù" ugrave
 <Multi_key> <U> <apostrophe> :  "Ù" Ugrave
 <Multi_key> <apostrophe> <U> :  "Ù" Ugrave
 
-<Multi_key> <ampersand> <space> : " "	nobreakspace # espace insecable
-<Multi_key> <bar>       <space> : " "   U202F       # espace fine insecable
+# non-breaking spaces
+<Multi_key> <ampersand> <space> :   " " nobreakspace    # espace insecable
+<Multi_key> <bar>       <space> :   " " U202F           # espace fine insecable
 
-<Multi_key> <i> <f> <f> :   "↔"     U2194   # left-right arrow
-<Multi_key> <asciicircum>   <bar> :   "↑"     U2191   # Upwards Arrow
-<Multi_key> <bar>   <asciicircum> :   "↑"     U2191   # Upwards Arrow
 
-<Multi_key> <e> <j> :   "ʒ" ezh
-<Multi_key> <j> <e> :   "ʒ" ezh
-<Multi_key> <E> <J> :   "Ʒ" EZH 
-<Multi_key> <J> <E> :   "Ʒ" EZH
+# unusual or IPA letters
+<Multi_key> <e> <j>     :   "ʒ" ezh
+<Multi_key> <j> <e>     :   "ʒ" ezh
+<Multi_key> <e> <z> <h> :   "ʒ" ezh
+<Multi_key> <E> <J>     :   "Ʒ" EZH
+<Multi_key> <J> <E>     :   "Ʒ" EZH
+<Multi_key> <E> <Z> <H> :   "Ʒ" EZH
 
-<Multi_key> <s> <h> :   "ʃ" U0283 # minuscule esh
-<Multi_key> <S> <H> :   "Ʃ" U01A9 # majuscule esh
+<Multi_key> <s> <h>     :   "ʃ" U0283 # minuscule esh
+<Multi_key> <e> <s> <h> :   "ʃ" U0283 # minuscule esh
+<Multi_key> <S> <H>     :   "Ʃ" U01A9 # majuscule esh
+<Multi_key> <E> <S> <H> :   "Ʃ" U01A9 # majuscule esh
 
-<Multi_key> <e> <l>     :   "∈" U2208 # element of
-<Multi_key> <i> <n>     :   "∈" U2208 # element of
-<Multi_key> <n> <e> <l> :   "∉" U2209 # not an element of
-<Multi_key> <n> <i> <n> :   "∉" U2209 # not an element of
-
-<Multi_key> <n> <i>     :   "∋" U220B # contains
-<Multi_key> <h> <a> <s> :   "∋" U220B # contains
-<Multi_key> <n> <n> <i> :   "∌" U220C # does not contain
 
 # greek upper-case
-<Multi_key> <G> <A> :   "Α"     U0391    # GREEK CAPITAL LETTER ALPHA
-<Multi_key> <G> <B> :   "Β"     U0392    # GREEK CAPITAL LETTER BETA
-<Multi_key> <G> <G> :   "Γ"     U0393    # GREEK CAPITAL LETTER GAMMA
-<Multi_key> <G> <D> :   "Δ"     U0394    # GREEK CAPITAL LETTER DELTA
-<Multi_key> <G> <E> :   "Ε"     U0395    # GREEK CAPITAL LETTER EPSILON
-<Multi_key> <G> <Z> :   "Ζ"     U0396    # GREEK CAPITAL LETTER ZETA
-<Multi_key> <G> <H> :   "Η"     U0397    # GREEK CAPITAL LETTER ETA
-<Multi_key> <G> <J> :   "Θ"     U0398    # GREEK CAPITAL LETTER THETA
-<Multi_key> <G> <I> :   "Ι"     U0399    # GREEK CAPITAL LETTER IOTA
-<Multi_key> <G> <K> :   "Κ"     U039A    # GREEK CAPITAL LETTER KAPPA
-<Multi_key> <G> <L> :   "Λ"     U039B    # GREEK CAPITAL LETTER LAMBDA
-<Multi_key> <G> <M> :   "Μ"     U039C    # GREEK CAPITAL LETTER MU
-<Multi_key> <G> <N> :   "Ν"     U039D    # GREEK CAPITAL LETTER NU
-<Multi_key> <G> <X> :   "Ξ"     U039E    # GREEK CAPITAL LETTER XI
-<Multi_key> <G> <O> :   "Ο"     U039F    # GREEK CAPITAL LETTER OMICRON
-<Multi_key> <G> <P> :   "Π"     U03A0    # GREEK CAPITAL LETTER PI
-<Multi_key> <G> <R> :   "Ρ"     U03A1    # GREEK CAPITAL LETTER RHO
-<Multi_key> <G> <S> :   "Σ"     U03A3    # GREEK CAPITAL LETTER SIGMA
-<Multi_key> <G> <T> :   "Τ"     U03A4    # GREEK CAPITAL LETTER TAU
-<Multi_key> <G> <U> :   "Υ"     U03A5    # GREEK CAPITAL LETTER UPSILON
-<Multi_key> <G> <F> :   "Φ"     U03A6    # GREEK CAPITAL LETTER PHI
-<Multi_key> <G> <Q> :   "Χ"     U03A7    # GREEK CAPITAL LETTER CHI
-<Multi_key> <G> <Y> :   "Ψ"     U03A8    # GREEK CAPITAL LETTER PSI
-<Multi_key> <G> <W> :   "Ω"     U03A9    # GREEK CAPITAL LETTER OMEGA
+<Multi_key> <G> <A> :   "Α"     U0391   # GREEK CAPITAL LETTER ALPHA
+<Multi_key> <G> <B> :   "Β"     U0392   # GREEK CAPITAL LETTER BETA
+<Multi_key> <G> <G> :   "Γ"     U0393   # GREEK CAPITAL LETTER GAMMA
+<Multi_key> <G> <D> :   "Δ"     U0394   # GREEK CAPITAL LETTER DELTA
+<Multi_key> <G> <E> :   "Ε"     U0395   # GREEK CAPITAL LETTER EPSILON
+<Multi_key> <G> <Z> :   "Ζ"     U0396   # GREEK CAPITAL LETTER ZETA
+<Multi_key> <G> <H> :   "Η"     U0397   # GREEK CAPITAL LETTER ETA
+<Multi_key> <G> <J> :   "Θ"     U0398   # GREEK CAPITAL LETTER THETA
+<Multi_key> <G> <I> :   "Ι"     U0399   # GREEK CAPITAL LETTER IOTA
+<Multi_key> <G> <K> :   "Κ"     U039A   # GREEK CAPITAL LETTER KAPPA
+<Multi_key> <G> <L> :   "Λ"     U039B   # GREEK CAPITAL LETTER LAMBDA
+<Multi_key> <G> <M> :   "Μ"     U039C   # GREEK CAPITAL LETTER MU
+<Multi_key> <G> <N> :   "Ν"     U039D   # GREEK CAPITAL LETTER NU
+<Multi_key> <G> <X> :   "Ξ"     U039E   # GREEK CAPITAL LETTER XI
+<Multi_key> <G> <O> :   "Ο"     U039F   # GREEK CAPITAL LETTER OMICRON
+<Multi_key> <G> <P> :   "Π"     U03A0   # GREEK CAPITAL LETTER PI
+<Multi_key> <G> <R> :   "Ρ"     U03A1   # GREEK CAPITAL LETTER RHO
+<Multi_key> <G> <S> :   "Σ"     U03A3   # GREEK CAPITAL LETTER SIGMA
+<Multi_key> <G> <T> :   "Τ"     U03A4   # GREEK CAPITAL LETTER TAU
+<Multi_key> <G> <U> :   "Υ"     U03A5   # GREEK CAPITAL LETTER UPSILON
+<Multi_key> <G> <F> :   "Φ"     U03A6   # GREEK CAPITAL LETTER PHI
+<Multi_key> <G> <Q> :   "Χ"     U03A7   # GREEK CAPITAL LETTER CHI
+<Multi_key> <G> <Y> :   "Ψ"     U03A8   # GREEK CAPITAL LETTER PSI
+<Multi_key> <G> <W> :   "Ω"     U03A9   # GREEK CAPITAL LETTER OMEGA
 
-<Multi_key> <g> <A> :   "Α"     U0391    # GREEK CAPITAL LETTER ALPHA
-<Multi_key> <g> <B> :   "Β"     U0392    # GREEK CAPITAL LETTER BETA
-<Multi_key> <g> <G> :   "Γ"     U0393    # GREEK CAPITAL LETTER GAMMA
-<Multi_key> <g> <D> :   "Δ"     U0394    # GREEK CAPITAL LETTER DELTA
-<Multi_key> <g> <E> :   "Ε"     U0395    # GREEK CAPITAL LETTER EPSILON
-<Multi_key> <g> <Z> :   "Ζ"     U0396    # GREEK CAPITAL LETTER ZETA
-<Multi_key> <g> <H> :   "Η"     U0397    # GREEK CAPITAL LETTER ETA
-<Multi_key> <g> <J> :   "Θ"     U0398    # GREEK CAPITAL LETTER THETA
-<Multi_key> <g> <I> :   "Ι"     U0399    # GREEK CAPITAL LETTER IOTA
-<Multi_key> <g> <K> :   "Κ"     U039A    # GREEK CAPITAL LETTER KAPPA
-<Multi_key> <g> <L> :   "Λ"     U039B    # GREEK CAPITAL LETTER LAMBDA
-<Multi_key> <g> <M> :   "Μ"     U039C    # GREEK CAPITAL LETTER MU
-<Multi_key> <g> <N> :   "Ν"     U039D    # GREEK CAPITAL LETTER NU
-<Multi_key> <g> <X> :   "Ξ"     U039E    # GREEK CAPITAL LETTER XI
-<Multi_key> <g> <O> :   "Ο"     U039F    # GREEK CAPITAL LETTER OMICRON
-<Multi_key> <g> <P> :   "Π"     U03A0    # GREEK CAPITAL LETTER PI
-<Multi_key> <g> <R> :   "Ρ"     U03A1    # GREEK CAPITAL LETTER RHO
-<Multi_key> <g> <S> :   "Σ"     U03A3    # GREEK CAPITAL LETTER SIGMA
-<Multi_key> <g> <T> :   "Τ"     U03A4    # GREEK CAPITAL LETTER TAU
-<Multi_key> <g> <U> :   "Υ"     U03A5    # GREEK CAPITAL LETTER UPSILON
-<Multi_key> <g> <F> :   "Φ"     U03A6    # GREEK CAPITAL LETTER PHI
-<Multi_key> <g> <Q> :   "Χ"     U03A7    # GREEK CAPITAL LETTER CHI
-<Multi_key> <g> <Y> :   "Ψ"     U03A8    # GREEK CAPITAL LETTER PSI
-<Multi_key> <g> <W> :   "Ω"     U03A9    # GREEK CAPITAL LETTER OMEGA
+<Multi_key> <g> <A> :   "Α"     U0391   # GREEK CAPITAL LETTER ALPHA
+<Multi_key> <g> <B> :   "Β"     U0392   # GREEK CAPITAL LETTER BETA
+<Multi_key> <g> <G> :   "Γ"     U0393   # GREEK CAPITAL LETTER GAMMA
+<Multi_key> <g> <D> :   "Δ"     U0394   # GREEK CAPITAL LETTER DELTA
+<Multi_key> <g> <E> :   "Ε"     U0395   # GREEK CAPITAL LETTER EPSILON
+<Multi_key> <g> <Z> :   "Ζ"     U0396   # GREEK CAPITAL LETTER ZETA
+<Multi_key> <g> <H> :   "Η"     U0397   # GREEK CAPITAL LETTER ETA
+<Multi_key> <g> <J> :   "Θ"     U0398   # GREEK CAPITAL LETTER THETA
+<Multi_key> <g> <I> :   "Ι"     U0399   # GREEK CAPITAL LETTER IOTA
+<Multi_key> <g> <K> :   "Κ"     U039A   # GREEK CAPITAL LETTER KAPPA
+<Multi_key> <g> <L> :   "Λ"     U039B   # GREEK CAPITAL LETTER LAMBDA
+<Multi_key> <g> <M> :   "Μ"     U039C   # GREEK CAPITAL LETTER MU
+<Multi_key> <g> <N> :   "Ν"     U039D   # GREEK CAPITAL LETTER NU
+<Multi_key> <g> <X> :   "Ξ"     U039E   # GREEK CAPITAL LETTER XI
+<Multi_key> <g> <O> :   "Ο"     U039F   # GREEK CAPITAL LETTER OMICRON
+<Multi_key> <g> <P> :   "Π"     U03A0   # GREEK CAPITAL LETTER PI
+<Multi_key> <g> <R> :   "Ρ"     U03A1   # GREEK CAPITAL LETTER RHO
+<Multi_key> <g> <S> :   "Σ"     U03A3   # GREEK CAPITAL LETTER SIGMA
+<Multi_key> <g> <T> :   "Τ"     U03A4   # GREEK CAPITAL LETTER TAU
+<Multi_key> <g> <U> :   "Υ"     U03A5   # GREEK CAPITAL LETTER UPSILON
+<Multi_key> <g> <F> :   "Φ"     U03A6   # GREEK CAPITAL LETTER PHI
+<Multi_key> <g> <Q> :   "Χ"     U03A7   # GREEK CAPITAL LETTER CHI
+<Multi_key> <g> <Y> :   "Ψ"     U03A8   # GREEK CAPITAL LETTER PSI
+<Multi_key> <g> <W> :   "Ω"     U03A9   # GREEK CAPITAL LETTER OMEGA
 
 # greek lower-case
-<Multi_key> <g> <a> :   "α"     U03B1    # GREEK SMALL LETTER ALPHA
-<Multi_key> <g> <b> :   "β"     U03B2    # GREEK SMALL LETTER BETA
-<Multi_key> <g> <g> :   "γ"     U03B3    # GREEK SMALL LETTER GAMMA
-<Multi_key> <g> <d> :   "δ"     U03B4    # GREEK SMALL LETTER DELTA
-<Multi_key> <g> <e> :   "ε"     U03B5    # GREEK SMALL LETTER EPSILON
-<Multi_key> <g> <z> :   "ζ"     U03B6    # GREEK SMALL LETTER ZETA
-<Multi_key> <g> <h> :   "η"     U03B7    # GREEK SMALL LETTER ETA
-<Multi_key> <g> <j> :   "θ"     U03B8    # GREEK SMALL LETTER THETA
-<Multi_key> <g> <i> :   "ι"     U03B9    # GREEK SMALL LETTER IOTA
-<Multi_key> <g> <k> :   "κ"     U03BA    # GREEK SMALL LETTER KAPPA
-<Multi_key> <g> <l> :   "λ"     U03BB    # GREEK SMALL LETTER LAMBDA
-<Multi_key> <g> <m> :   "μ"     U03BC    # GREEK SMALL LETTER MU
-<Multi_key> <g> <n> :   "ν"     U03BD    # GREEK SMALL LETTER NU
-<Multi_key> <g> <x> :   "ξ"     U03BE    # GREEK SMALL LETTER XI
-<Multi_key> <g> <o> :   "ο"     U03BF    # GREEK SMALL LETTER OMICRON
-<Multi_key> <g> <p> :   "π"     U03C0    # GREEK SMALL LETTER PI
-<Multi_key> <g> <r> :   "ρ"     U03C1    # GREEK SMALL LETTER RHO
-<Multi_key> <g> <c> :   "ς"     U03C2    # GREEK SMALL LETTER FINAL SIGMA
-<Multi_key> <g> <s> :   "σ"     U03C3    # GREEK SMALL LETTER SIGMA
-<Multi_key> <g> <t> :   "τ"     U03C4    # GREEK SMALL LETTER TAU
-<Multi_key> <g> <u> :   "υ"     U03C5    # GREEK SMALL LETTER UPSILON
-<Multi_key> <g> <f> :   "φ"     U03C6    # GREEK SMALL LETTER PHI
-<Multi_key> <g> <q> :   "χ"     U03C7    # GREEK SMALL LETTER CHI
-<Multi_key> <g> <y> :   "ψ"     U03C8    # GREEK SMALL LETTER PSI
-<Multi_key> <g> <w> :   "ω"     U03C9    # GREEK SMALL LETTER OMEGA
+<Multi_key> <g> <a> :   "α"     U03B1   # GREEK SMALL LETTER ALPHA
+<Multi_key> <g> <b> :   "β"     U03B2   # GREEK SMALL LETTER BETA
+<Multi_key> <g> <g> :   "γ"     U03B3   # GREEK SMALL LETTER GAMMA
+<Multi_key> <g> <d> :   "δ"     U03B4   # GREEK SMALL LETTER DELTA
+<Multi_key> <g> <e> :   "ε"     U03B5   # GREEK SMALL LETTER EPSILON
+<Multi_key> <g> <z> :   "ζ"     U03B6   # GREEK SMALL LETTER ZETA
+<Multi_key> <g> <h> :   "η"     U03B7   # GREEK SMALL LETTER ETA
+<Multi_key> <g> <j> :   "θ"     U03B8   # GREEK SMALL LETTER THETA
+<Multi_key> <g> <i> :   "ι"     U03B9   # GREEK SMALL LETTER IOTA
+<Multi_key> <g> <k> :   "κ"     U03BA   # GREEK SMALL LETTER KAPPA
+<Multi_key> <g> <l> :   "λ"     U03BB   # GREEK SMALL LETTER LAMBDA
+<Multi_key> <g> <m> :   "μ"     U03BC   # GREEK SMALL LETTER MU
+<Multi_key> <g> <n> :   "ν"     U03BD   # GREEK SMALL LETTER NU
+<Multi_key> <g> <x> :   "ξ"     U03BE   # GREEK SMALL LETTER XI
+<Multi_key> <g> <o> :   "ο"     U03BF   # GREEK SMALL LETTER OMICRON
+<Multi_key> <g> <p> :   "π"     U03C0   # GREEK SMALL LETTER PI
+<Multi_key> <g> <r> :   "ρ"     U03C1   # GREEK SMALL LETTER RHO
+<Multi_key> <g> <c> :   "ς"     U03C2   # GREEK SMALL LETTER FINAL SIGMA
+<Multi_key> <g> <s> :   "σ"     U03C3   # GREEK SMALL LETTER SIGMA
+<Multi_key> <g> <t> :   "τ"     U03C4   # GREEK SMALL LETTER TAU
+<Multi_key> <g> <u> :   "υ"     U03C5   # GREEK SMALL LETTER UPSILON
+<Multi_key> <g> <f> :   "φ"     U03C6   # GREEK SMALL LETTER PHI
+<Multi_key> <g> <q> :   "χ"     U03C7   # GREEK SMALL LETTER CHI
+<Multi_key> <g> <y> :   "ψ"     U03C8   # GREEK SMALL LETTER PSI
+<Multi_key> <g> <w> :   "ω"     U03C9   # GREEK SMALL LETTER OMEGA
 
-# variants
-<Multi_key> <g> <v> <b> :   "ϐ"     U03D0    # greek beta symbol
-<Multi_key> <g> <v> <e> :   "ϵ"     U03F5    # greek small lunate epsilon
-<Multi_key> <g> <v> <J> :   "ϴ"     U03F4    # greek capital theta symbol
-<Multi_key> <g> <v> <j> :   "ϑ"     U03D1    # greek theta symbol
-<Multi_key> <g> <v> <k> :   "ϰ"     U03F0    # greek kappa symbol
-<Multi_key> <g> <v> <l> :   "ᴧ"     U1D27    # greek letter small capital lamda
-<Multi_key> <g> <v> <U> :   "ϒ"     U03D2    # greek upsilon with hook symbol
-<Multi_key> <g> <v> <p> :   "ϕ"     U03D5    # greek phi symbol
-<Multi_key> <g> <v> <y> :   "ᴪ"     U1D2A    # greek letter small capital psi
+# greek variants
+<Multi_key> <g> <v> <b> :   "ϐ" U03D0   # greek beta symbol
+<Multi_key> <g> <v> <e> :   "ϵ" U03F5   # greek small lunate epsilon
+<Multi_key> <g> <v> <J> :   "ϴ" U03F4   # greek capital theta symbol
+<Multi_key> <g> <v> <j> :   "ϑ" U03D1   # greek theta symbol
+<Multi_key> <g> <v> <k> :   "ϰ" U03F0   # greek kappa symbol
+<Multi_key> <g> <v> <l> :   "ᴧ" U1D27   # greek letter small capital lamda
+<Multi_key> <g> <v> <U> :   "ϒ" U03D2   # greek upsilon with hook symbol
+<Multi_key> <g> <v> <p> :   "ϕ" U03D5   # greek phi symbol
+<Multi_key> <g> <v> <y> :   "ᴪ" U1D2A   # greek letter small capital psi
 
 
 # mathy, logic, programming symbol
-<Multi_key> <Up> <A>            :   "∀"     U2200   # universal
-<Multi_key> <A> <Up>            :   "∀"     U2200
-<Multi_key> <Down> <A>          :   "∀"     U2200
-<Multi_key> <A> <Down>          :   "∀"     U2200
+<Multi_key> <Up> <A>            :   "∀" U2200   # universal
+<Multi_key> <A> <Up>            :   "∀" U2200
+<Multi_key> <Down> <A>          :   "∀" U2200
+<Multi_key> <A> <Down>          :   "∀" U2200
 
-<Multi_key> <E> <Left>          :   "∃"     U2203   # existential
-<Multi_key> <Left> <E>          :   "∃"     U2203
-<Multi_key> <Right> <E>         :   "∃"     U2203
-<Multi_key> <E> <Right>         :   "∃"     U2203
+<Multi_key> <E> <Left>          :   "∃" U2203   # existential
+<Multi_key> <Left> <E>          :   "∃" U2203
+<Multi_key> <Right> <E>         :   "∃" U2203
+<Multi_key> <E> <Right>         :   "∃" U2203
 
-<Multi_key> <f> <o> <f>         :   "∘"     U2218   # ring operator / function composition
+<Multi_key> <f> <o> <f>         :   "∘" U2218   # ring operator / function composition
 
-<Multi_key> <slash> <backslash> :   "∧"     U2227   # and/conjunction
-<Multi_key> <Up> <v>            :   "∧"     U2227
-<Multi_key> <v> <Up>            :   "∧"     U2227
-<Multi_key> <Down> <v>          :   "∧"     U2227
-<Multi_key> <v> <Down>          :   "∧"     U2227
+<Multi_key> <slash> <backslash> :   "∧" U2227   # and/conjunction
+<Multi_key> <Up> <v>            :   "∧" U2227
+<Multi_key> <v> <Up>            :   "∧" U2227
+<Multi_key> <Down> <v>          :   "∧" U2227
+<Multi_key> <v> <Down>          :   "∧" U2227
 
-<Multi_key> <backslash> <slash> :   "∨"     U2228   # or/disjunction
+<Multi_key> <backslash> <slash> :   "∨" U2228   # or/disjunction
 
-<Multi_key> <o> <plus>          :   "⊕"     U2295   # xor
-<Multi_key> <plus> <o>          :   "⊕"     U2295
+<Multi_key> <o> <plus>          :   "⊕" U2295   # xor
+<Multi_key> <plus> <o>          :   "⊕" U2295
 
-<Multi_key> <bar> <minus>       :   "⊢"     U22a2   # turnstile
-<Multi_key> <minus> <bar>       :   "⊣"     U22a3   # adjoint
-<Multi_key> <U203E> <bar>       :   "⊤"     U22a4   # top
-<Multi_key> <bar> <U203E>       :   "⊤"     U22a4
-<Multi_key> <underscore> <bar>  :   "⊥"     U22a5   # bottom
-<Multi_key> <bar> <underscore>  :   "⊥"     U22a5
+<Multi_key> <bar> <minus>       :   "⊢" U22a2   # turnstile
+<Multi_key> <minus> <bar>       :   "⊣" U22a3   # adjoint
+<Multi_key> <U203E> <bar>       :   "⊤" U22a4   # top
+<Multi_key> <bar> <U203E>       :   "⊤" U22a4
+<Multi_key> <underscore> <bar>  :   "⊥" U22a5   # bottom
+<Multi_key> <bar> <underscore>  :   "⊥" U22a5
 
-<Multi_key> <periodcentered> <colon>    : "∵" U2235 # . : BECAUSE
+<Multi_key> <e> <l>     :   "∈" U2208   # element of
+<Multi_key> <i> <n>     :   "∈" U2208   # element of
+<Multi_key> <n> <e> <l> :   "∉" U2209   # not an element of
+<Multi_key> <n> <i> <n> :   "∉" U2209   # not an element of
 
-<Multi_key> <periodcentered> <periodcentered>   : "•" enfilledcircbullet # BULLET
+<Multi_key> <n> <i>     :   "∋" U220B   # contains
+<Multi_key> <h> <a> <s> :   "∋" U220B   # contains
+<Multi_key> <n> <n> <i> :   "∌" U220C   # does not contain
+<Multi_key> <n> <h> <a> <s> :   "∌" U220C   # does not contain
+
+<Multi_key> <0> <slash> :   "∅" U2205   # EMPTY SET
+<Multi_key> <slash> <0> :   "∅" U2205   # EMPTY SET
+
+
+<Multi_key> <colon> <periodcentered>    :   "∴" U2234   # therefore
+<Multi_key> <periodcentered> <colon>    :   "∵" U2235   # because
+
 
 # fractions
 <Multi_key> <1> <slash> <4> :   "¼"     onequarter
 <Multi_key> <1> <slash> <2> :   "½"     onehalf
 <Multi_key> <3> <slash> <4> :   "¾"     threequarters
 
-<Multi_key> <1> <slash> <3> :   "⅓"     U2153 # one third
-<Multi_key> <2> <slash> <3> :   "⅔"     U2154 # two thirds
-<Multi_key> <1> <slash> <5> :   "⅕"     U2155 # one fifth
-<Multi_key> <2> <slash> <5> :   "⅖"     U2156 # two fifths
-<Multi_key> <3> <slash> <5> :   "⅗"     U2157 # three fifths
-<Multi_key> <4> <slash> <5> :   "⅘"     U2158 # four fifths
-<Multi_key> <1> <slash> <6> :   "⅙"     U2159 # one sixth
-<Multi_key> <5> <slash> <6> :   "⅚"     U215A # five sixths
-<Multi_key> <1> <slash> <8> :   "⅛"     U215B # one eighth
-<Multi_key> <3> <slash> <8> :   "⅜"     U215C # three eighths
-<Multi_key> <5> <slash> <8> :   "⅝"     U215D # five eighths
-<Multi_key> <7> <slash> <8> :   "⅞"     U215E # seven eighths
-<Multi_key> <1> <slash> <9> :   "⅑"     U2151 # one ninth
-<Multi_key> <1> <slash> <1> <0>: "⅒"    U2152 # one tenth
+<Multi_key> <1> <slash> <3> :   "⅓"     U2153   # one third
+<Multi_key> <2> <slash> <3> :   "⅔"     U2154   # two thirds
+<Multi_key> <1> <slash> <5> :   "⅕"     U2155   # one fifth
+<Multi_key> <2> <slash> <5> :   "⅖"     U2156   # two fifths
+<Multi_key> <3> <slash> <5> :   "⅗"     U2157   # three fifths
+<Multi_key> <4> <slash> <5> :   "⅘"     U2158   # four fifths
+<Multi_key> <1> <slash> <6> :   "⅙"     U2159   # one sixth
+<Multi_key> <5> <slash> <6> :   "⅚"     U215A   # five sixths
+<Multi_key> <1> <slash> <8> :   "⅛"     U215B   # one eighth
+<Multi_key> <3> <slash> <8> :   "⅜"     U215C   # three eighths
+<Multi_key> <5> <slash> <8> :   "⅝"     U215D   # five eighths
+<Multi_key> <7> <slash> <8> :   "⅞"     U215E   # seven eighths
+<Multi_key> <1> <slash> <9> :   "⅑"     U2151   # one ninth
+<Multi_key> <1> <slash> <1> <0>: "⅒"    U2152   # one tenth
+
+
+# roman numerals
+<Multi_key> <R> <N> <1> :   "Ⅰ"     U2010
+<Multi_key> <R> <N> <2> :   "Ⅱ"     U2011
+<Multi_key> <R> <N> <3> :   "Ⅲ"     U2012
+<Multi_key> <R> <N> <4> :   "Ⅳ"     U2013
+<Multi_key> <R> <N> <5> :   "Ⅴ"     U2014
+<Multi_key> <R> <N> <6> :   "Ⅵ"     U2015
+<Multi_key> <R> <N> <7> :   "Ⅶ"     U2016
+<Multi_key> <R> <N> <8> :   "Ⅷ"     U2017
+<Multi_key> <R> <N> <9> :   "Ⅸ"     U2018
+<Multi_key> <R> <N> <A> :   "Ⅹ"     U2019
+<Multi_key> <R> <N> <B> :   "Ⅺ"     U201A
+<Multi_key> <R> <N> <C> :   "Ⅻ"     U201B
+<Multi_key> <R> <N> <L> :   "Ⅼ"     U201C
+<Multi_key> <R> <N> <percent> : "Ⅽ" U201D     #   i'm so heckin clever
+<Multi_key> <R> <N> <D> :   "Ⅾ"     U201E
+<Multi_key> <R> <N> <M> :   "Ⅿ"     U201F
+
+<Multi_key> <r> <n> <1> :   "ⅰ"     U2070
+<Multi_key> <r> <n> <2> :   "ⅱ"     U2071
+<Multi_key> <r> <n> <3> :   "ⅲ"     U2072
+<Multi_key> <r> <n> <4> :   "ⅳ"     U2073
+<Multi_key> <r> <n> <5> :   "ⅴ"     U2074
+<Multi_key> <r> <n> <6> :   "ⅵ"     U2075
+<Multi_key> <r> <n> <7> :   "ⅶ"     U2076
+<Multi_key> <r> <n> <8> :   "ⅷ"     U2077
+<Multi_key> <r> <n> <9> :   "ⅸ"     U2078
+<Multi_key> <r> <n> <a> :   "ⅹ"     U2079
+<Multi_key> <r> <n> <b> :   "ⅺ"     U207A
+<Multi_key> <r> <n> <c> :   "ⅻ"     U207B
+<Multi_key> <r> <n> <l> :   "ⅼ"     U207C
+<Multi_key> <r> <n> <percent> : "ⅽ" U207D
+<Multi_key> <r> <n> <d> :   "ⅾ"     U207E
+<Multi_key> <r> <n> <m> :   "ⅿ"     U207F
 
 
 # astronomical symbols
-<Multi_key> <a> <s> <h> :   "☿"     U263F    # mercury
-<Multi_key> <a> <s> <v> :   "♀"     U2640    # venus
-<Multi_key> <a> <s> <e> :   "🜨"     U1F728   # earth
-<Multi_key> <a> <s> <m> :   "♂"     U2642    # mars
-<Multi_key> <a> <s> <j> :   "♃"     U2643    # jupiter
-<Multi_key> <a> <s> <s> :   "♄"     U2644    # saturn
-<Multi_key> <a> <s> <u> :   "⛢"     U2645    # ouranos
-<Multi_key> <a> <s> <n> :   "♆"     U2646    # neptune
-<Multi_key> <a> <s> <p> :   "♇"     U2647    # pluto
+<Multi_key> <a> <s> <h> :   "☿"     U263F   # mercury
+<Multi_key> <a> <s> <v> :   "♀"     U2640   # venus
+<Multi_key> <a> <s> <e> :   "🜨"     U1F728  # earth
+<Multi_key> <a> <s> <m> :   "♂"     U2642   # mars
+<Multi_key> <a> <s> <j> :   "♃"     U2643   # jupiter
+<Multi_key> <a> <s> <s> :   "♄"     U2644   # saturn
+<Multi_key> <a> <s> <u> :   "⛢"     U2645   # ouranos
+<Multi_key> <a> <s> <n> :   "♆"     U2646   # neptune
+<Multi_key> <a> <s> <p> :   "♇"     U2647   # pluto
 
-<Multi_key> <a> <s> <a> :   "♈︎"    U2648    # aries
-<Multi_key> <a> <s> <t> :   "♉︎"    U2649    # taurus
-<Multi_key> <a> <s> <g> :   "♊︎"    U264A    # gemini
-<Multi_key> <a> <s> <c> :   "♋︎"    U264B    # cancer
-<Multi_key> <a> <s> <l> :   "♌︎"    U264C    # leo
+<Multi_key> <a> <s> <a> :   "♈︎"    U2648   # aries
+<Multi_key> <a> <s> <t> :   "♉︎"    U2649   # taurus
+<Multi_key> <a> <s> <g> :   "♊︎"    U264A   # gemini
+<Multi_key> <a> <s> <c> :   "♋︎"    U264B   # cancer
+<Multi_key> <a> <s> <l> :   "♌︎"    U264C   # leo
 # the rest conflict with letters and i am not likely to use them anyway
 
-# chess symbols
-# emojis
+# gender
+<Multi_key> <degree>    <plus>  : "♀"   U2640   # FEMALE SIGN
+<Multi_key> <plus>  <degree>    : "♀"   U2640   # FEMALE SIGN
+<Multi_key> <asciicircum>   <o> : "♂"   U2642   # MALE SIGN
+<Multi_key> <o> <asciicircum>   : "♂"   U2642   # MALE SIGN
+<Multi_key> <t> <r> <a> <n> <s> : "⚧"   U26A7   # TRANS
+
+
+
+# control code symbols
+<Multi_key> <n> <u> <l> :   "␀" U2400   # nul
+<Multi_key> <s> <o> <h> :   "␁" U2401   # start of head (conflicts with `mk s o`)
+<Multi_key> <s> <o> <t> :   "␂" U2402   # start of text
+<Multi_key> <s> <t> <x> :   "␂" U2402   # start of text
+<Multi_key> <e> <t> <x> :   "␃" U2403   # end of text
+<Multi_key> <e> <o> <t> :   "␄" U2404   # end of transmission
+<Multi_key> <e> <n> <q> :   "␅" U2405   # enquiry
+<Multi_key> <a> <c> <k> :   "␆" U2406   # ack
+<Multi_key> <b> <e> <l> :   "␇" U2407   # bel
+<Multi_key> <b> <s>     :   "␈" U2408   # backspace
+<Multi_key> <h> <t>     :   "␉" U2409   # horizontal tab
+<Multi_key> <l> <f>     :   "␊" U240A   # line feed
+<Multi_key> <v> <t>     :   "␋" U240B   # vertical tab
+<Multi_key> <F> <F>     :   "␌" U240C   # form feed (<mk> <f> <f> is taken)
+<Multi_key> <c> <r>     :   "␍" U240D   # carriage return
+<Multi_key> <O> <U> <T> :   "␎" U240E   # shift out (avoids conflict with SOH)
+<Multi_key> <I> <N>     :   "␏" U240F   # shift in
+<Multi_key> <s> <i>     :   "␏" U240F   # shift in
+
+<Multi_key> <d> <l> <e> :   "␐" U2410   # data link entry
+<Multi_key> <d> <c> <1> :   "␑" U2411   # device control 1
+<Multi_key> <d> <c> <2> :   "␒" U2412   # device control 2
+<Multi_key> <d> <c> <3> :   "␓" U2413   # device control 3
+<Multi_key> <d> <c> <4> :   "␔" U2414   # device control 4
+<Multi_key> <n> <a> <k> :   "␕" U2415   # nack
+<Multi_key> <n> <a> <c> <k> : "␕" U2415 # nack
+<Multi_key> <s> <y> <n> :   "␖" U2416   # synchronous idle
+<Multi_key> <e> <t> <b> :   "␗" U2417   # end transmission block
+<Multi_key> <c> <a> <n> :   "␘" U2418   # cancel (conflicts with `mk c a` (small a with caron))
+<Multi_key> <e> <m>     :   "␙" U2419   # end of medium
+<Multi_key> <s> <u> <b> :   "␚" U241A   # substitute
+<Multi_key> <e> <s> <c> :   "␛" U241B   # esc
+<Multi_key> <F> <S>     :   "␜" U241C   # file separator (avoids conflict with archaic s)
+# <Multi_key> <g> <s>     : "␝" U241D # group separator (would conflict with greek sigma)
+<Multi_key> <r> <S>     :   "␞" U241E   # record separator
+<Multi_key> <u> <S>     :   "␟" U241F   # unit separator
+
+<Multi_key> <s> <p>     :   "␠" U2420   # sp
+<Multi_key> <d> <e> <l> :   "␡" U2421   # del
+<Multi_key> <b> <l> <a> <n> <k> :   "␢" U2422   # blank symbol
+<Multi_key> <space> <_> :   "␣" U2423   # open box
+<Multi_key> <_> <space> :   "␣" U2423   # open box
+<Multi_key> <n> <l>     :   "␤" U2424   # nl
+
+<Multi_key> <o> <b> <j> :   "￼" UFFFC   # object replacement character
+<Multi_key> <bracketleft> <question> <bracketright> :   "�" UFFFD   # replacement character
+
+
+# arrows
+<Multi_key> <Left> <Left>           :   "←" leftarrow   # LEFTWARDS ARROW
+<Multi_key> <Up> <Up>               :   "↑" uparrow     # UPWARDS ARROW
+<Multi_key> <asciicircum>   <bar>   :   "↑" uparrow
+<Multi_key> <bar>   <asciicircum>   :   "↑" uparrow
+<Multi_key> <Right> <Right>         :   "→" rightarrow  # RIGHTWARDS ARROW
+<Multi_key> <Down> <Down>           :   "↓" downarrow   # DOWNWARDS ARROW
+
+<Multi_key> <Prior>     :   "⇞" U21DE       # UPWARDS ARROW with DBL STROKE
+<Multi_key> <Next>      :   "⇟" U21DF       # DOWNWARDS ARROW with DBL STROKE
+<Multi_key> <Home>      :   "⇱" U21F1       # DOWNWARDS ARROW with DBL STROKE
+<Multi_key> <End>       :   "⇲" U21F2       # DOWNWARDS ARROW with DBL STROKE
+
+
+<Multi_key> <i> <f> <f>             :   "↔" U2194   # left-right arrow
+<Multi_key> <Left> <Right>          :   "↔" U2194
+<Multi_key> <Right> <Left>          :   "↔" U2194
+<Multi_key> <Up> <Down>             :   "↕" U2195   # up-down arrow
+<Multi_key> <Down> <Up>             :   "↕" U2195
+
+<Multi_key> <Up>    <ampersand> <Down>  :   "⇅" U21C5   # UPWARDS ARROW and DOWNWARDS ARROW
+<Multi_key> <Down>  <ampersand> <Up>    :   "⇵" U21F5   # DOWNWARDS ARROW and UPWARDS ARROW
+<Multi_key> <Right> <ampersand> <Left>  :   "⇄" U21C4   # rightwards arrow over leftwards arrow
+<Multi_key> <Left>  <ampersand> <Right> :   "⇆" U21C6   # leftwards arrow over rightwards arrow
+
+<Multi_key> <Left>  <ampersand> <Left>  :   "⇇" U21C7   # LEFTWARDS PAIRED ARROWS
+<Multi_key> <Up>    <ampersand> <Up>    :   "⇈" U21C8   # UPWARDS PAIRED ARROWS
+<Multi_key> <Right> <ampersand> <Right> :   "⇉" U21C9   # RIGHTWARDS PAIRED ARROWS
+<Multi_key> <Down>  <ampersand> <Down>  :   "⇊" U21CA   # DOWNWORDS PAIRED ARROWS
+
+<Multi_key> <Down>  <Left>          :   "↵" U21B5   # DOWNWARDS ARROW WITH CORNER LEFTWARDS
+<Multi_key> <Left>  <o>             :   "⟲" U27F2   # ANTICLOCKWISE GAPPED CIRCLE ARROW
+<Multi_key> <Right> <o>             :   "⟳" U27F3   # CLOCKWISE GAPPED CIRCLE ARROW
+<Multi_key> <Left>  <c>             :   "↺" U21BA   # ANTICLOCKWISE OPEN CIRCLE ARROW
+<Multi_key> <Right> <c>             :   "↻" U21BB   # CLOCKWISE OPEN CIRCLE ARROW
+
+<Multi_key> <Left>  <asciitilde>    :   "⇜" U21DC   # LEFTWARDS SQUIGGLE ARROW
+<Multi_key> <Right> <asciitilde>    :   "⇝" U21DD   # RIGHTWARDS SQUIGGLE ARROW
+<Multi_key> <Left>  <bar>           :   "⇤" U21E4   # LEFTWARDS ARROW TO BAR
+<Multi_key> <Right> <bar>           :   "⇥" U21E5   # RIGHTWARDS ARROW TO BAR
+<Multi_key> <Left>  <minus>         :   "⇠" U21E0   # LEFTWARDS DASHED ARROW
+<Multi_key> <Up>    <minus>         :   "⇡" U21E1   # UPWARDS DASHED ARROW
+<Multi_key> <Right> <minus>         :   "⇢" U21E2   # RIGHTWARDS DASHED ARROW
+<Multi_key> <Down>  <minus>         :   "⇣" U21E3   # DOWNWARDS DASHED ARROW
+
+<Multi_key> <equal> <greater>       :   "⇒" U21D2   # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <less>          :   "⇐" U21D0   # LEFTWARDS DOUBLE ARROW
+<Multi_key> <equal> <Right> <Right> :   "⇒" U21D2   # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <Left>  <Left>  :   "⇐" U21D0   # LEFTWARDS DOUBLE ARROW
+<Multi_key> <equal> <Left>  <Right> :   "⇔" U21D4   # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <Right> <Left>  :   "⇔" U21D4   # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <Up>    <Up>    :   "⇑" U21D1   # UPWARDS DOUBLE ARROW
+<Multi_key> <equal> <Down>  <Down>  :   "⇓" U21D3   # DOWNWARDS DOUBLE ARROW
+<Multi_key> <equal> <Up>    <Down>  :   "⇕" U21D5   # UP DOWN DOUBLE ARROW
+<Multi_key> <equal> <Down>  <Left>  :   "⏎" U23CE   # RETURN SYMBOL
+
+<Multi_key> <a> <f> <a> :   "⭩⭩⭩"   # abolish ICE
+
+
+# music
+# this is borrowed from https://github.com/kragen/xcompose
+# it uses # as a prefix, somehow this is a mnemonic for music?
+<Multi_key> <numbersign>    <G>             :   "𝄞" U1D11E  # G clef
+<Multi_key> <numbersign>    <8> <G>         :   "𝄟" U1D11F  # G clef ottava
+<Multi_key> <numbersign>    <C>             :   "𝄡" U1D121  # C clef
+<Multi_key> <numbersign>    <F>             :   "𝄢" U1D122  # F clef
+<Multi_key> <numbersign>    <8> <F>         :   "𝄤" U1D124  # F clef ottava
+<Multi_key> <numbersign>    <q>             :   "♩" U2669   # quarter note
+<Multi_key> <numbersign>    <o> <slash>     :   "♪" U266A   # eighth note
+<Multi_key> <numbersign>    <o> <minus> <o> :   "♫" U266B   # beamed eighth notes
+<Multi_key> <numbersign>    <percent>       :   "♫" U266B
+<Multi_key> <numbersign>    <o> <equal> <o> :   "♬" U266C   # beamed sixteenth notes
+# <Multi_key> <numbersign> <permille>         :   "♬" U266C
+<Multi_key> <numbersign>    <musicalflat>   :   "♮" U266E   # music natural sign
+<Multi_key> <musicalflat>   <numbersign>    :   "♮" U266E
+<Multi_key> <numbersign>    <n>             :   "♮" U266E
+<Multi_key> <numbersign>    <h>             :   "𝅗𝅥" U1D15E  # half note
+<Multi_key> <numbersign>    <w>             :   "𝅝" U1D15D  # whole note
+<Multi_key> <musicalflat>   <musicalflat>   :   "𝄫" U1D12B  # double flat
+
+<Multi_key> <numbersign>    <bar>   <bar>   :   "𝄂" U1D103  # double bar-line
+<Multi_key> <bar>   <bar>                   :   "𝄂" U1D103
+<Multi_key> <numbersign>    <R>             :   "𝄆" U1D106  # repeat left
+<Multi_key> <bar>   <colon>                 :   "𝄆" U1D106
+<Multi_key> <numbersign>    <r>             :   "𝄇" U1D107  # repeat right
+<Multi_key> <colon> <bar>                   :   "𝄇" U1D107
+<Multi_key> <colon> <bar>                   :   "𝄇" U1D107
+
+<Multi_key> <numbersign>    <p>             :   "𝆏" U1D18F  # piano
+<Multi_key> <numbersign>    <m>             :   "𝆐" U1D190  # mezzo
+<Multi_key> <numbersign>    <f>             :   "𝆑" U1D191  # forte
+
+
+# chess
+<Multi_key> <bar>   <W> <K> : "♔"   U2654   # WHITE CHESS KING
+<Multi_key> <bar>   <w> <k> : "♔"   U2654
+<Multi_key> <bar>   <W> <Q> : "♕"   U2655   # WHITE CHESS QUEEN
+<Multi_key> <bar>   <w> <q> : "♕"   U2655
+<Multi_key> <bar>   <W> <R> : "♖"   U2656   # WHITE CHESS ROOK
+<Multi_key> <bar>   <w> <r> : "♖"   U2656
+<Multi_key> <bar>   <W> <B> : "♗"   U2657   # WHITE CHESS BISHOP
+<Multi_key> <bar>   <w> <b> : "♗"   U2657
+<Multi_key> <bar>   <W> <N> : "♘"   U2658   # WHITE CHESS KNIGHT
+<Multi_key> <bar>   <w> <n> : "♘"   U2658
+<Multi_key> <bar>   <W> <P> : "♙"   U2659   # WHITE CHESS PAWN
+<Multi_key> <bar>   <w> <p> : "♙"   U2659
+<Multi_key> <bar>   <B> <K> : "♚"   U265A   # BLACK CHESS KING
+<Multi_key> <bar>   <b> <k> : "♚"   U265A
+<Multi_key> <bar>   <B> <Q> : "♛"   U265B   # BLACK CHESS QUEEN
+<Multi_key> <bar>   <b> <q> : "♛"   U265B
+<Multi_key> <bar>   <B> <R> : "♜"   U265C   # BLACK CHESS ROOK
+<Multi_key> <bar>   <b> <r> : "♜"   U265C
+<Multi_key> <bar>   <B> <B> : "♝"   U265D   # BLACK CHESS BISHOP
+<Multi_key> <bar>   <b> <b> : "♝"   U265D
+<Multi_key> <bar>   <B> <N> : "♞"   U265E   # BLACK CHESS KNIGHT
+<Multi_key> <bar>   <b> <n> : "♞"   U265E
+<Multi_key> <bar>   <B> <P> : "♟"   U265F   # BLACK CHESS PAWN
+<Multi_key> <bar>   <b> <p> : "♟"   U265F
+
+
+# comma punctuation
+<Multi_key> <comma>     <question>  : "Ɂ̦" # question comma, uses combining ,
+<Multi_key> <question>  <comma>     : "Ɂ̦"
+<Multi_key> <exclam>    <comma>     : "l̦" # exclam comma, made with combining ,
+<Multi_key> <comma>     <exclam>    : "l̦"
+
+<Multi_key> <minutes>   <minutes>   : "″" U2033 # double prime (seconds)
+<Multi_key> <minutes>   <quotedbl>  : "‴" U2034 # triple prime
+<Multi_key> <quotedbl>  <minutes>   : "‴" U2034 # triple prime
+<Multi_key> <U2194>     <minutes>   : "‵" U2035 # reversed prime
+
+
+# misc
+<Multi_key> <R> <x> :   "℞" prescription    # U+211E
+
+<Multi_key> <periodcentered> <periodcentered>   :   "•" enfilledcircbullet  # BULLET
+
+<Multi_key> <dagger> <dagger> : "‡" doubledagger
+<Multi_key> <asterisk> <asterisk> <asterisk> : "⁂" U2042 # asterism
 
 # experimenting
 # <Multi_key> <eacute> <eacute> : "ê"  ecircumflex
@@ -206,50 +448,6 @@ include "%L"
 <Multi_key> <bar> <overline> :  "⊤"     U22a4
 <Multi_key> <minus> <plus> : "∓"  U2213
 <Multi_key> <m> <m> : "µ" U00B5 # MICRO SIGN
-<Multi_key> <U006C> <n> : "h" U0068 # h 
-<Multi_key> <U006C> <n> : "h" U0068 # h 
+<Multi_key> <U006C> <n> : "h" U0068 # h
+<Multi_key> <U006C> <n> : "h" U0068 # h
 
-
-<Multi_key> <n> <u> <l> : "␀" U2400 # nul
-<Multi_key> <e> <t> <x> : "␃" U2403 # etx
-<Multi_key> <e> <o> <t> : "␄" U2404 # eot
-<Multi_key> <a> <c> <k> : "␆" U2406 # ack
-<Multi_key> <b> <e> <l> : "␇" U2407 # bel
-<Multi_key> <b> <s>     : "␈" U2408 # bs
-<Multi_key> <h> <t>     : "␉" U2409 # ht
-<Multi_key> <l> <f>     : "␊" U240A # lf
-<Multi_key> <v> <t>     : "␋" U240B # vt
-<Multi_key> <c> <r>     : "␋" U240D # cr
-<Multi_key> <n> <a> <k> : "␕" U2415 # nak
-<Multi_key> <e> <s> <c> : "␛" U241B # esc
-<Multi_key> <s> <p>     : "␠" U2420 # sp
-<Multi_key> <d> <e> <l> : "␡" U2421 # del
-
-<Multi_key> <n> <l>     : "␤" U2424 # nl
-
-# comma punctuation
-<Multi_key> <comma> <exclam>    : "Ɂ̦" # question comma, uses combining ,
-<Multi_key> <exclam> <comma>    : "Ɂ̦"
-<Multi_key> <question> <comma>  : "l̦" # exclam comma, made with combining ,
-<Multi_key> <comma> <question>  : "l̦"
-
-<Multi_key> <minutes> <minutes>     : "″" U2033 # double prime (seconds)
-<Multi_key> <minutes> <quotedbl>    : "‴" U2034 # triple prime
-<Multi_key> <quotedbl> <minutes>    : "‴" U2034 # triple prime
-<Multi_key> <U2194> <minutes>       : "‵" U2035 # reversed prime
-
-<Multi_key> <R> <x> : "℞" prescription # U+211E 
-
-<Multi_key> <musicalflat> <numbersign>  : "♮" U266E # music natural sign
-<Multi_key> <numbersign> <musicalflat>  : "♮" U266E # music natural sign
-<Multi_key> <musicalflat> <musicalflat> : "𝄫" U1D12B # double flat
-
-<Multi_key> <dagger> <dagger> : "‡" doubledagger
-<Multi_key> <asterisk> <asterisk> <asterisk> : "⁂" U2042 # asterism
-
-
-<Multi_key> <degree>    <plus>  : "♀"   U2640   # FEMALE SIGN
-<Multi_key> <plus>  <degree>    : "♀"   U2640   # FEMALE SIGN
-<Multi_key> <asciicircum>   <o> : "♂"   U2642   # MALE SIGN
-<Multi_key> <o> <asciicircum>   : "♂"   U2642   # MALE SIGN
-<Multi_key> <t> <r> <a> <n> <s> : "⚧"   U26A7   # TRANS
